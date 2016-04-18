@@ -1,0 +1,12 @@
+
+.login
+  form(ng-submit="login.doLogin()" role="form")
+    .form-group
+      label Email
+      input.form-control(type="email" ng-model="login.loginForm.email" autofocus="autofocus" required="required")
+
+    .form-group
+      label Password
+      input.form-control(type="password" ng-model="login.loginForm.password" required="required")
+
+    button.btn.btn-primary(type="submit") Signin
