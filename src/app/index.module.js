@@ -4,6 +4,7 @@ import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import { MainController } from './main/main.controller';
+import { CategoriesController } from './categories/categories.controller';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { SessionProvider } from '../app/components/session/session.provider';
@@ -24,5 +25,6 @@ angular.module('appcmsClient', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
   .service('webDevTec', WebDevTecService)
   .controller('MainController', MainController)
   .controller('LoginController', LoginController)
+  .controller('CategoriesController', CategoriesController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective);

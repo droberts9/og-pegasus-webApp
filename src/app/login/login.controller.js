@@ -1,12 +1,17 @@
 
 class LoginController {
 
-  constructor($log, $auth) {
+  constructor($log, $scope, $auth, $state) {
     'ngInject';
 
     this.loginForm = {email: '', password: '' };
     this.$log = $log;
     this.$auth = $auth;
+
+    $scope.$on('auth:login-success', ()=> {
+      $state.go('secure.categories')
+    });
+
   }
 
   doLogin() {

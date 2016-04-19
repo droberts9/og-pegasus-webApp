@@ -1,0 +1,8 @@
+
+class CategoriesController {
+
+
+
+}
+
+export { CategoriesController }

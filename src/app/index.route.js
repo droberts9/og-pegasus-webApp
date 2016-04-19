@@ -14,18 +14,19 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controllerAs: 'login'
     }).
     state('secure', {
-      url: '/secure',
       abstract: true,
       template: '<ui-view />',
       resolve: {
-        auth: function($auth) {
-          return $auth.validateUser();
+        auth: function($auth, $state) {
+          return $auth.validateUser()
+          .then((rsp) => { /* login ok */  })
+          .catch( (rsp) =>{ $state.go('login'); })
         }
       }
     }).
     state('secure.categories', {
       url: '/categories',
-      templateUrl: 'app/categories/index.jade',
+      templateUrl: 'app/categories/categories.html',
       controller: 'CategoriesController',
       controllerAs: 'categories'
     })

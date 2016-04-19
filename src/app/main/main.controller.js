@@ -1,6 +1,6 @@
 
 class MainController {
-  constructor ($timeout, webDevTec) {
+  constructor ($timeout, $scope, webDevTec) {
     'ngInject';
 
     this.awesomeThings = [];
@@ -8,6 +8,7 @@ class MainController {
     this.creationDate = 1461004405157;
 
     this.activate($timeout, webDevTec);
+
   }
 
   activate($timeout, webDevTec) {
