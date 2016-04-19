@@ -1,13 +1,13 @@
-export function config ($logProvider, $authProvider, $locationProvider ) {
+export function config ($logProvider, $authProvider, $locationProvider, constantsProvider, sessionProvider ) {
   'ngInject';
   // Enable log
   $logProvider.debugEnabled(true);
   // Disable hash (#) on urls
   $locationProvider.html5Mode(true);
   $authProvider.configure({
-    apiUrl: 'http://localhost:4000/api/v1',
+    apiUrl: constantsProvider.appConfig.apiUrl ,
     handleLoginResponse: (resp) => {
-      // store user on SessionService
+      sessionProvider.registerUser(resp.data.user);
     }
   });
 
