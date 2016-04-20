@@ -1,0 +1,6 @@
+.category(ng-repeat="cat in items")
+  p {{ cat.name }}
+
+  .subcategory(ng-if="cat.subcategories.length > 0")
+    p has subcategories
+    cms-category(items="cat.subcategories")

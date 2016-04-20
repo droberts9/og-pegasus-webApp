@@ -17,10 +17,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       abstract: true,
       template: '<ui-view />',
       resolve: {
-        auth: function($auth, $state) {
+        auth: function($auth, $state, $log) {
           return $auth.validateUser()
-          .then((rsp) => { /* login ok */  })
-          .catch( (rsp) =>{ $state.go('login'); })
+                    .then((rsp) => { $log.info('logged user', rsp) })
+                    .catch( () =>{ $state.go('login'); })
         }
       }
     }).
@@ -28,9 +28,25 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       url: '/categories',
       templateUrl: 'app/categories/categories.html',
       controller: 'CategoriesController',
-      controllerAs: 'categories'
+      controllerAs: 'vm'
     })
-
+    .state('secure.series', {
+      url: '/series',
+      templateUrl: 'app/series/series.html',
+      controller: 'SeriesController',
+      controllerAs: 'vm'
+    })
+    .state('secure.serie', {
+      url: '/series/:slug',
+      templateUrl: 'app/serie/serie.html',
+      controller: 'SerieController',
+      controllerAs: 'vm',
+      resolve: {
+        serie: function(apiService, $stateParams) {
+          return apiService.getSerie($stateParams.slug)
+        }
+      }
+    })
   ;
 
   $urlRouterProvider.otherwise('/');

@@ -5,7 +5,7 @@ export function config ($logProvider, $authProvider, $locationProvider, constant
   // Disable hash (#) on urls
   $locationProvider.html5Mode(true);
   $authProvider.configure({
-    apiUrl: constantsProvider.appConfig.apiUrl ,
+    apiUrl: constantsProvider.setup.appConfig.apiUrl ,
     handleLoginResponse: (resp) => {
       sessionProvider.registerUser(resp.data.user);
     }
