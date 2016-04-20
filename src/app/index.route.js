@@ -23,12 +23,23 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
                     .catch( () =>{ $state.go('login'); })
         }
       }
-    }).
-    state('secure.categories', {
-      url: '/categories',
+    })
+    .state('secure.categories', {
+      url: '/channels',
       templateUrl: 'app/categories/categories.html',
       controller: 'CategoriesController',
       controllerAs: 'vm'
+    })
+    .state('secure.category', {
+      url: '/channels/:slug',
+      templateUrl: 'app/category/category.html',
+      controller: 'CategoryController',
+      controllerAs: 'vm',
+      resolve: {
+        category: function(apiService, $stateParams) {
+          return apiService.getCategory($stateParams.slug)
+        }
+      }
     })
     .state('secure.series', {
       url: '/series',

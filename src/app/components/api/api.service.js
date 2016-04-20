@@ -12,6 +12,7 @@ class ApiService {
   get(path) {
     return this.$http.get(this.constants.appConfig.apiUrl + path)
       .then( (resp) => {
+        this.$log.info('api: '+path, resp);
         return resp.data;
       })
       .catch( (error) => {
@@ -23,6 +24,10 @@ class ApiService {
 
   getCategories() {
     return this.get('/categories');
+  }
+
+  getCategory(slug) {
+    return this.get('/categories/'+slug); //.then( (resp) => { return resp.categories[0]})
   }
 
   getSeries() {

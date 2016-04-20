@@ -1,0 +1,8 @@
+
+h1 Category: {{ vm.category.name }}
+
+.row
+  .assets(ng-repeat="asset in vm.category.assets")
+    cms-asset(asset="asset")
+
+
