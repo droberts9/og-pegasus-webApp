@@ -9,7 +9,7 @@ class LoginController {
     this.$auth = $auth;
 
     $scope.$on('auth:login-success', ()=> {
-      $state.go('secure.categories')
+      $state.go('home.categories')
     });
 
   }

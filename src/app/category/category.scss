@@ -1,0 +1,27 @@
+
+.channel-player__caption {
+  background-color: $gray1;
+  padding: 30px 15px;
+  min-height: 140px;
+}
+
+
+.channel-player__title {
+  color: $channel-title-color;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  font-family: Oswald,Helvetica,sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+}
+.channel-player__desc {
+  font: $channel-desc;
+  color: $channel-title-color;
+  -webkit-font-smoothing: antialiased;
+}
+
+.channel-data__title {
+  color: $gray-light;
+  font: $font-title;
+  font-smoothing: antialiased;
+}

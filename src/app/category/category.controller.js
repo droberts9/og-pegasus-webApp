@@ -8,6 +8,7 @@ class CategoryController {
     this.$log = $log;
 
     this.category = category.categories[0];
+    this.current = this.category.assets[0];
 
   }
 

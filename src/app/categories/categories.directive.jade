@@ -1,5 +1,5 @@
 .category(ng-repeat="cat in items")
-  a(ui-sref="secure.category({slug: cat.slug})") {{ cat.name }}
+  a(ui-sref="home.category({slug: cat.slug})") {{ cat.name }}
 
   .subcategory(ng-if="cat.subcategories.length > 0")
     p has subcategories

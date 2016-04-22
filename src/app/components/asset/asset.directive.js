@@ -1,4 +1,3 @@
-
 class AssetController {
   constructor() {
     'ngInject'

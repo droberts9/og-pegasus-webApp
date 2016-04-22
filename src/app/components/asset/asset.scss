@@ -1,0 +1,77 @@
+
+.asset {
+  margin-bottom: 20px;
+  max-width: 250px;
+}
+
+.asset__wrap {
+  overflow: hidden;
+  max-height: 250px;
+  position: relative;
+}
+
+.asset-image {
+  max-height: 125px;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #000;
+}
+
+.asset-image__image {
+  margin: 0 auto;
+}
+
+.asset__meta {
+  overflow: hidden;
+  background-color: $gray2;
+  width: 100%;
+  min-height: 125px;
+}
+
+.asset__title {
+  font: $asset-title;
+  color: $base-font-color;
+  -webkit-font-smoothing: antialiased;
+}
+
+.asset__description {
+  font: $asset-meta;
+  color: $base-font-color;
+  -webkit-font-smoothing: antialiased;
+}
+
+.asset__social-buttons {
+  width: 100%;
+  height: 35px;
+  position: absolute;
+  bottom: 0;
+  background-color: $gray2;
+}
+
+.asset__overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+.asset__play {
+  width: auto;
+  height: auto;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.asset:hover .asset__overlay {
+  display: block;
+}
+

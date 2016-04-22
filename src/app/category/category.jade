@@ -1,8 +1,24 @@
 
-h1 Category: {{ vm.category.name }}
+.channel-player
 
-.row
-  .assets(ng-repeat="asset in vm.category.assets")
-    cms-asset(asset="asset")
+  .channel-player__caption
+    .row
+      .col-xs-9
+        h5.channel-player__title {{ ::vm.current.name }}
+        p.channel-player__desc {{ ::vm.current.description }}
+      .col-xs-3
 
+
+.channel-data.ma-lg
+  .row
+    .col-xs-9
+      h5.channel-data__title.m0 {{ ::vm.category.name }}
+      p.channel__description {{ ::vm.category.description }}
+    .col-xs-3
+      .social-buttons
+
+.channel_playlist.ma-lg
+  .row.mt-lg
+    .assets(ng-repeat="asset in ::vm.category.assets")
+      cms-asset(asset="::asset")
 

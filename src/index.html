@@ -6,6 +6,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <base href="/">
+    <link href="http://fonts.googleapis.com/css?family=Oswald:300,400,700|Roboto:700,400,100,300" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
@@ -25,7 +27,11 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div ui-view></div>
+    <div class="fluid-container">
+      <div ui-view="header"></div>
+      <div class="main-content" ui-view></div>
+      <div ui-view="footer"></div>
+    </div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
