@@ -7,7 +7,7 @@ class CategoriesController {
     this.scope = $scope;
     this.$log = $log;
 
-    this.api.getCategories().then( result => this.cats = result.categories );
+    this.api.getCategory('categories').then( (result) => {this.$log.info(result); this.cats = result.categories[0].subcategories} );
   }
 
 }

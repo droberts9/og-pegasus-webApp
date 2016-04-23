@@ -1,0 +1,23 @@
+
+.channel {
+  height: 250px;
+  overflow: hidden;
+}
+
+.channel-title {
+  font: $font-title;
+  text-transform: uppercase;
+  border-bottom: 3px solid $gray2;
+}
+
+.channel__link {
+  display: block;
+  color: $base-font-color;
+  font: $asset-title;
+}
+
+.channel__description {
+  font: $channel-desc;
+  height: 40px;
+  overflow: hidden;
+}

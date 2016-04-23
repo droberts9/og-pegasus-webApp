@@ -1,5 +1,5 @@
 /* global malarkey:false */
-/*eslint no-unused-vars: [2, { "varsIgnorePattern": "rtPopup" }]*/
+/*eslint no-unused-vars: [2, { "varsIgnorePattern": "[Popup|Slick]" }]*/
 
 import { config }               from './index.config';
 import { routerConfig }         from './index.route';
@@ -19,13 +19,15 @@ import { CategoryDirective }    from '../app/categories/categories.directive';
 import { SeriesDirective }      from '../app/series/series.directive';
 import { AssetDirective }       from '../app/components/asset/asset.directive';
 
-import { rtPopup }              from '../app/components/popup/rt-popup.js';
+import { Popup }                from '../app/components/popup/popup';
+import { PopupDirective }       from '../app/components/popup/cmsPopup.directive'
+import { Slick }                from '../app/components/angular-slick/angular-slick';
 
 
 angular.module('appcmsClient', [
 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages',
 'ngAria', 'ui.router', 'ui.bootstrap', 'ng-token-auth',
-'rt.popup'
+'angularEffDrop', 'Slick'
 ])
   .constant('malarkey',               malarkey)
   .provider('session',                SessionProvider)
@@ -40,8 +42,9 @@ angular.module('appcmsClient', [
   .controller('LoginController',      LoginController)
   .controller('CategoriesController', CategoriesController)
   .controller('CategoryController',   CategoryController)
-  .directive('cmsCategory',           CategoryDirective.directiveFactory)
+  .directive('cmsCategory',           CategoryDirective)
   .directive('cmsSeries',             SeriesDirective.directiveFactory)
   .directive('cmsAsset',              AssetDirective)
+  .directive('cmsPopup',              PopupDirective)
   ;
 

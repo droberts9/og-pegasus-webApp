@@ -1,14 +1,12 @@
 
 .col-xs-12.col-sm-4.col-md-3.col-lg-2.asset.mb-lg.pb-md
-  .asset__wrap(uib-popover-template='app/popover.html' popover-trigger="mouseenter")
+  .asset__wrap(cms-popup callback="do")
     a.asset__item(href="#item")
       .asset-image
         img.asset-image__image.img-responsive(ng-src="{{asset.preview_image_url}}")
       .asset__meta.pa-md
         p.asset__title.pb-sm.m0 {{ asset.name }}
         p.asset__description {{ asset.description }}
-    .asset__social-buttons.pa-md
-      span
-    button.btn.btn-default(uib-popover="content" popover-title="title" type="button" popover-trigger="mouseenter") Dynamic Popover
-    .xasset__overlay
-      ximg.asset__play(src="/assets/images/btn_play_100.png")
+    button.btn.btn-default Dynamic Popover
+    .asset__overlay
+      img.asset__play(src="/assets/images/btn_play_100.png")

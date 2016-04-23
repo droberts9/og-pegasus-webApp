@@ -1,6 +1,8 @@
-.category(ng-repeat="cat in items")
-  a(ui-sref="home.category({slug: cat.slug})") {{ cat.name }}
+div
+  .col-xs-6.col-sm-4.col-md-3.channel.mb-lg(ng-repeat="cat in ::ctrl.items")
+    a.channel__image(ui-sref="home.category({slug: cat.slug})")
+      img(class="img-responsive" ng-src="{{ ::ctrl.defaultImage() }}" alt="{{ ::cat.name }}")
+    a.channel__link.mt-sm.mb-sm(ui-sref="home.category({slug: cat.slug})") {{ ::cat.name }}
+    .channel__description
+      p {{ ::cat.description }}
 
-  .subcategory(ng-if="cat.subcategories.length > 0")
-    p has subcategories
-    cms-category(items="cat.subcategories")

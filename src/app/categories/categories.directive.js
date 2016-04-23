@@ -1,20 +1,33 @@
-class CategoryDirective {
+export function CategoryDirective() {
+  'ngInject'
 
-  constructor() {
-    'ngInject'
-    this.templateUrl = 'app/categories/categories.directive.html';
-    this.restrict = 'E';
-    this.replace = true;
-    this.scope = {
+  let directive = {
+    templateUrl: 'app/categories/categories.directive.html',
+    restrict: 'E',
+    replace: true,
+    scope: {
       items: '='
-    };
+    },
+    controller: CategoryController,
+    controllerAs: 'ctrl',
+    bindToController: true
+  };
+
+  return directive;
+
+}
+
+class CategoryController {
+
+  constructor($log) {
+    'ngInject';
+    this.$log = $log;
   }
 
-  static directiveFactory() {
-    return new CategoryDirective();
+  defaultImage() {
+    // TODO: resolve default cannel image
+    return "https://placeholdit.imgix.net/~text?txtsize=33&txt=315%C3%97175&w=315&h=175"
   }
 
 }
 
-
-export { CategoryDirective }

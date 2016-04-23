@@ -23,7 +23,7 @@ class ApiService {
   }
 
   getCategories() {
-    return this.get('/categories');
+    return this.get('/categories/categories?device=web');
   }
 
   getCategory(slug) {

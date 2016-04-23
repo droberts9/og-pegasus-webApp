@@ -34,5 +34,16 @@
 
 
 .main-content {
-  margin-top: 50px;
+  margin-top: 90px;
+}
+
+.popup {
+  max-width: 300px;
+  max-height: 250px;
+}
+
+.popup__description-wrap {
+  height: 140px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
