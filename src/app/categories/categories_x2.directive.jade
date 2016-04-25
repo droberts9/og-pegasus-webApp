@@ -1,0 +1,14 @@
+.row.channels
+  p.channel-title.pb-sm.mb-lg.ml-md2.mr-md2 {{ ::ctrl.title }}
+  .col-xs-12
+    .wrapper
+      slick.carousel(infinite="true" data="ctrl.items" arrows="false" slides-to-show="3" slides-to-scroll="3" variable-width="true" init-onload="false" )
+        .carousel__group(ng-repeat="group in ctrl.items")
+          .carousel__group-item.mb-md.mr-md(ng-repeat="item in group")
+            img(class="img-responsive" ng-src="{{ ::ctrl.defaultImage(item) }}" alt="{{ ::item.name }}")
+            p.carousel__title {{ ::item.name }}
+            p.carousel__duration.pa-sm {{ ::item.duration }}
+
+
+
+

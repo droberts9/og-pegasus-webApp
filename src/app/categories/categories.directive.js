@@ -1,4 +1,4 @@
-export function CategoryDirective() {
+export function CategoriesDirective() {
   'ngInject'
 
   let directive = {
@@ -6,7 +6,8 @@ export function CategoryDirective() {
     restrict: 'E',
     replace: true,
     scope: {
-      items: '='
+      items: '=',
+      title: '@'
     },
     controller: CategoryController,
     controllerAs: 'ctrl',

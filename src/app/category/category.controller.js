@@ -7,8 +7,13 @@ class CategoryController {
     this.scope = $scope;
     this.$log = $log;
 
-    this.category = category.categories[0];
-    this.current = this.category.assets[0];
+    if ( category && category.categories[0]) {
+      this.category = category.categories[0];
+      this.current = this.category.assets[0];
+    } else {
+      this.category = undefined;
+      this.current = undefined;
+    }
 
   }
 

@@ -1,4 +1,5 @@
-div
+.row.channels
+  p.channel-title.pb-sm.mb-lg.ml-md2.mr-md2 {{ ::ctrl.title }}
   .col-xs-6.col-sm-4.col-md-3.channel.mb-lg(ng-repeat="cat in ::ctrl.items")
     a.channel__image(ui-sref="home.category({slug: cat.slug})")
       img(class="img-responsive" ng-src="{{ ::ctrl.defaultImage() }}" alt="{{ ::cat.name }}")

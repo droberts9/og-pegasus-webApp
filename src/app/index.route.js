@@ -41,7 +41,13 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
         "@": {
           templateUrl: 'app/categories/categories.html',
           controller: 'CategoriesController',
-          controllerAs: 'vm'
+          controllerAs: 'vm',
+          resolve: {
+            categories: function(apiService) {
+              'ngInject';
+              return apiService.getCategory('categories')
+            }
+          }
         }
       }
     })
