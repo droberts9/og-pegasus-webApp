@@ -1,4 +1,6 @@
 /* global Drop:true */
+/* eslint no-console: 0 */
+/* eslint angular/log: 0 */
 
 (function(angular) {
   'use strict';
@@ -40,7 +42,6 @@
         };
         if ((opts.content == null) || (opts.content == undefined))
         {
-          // console.error('content of (', templateUrl || template, ')', opts.content);
           throw("'templateUrl' or 'template' parameter is incorrect !");
         }
 
@@ -48,8 +49,9 @@
          * Create a drop for the target and the template.
          */
         function attachDrop() {
-          if (drop)
+          if (drop) {
             detachDrop();
+          }
           drop = new Drop(opts);
         }
 
@@ -149,8 +151,8 @@
       };
     }];
   })
-  .directive('effDrop', function(provider) {
-    return provider('effDrop');
+  .directive('effDrop', function(effDropFactory) {
+    return effDropFactory; //provider('effDrop');
   })
   .run(function($templateCache) {
     $templateCache.put('template/eff-drop.html', '<div class="eff-drop">{{content}}</div>');

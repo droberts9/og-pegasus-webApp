@@ -1,25 +1,30 @@
 
-.channel-player
+.row
+  .channel-player
 
-  .channel-player__caption
-    .row
-      .col-xs-9
-        h5.channel-player__title {{ ::vm.current.name }}
-        p.channel-player__desc {{ ::vm.current.description }}
-      .col-xs-3
+    .channel-preview
+      img(ng-src="{{ vm.default_category_image() }}" class="channel-preview__image img-responsive" alt="{{ ::vm.current.name}}")
+
+    .channel-player__caption
+      .row
+        .col-sm-offset-1.col-sm-5.col-xs-12
+          p.channel-player__head Watch latest episode
+          .channel-preview
+            img(ng-src="{{ vm.default_image() }}" alt="{{ vm.current.name }}" class="img-responsive channel-preview__image")
+            p.channel-preview__title {{ ::vm.current.name }}
+            p.channel-preview__duration.pa-sm {{ ::vm.current.duration | timerFilter }}
+        .col-sm-5
+          p.channel-player__desc {{ ::vm.category.description }}
 
 
-.channel-data.ma-lg
-  .row
-    .col-xs-9
-      h5.channel-data__title.m0 {{ ::vm.category.name }}
-      p.channel__description {{ ::vm.category.description }}
-    .col-xs-3
-      .social-buttons
+.container.mt-big
+  cms-category-x2(items="vm.assets", caption="Episodes")
 
-.channel_playlist.ma-lg
-  .row.mt-lg
-    .assets(ng-repeat="asset in ::vm.category.assets")
-      cms-asset(asset="::asset")
+
+//
+  .channel_playlist.ma-lg
+    .row.mt-lg
+      .assets(ng-repeat="asset in ::vm.category.assets")
+        cms-asset(asset="::asset")
 
 

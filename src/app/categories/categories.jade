@@ -1,6 +1,11 @@
 
-cms-category(items="::vm.categories", title="Channels")
 
-cms-category-x2(items="vm.assets['bww']", title="Clips")
+.container
+  .mt-big
+    cms-category-x2(items="vm.assets['bww'].playList", caption="Popular Shows")
 
+  .mt-big
+    cms-category-x2(items="vm.assets['bbc'].playList", main-asset="vm.assets['bbc'].main", caption="Popular Episodes", kind="big")
 
+  .mt-big
+    cms-category(items="::vm.categories", caption="Channels")

@@ -7,15 +7,16 @@ export function PopupDirective(dropWrapper) {
     restrict: 'A',
     scope: {
       elem: '@cmsPopup',
-      fn: '=callback'
+      fn: '=callback',
+      tpl: '@template'
     },
     link: function(scope, elem) {
 
       let drop = dropWrapper({
         target: elem,
         scope: scope.$parent,
-        templateUrl: 'asset-popup',
-        position: 'right center',
+        templateUrl: scope.tpl,
+        position: 'right middle',
         constrainToWindow: true,
         constrainToScrollParent: true,
         classes: 'drop-theme-arrows',

@@ -1,6 +1,6 @@
 
 .channel-player__caption {
-  background-color: $gray1;
+  background-color: $blue-light;
   padding: 30px 15px;
   min-height: 140px;
 }
@@ -16,12 +16,48 @@
 }
 .channel-player__desc {
   font: $channel-desc;
-  color: $channel-title-color;
+  color: $channel-desc-color;
   -webkit-font-smoothing: antialiased;
+  margin-top: 35px;
 }
 
 .channel-data__title {
   color: $gray-light;
   font: $font-title;
   font-smoothing: antialiased;
+}
+
+.channel-preview {
+  background-color: $blue-light;
+}
+
+.channel-player__head {
+  color: $violet;
+  font: $channel-head-title;
+}
+
+.channel-preview {
+  position: relative;
+  background-color: #000;
+}
+
+.channel-preview__image {
+  margin: 0 auto;
+}
+
+.channel-preview__title {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  font: $channel-carousel-title;
+  color: $channel-carousel-title-color;
+}
+
+.channel-preview__duration {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font: $channel-carousel-duration;
+  color: $channel-carousel-title-color;
+  background-color: rgba(0,0,0,0.5);
 }

@@ -1,0 +1,20 @@
+
+
+.popup {
+  max-width: 300px;
+  max-height: 250px;
+}
+
+.popup__description-wrap {
+  height: 140px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.popup__title {
+  font: $popup-title;
+}
+.popup_button,
+.popup__description {
+  font: $popup-description;
+}

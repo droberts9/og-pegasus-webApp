@@ -4,11 +4,6 @@
   overflow: hidden;
 }
 
-.channel-title {
-  font: $font-title;
-  text-transform: uppercase;
-  border-bottom: 3px solid $gray2;
-}
 
 .channel__link {
   display: block;
@@ -22,6 +17,12 @@
   overflow: hidden;
 }
 
+.channel__title,
+.carousel__caption {
+  font: $font-title;
+  text-transform: uppercase;
+  border-bottom: 3px solid $gray2;
+}
 .carousel__group {
   position: relative;
   display: inline-block;
@@ -29,9 +30,26 @@
 
 .carousel__group-item {
   position: relative;
-  max-height: 150px;
-  max-width: 312px;
+  height: 130px;
+  max-width: 235px;
   overflow: hidden;
+  background-color: #000;
+}
+.carousel__group--big {
+  height: 280px;
+  width: 480px;
+  overflow: hidden;
+}
+.carousel__group--big .carousel__group-item {
+  position: relative;
+  height: 270px;
+  max-width: 480px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.carousel__image {
+  margin: 0 auto;
 }
 
 .carousel__title {
@@ -49,4 +67,12 @@
   font: $channel-carousel-duration;
   color: $channel-carousel-title-color;
   background-color: rgba(0,0,0,0.5);
+}
+
+.carousel__arrows li {
+  border: 1px solid #444;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  padding: 3px 8px;
 }

@@ -1,5 +1,9 @@
 
 .m0 { margin: 0; }
+.mt-big { margin-top:    30px; }
+.ml-big { margin-left:   30px; }
+.mb-big { margin-bottom: 30px; }
+.mr-big { margin-right:  30px; }
 .mt-lg  { margin-top:    20px; }
 .ml-lg  { margin-left:   20px; }
 .mb-lg  { margin-bottom: 20px; }
@@ -16,11 +20,16 @@
 .ml-sm  { margin-left:   5px; }
 .mb-sm  { margin-bottom: 5px; }
 .mr-sm  { margin-right:  5px; }
+.ma-big { margin:        30px; }
 .ma-lg  { margin:        20px; }
 .ma-md  { margin:        10px; }
 .ma-md2 { margin:        15px; }
 .ma-sm  { margin:        5px; }
 
+.pt-big { padding-top:    30px; }
+.pl-big { padding-left:   30px; }
+.pb-big { padding-bottom: 30px; }
+.pr-big { padding-right:  30px; }
 .pt-lg  { padding-top:    20px; }
 .pl-lg  { padding-left:   20px; }
 .pb-lg  { padding-bottom: 20px; }
@@ -36,6 +45,7 @@
 .pl-sm  { padding-left:   5px; }
 .pb-sm  { padding-bottom: 5px; }
 .pr-sm  { padding-right:  5px; }
+.pa-big { padding:        30px; }
 .pa-lg  { padding:        20px; }
 .pa-md  { padding:        10px; }
 .pa-md2 { padding:        15px; }
@@ -43,16 +53,18 @@
 
 
 .main-content {
-  margin-top: 90px;
+  margin-top: 70px;
 }
 
-.popup {
-  max-width: 300px;
-  max-height: 250px;
+.btn-black:active,
+.btn-black:focus,
+.btn-black {
+  color: #FFF;
+  background-color: #222;
+  border-color: #222;
 }
-
-.popup__description-wrap {
-  height: 140px;
-  overflow: hidden;
-  overflow-y: scroll;
+.btn-black:hover {
+  color: #fff;
+  background-color: #333;
+  border-color: #333;
 }

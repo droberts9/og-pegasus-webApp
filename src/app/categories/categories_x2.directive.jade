@@ -1,13 +1,23 @@
-.row.channels
-  p.channel-title.pb-sm.mb-lg.ml-md2.mr-md2 {{ ::ctrl.title }}
+.row.carousel
+  .col-xs-12
+    .carousel__arrows.pull-right
+      ul.list-inline
+        li.prev-button <
+        li.next-button >
+    p.carousel__caption.pb-sm.mb-lg {{ ::ctrl.caption }}
   .col-xs-12
     .wrapper
-      slick.carousel(infinite="true" data="ctrl.items" arrows="false" slides-to-show="3" slides-to-scroll="3" variable-width="true" init-onload="false" )
+      slick.carousel(infinite="false" data="ctrl.items" arrows="false" variable-width="true" init-onload="false" )
+        .carousel__group.carousel__group--big(ng-if="ctrl.mainAsset" cms-popup template="asset-popup")
+          .carousel__group-item.mb-md.mr-md
+            img(class="carousel__image img-responsive" ng-src="{{ ::ctrl.defaultImage(ctrl.mainAsset) }}" alt="{{ ::ctrl.mainAsset.name }}")
+            p.carousel__title {{ ::ctrl.mainAsset.name }}
+            p.carousel__duration.pa-sm {{ ::ctrl.MainAsset.duration | timerFilter }}
         .carousel__group(ng-repeat="group in ctrl.items")
-          .carousel__group-item.mb-md.mr-md(ng-repeat="item in group")
-            img(class="img-responsive" ng-src="{{ ::ctrl.defaultImage(item) }}" alt="{{ ::item.name }}")
-            p.carousel__title {{ ::item.name }}
-            p.carousel__duration.pa-sm {{ ::item.duration }}
+          .carousel__group-item.mb-md.mr-md(ng-repeat="asset in group" cms-popup template="asset-popup")
+            img(class="carousel__image img-responsive" ng-src="{{ ::ctrl.defaultImage(asset) }}" alt="{{ ::asset.name }}")
+            p.carousel__title {{ ::asset.name }}
+            p.carousel__duration.pa-sm {{ ::asset.duration | timerFilter }}
 
 
 

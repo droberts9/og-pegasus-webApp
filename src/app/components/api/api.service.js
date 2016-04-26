@@ -27,7 +27,7 @@ class ApiService {
   }
 
   getCategory(slug) {
-    return this.get('/categories/'+slug); //.then( (resp) => { return resp.categories[0]})
+    return this.get('/categories/'+slug+'?device=web'); //.then( (resp) => { return resp.categories[0]})
   }
 
   getSeries() {

@@ -5,6 +5,7 @@ import { routerConfig }         from './index.route';
 import { runBlock }             from './index.run';
 
 import { Utils }                from './components/utils/utils.factory';
+import { TimerFilter }          from './components/utils/timer.filter';
 import { MainController }       from './main/main.controller';
 import { LoginController }      from './login/login.controller';
 import { CategoriesController } from './categories/categories.controller';
@@ -39,6 +40,7 @@ angular.module('appcmsClient', [
 
   .service('apiService',              ApiService)
   .factory('utils',                   () => new Utils())
+  .filter('timerFilter',              TimerFilter)
   .controller('MainController',       MainController)
   .controller('LoginController',      LoginController)
   .controller('CategoriesController', CategoriesController)

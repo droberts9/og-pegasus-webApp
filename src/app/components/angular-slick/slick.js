@@ -62,7 +62,6 @@ angular.module('slick', [])
           });
         };
         initializeSlick = function () {
-          console.log('init slick');
           return $timeout(function () {
             var currentIndex, slider;
             slider = angular.element(element);

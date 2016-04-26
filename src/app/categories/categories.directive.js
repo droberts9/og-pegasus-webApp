@@ -7,7 +7,7 @@ export function CategoriesDirective() {
     replace: true,
     scope: {
       items: '=',
-      title: '@'
+      caption: '@'
     },
     controller: CategoryController,
     controllerAs: 'ctrl',
@@ -27,7 +27,7 @@ class CategoryController {
 
   defaultImage() {
     // TODO: resolve default cannel image
-    return "https://placeholdit.imgix.net/~text?txtsize=33&txt=315%C3%97175&w=315&h=175"
+    return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=315&h=175"
   }
 
 }
