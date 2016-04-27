@@ -4,7 +4,8 @@ class ConstantsProvider {
     'ngInject';
     this.setup = {
       appConfig: {
-        apiUrl: 'http://dev.bhd.local.dev:4000/api/v1'
+        apiUrl: 'http://dev.bhd.local.dev:4000/api/v1',
+        apiUrl_prod: 'http://dev.bhd.sporkers.com/api/v1'
       }
     };
   }

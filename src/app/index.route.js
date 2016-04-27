@@ -66,6 +66,24 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('home.asset', {
+      url: '/channels/:slug/:asset',
+      views: {
+        "@": {
+          templateUrl: 'app/asset/asset.html',
+          controller: 'AssetController',
+          controllerAs: 'vm',
+          resolve: {
+            category: function(apiService, $stateParams) {
+              return apiService.getCategory($stateParams.slug)
+            },
+            asset: function(apiService, $stateParams) {
+              return apiService.getAsset($stateParams.asset)
+            }
+          }
+        }
+      }
+    })
   ;
 
   $urlRouterProvider.otherwise('/');

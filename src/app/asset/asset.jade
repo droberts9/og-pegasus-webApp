@@ -1,0 +1,21 @@
+.row
+  .col-xs-12.asset-player
+    .row
+      .col-sm-offset-2.col-sm-9.mt-big
+        .asset-player__preview
+          img(ng-src="{{ vm.default_asset_image() }}" class="img-responsive")
+    .row
+      .col-sm-offset-2.col-sm-6.mt-big
+        .asset-player__metadata
+          p.asset-player__title {{ vm.asset.name }}
+          p.asset-player__desc {{ vm.asset.description }}
+    .row.mb-big
+      .col-sm-offset-2.col-sm-6.mt-big
+        .asset-player__social
+
+.container.mt-lg
+  cms-billboard-ad(class="mt-lg pb-lg")
+  cms-category-x2(items="vm.episodes" category="vm.category" caption="Episodes" class="mt-lg")
+
+
+

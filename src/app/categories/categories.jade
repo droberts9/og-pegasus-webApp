@@ -2,10 +2,10 @@
 
 .container
   .mt-big
-    cms-category-x2(items="vm.assets['bww'].playList", caption="Popular Shows")
+    cms-category-x2(items="vm.assets['bww'].playList", category="vm.assets['bww'].category" caption="Popular Shows")
 
   .mt-big
-    cms-category-x2(items="vm.assets['bbc'].playList", main-asset="vm.assets['bbc'].main", caption="Popular Episodes", kind="big")
+    cms-category-x2(items="vm.assets['bbc'].playList", category="vm.assets['bbc'].category" main-asset="vm.assets['bbc'].main", caption="Popular Episodes", kind="big")
 
   .mt-big
     cms-category(items="::vm.categories", caption="Channels")

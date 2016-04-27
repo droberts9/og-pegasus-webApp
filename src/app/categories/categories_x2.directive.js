@@ -10,6 +10,7 @@ export function CategoriesX2Directive() {
     replace: true,
     scope: {
       items: '=',
+      category: '=',
       mainAsset: '=',
       caption: '@',
       kind: '@'

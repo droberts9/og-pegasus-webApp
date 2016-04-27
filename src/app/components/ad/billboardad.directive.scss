@@ -1,0 +1,15 @@
+
+.billboard {
+  margin: 0 auto;
+  width: 970px;
+  height: 250px;
+  line-height: 250px;
+  background-color: #efefef;
+  border: 7px solid #ddd;
+  text-align: center;
+}
+
+.billboard p {
+  vertical-align: middle;
+  display: inline-block;
+}

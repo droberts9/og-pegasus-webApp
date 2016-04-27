@@ -1,0 +1,28 @@
+#!/bin/bash
+set -o nounset
+set -o errexit
+
+#production
+SERVER=52.91.63.159
+#test
+#SERVER=52.27.88.157
+REMOTE_USER=ubuntu
+
+if [[ -d ./dist ]];then
+  echo "> remove DIST directory"
+  rm -rf dist
+fi
+
+export NODE_ENV=production
+if ! (gulp) ; then
+  echo "ERROR"
+  exit 1
+fi
+
+###
+# Need to deploy manually till figure how catch Gulp Errors on pipeline
+# the previous condition is not working
+#
+# rsync -avzhe ssh dist/* ${REMOTE_USER}@${SERVER}:/web/bhd/fish/dist
+echo "rsync -avzhe ssh dist/* ${REMOTE_USER}@${SERVER}:/web/bhd/fish/dist"
+

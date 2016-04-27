@@ -30,6 +30,10 @@ class ApiService {
     return this.get('/categories/'+slug+'?device=web'); //.then( (resp) => { return resp.categories[0]})
   }
 
+  getAsset(slug) {
+    return this.get('/assets/'+slug+'?device=web');
+  }
+
   getSeries() {
     return this.get('/series');
   }

@@ -1,29 +1,31 @@
 /*eslint no-unused-vars: [2, { "varsIgnorePattern": "[Popup|Slick]" }]*/
 
-import { config }               from './index.config';
-import { routerConfig }         from './index.route';
-import { runBlock }             from './index.run';
+import { config }                from './index.config';
+import { routerConfig }          from './index.route';
+import { runBlock }              from './index.run';
 
-import { Utils }                from './components/utils/utils.factory';
-import { TimerFilter }          from './components/utils/timer.filter';
-import { MainController }       from './main/main.controller';
-import { LoginController }      from './login/login.controller';
-import { CategoriesController } from './categories/categories.controller';
-import { CategoryController }   from './category/category.controller';
+import { Utils }                 from './components/utils/utils.factory';
+import { TimerFilter }           from './components/utils/timer.filter';
+import { MainController }        from './main/main.controller';
+import { LoginController }       from './login/login.controller';
+import { CategoriesController }  from './categories/categories.controller';
+import { CategoryController }    from './category/category.controller';
+import { AssetController }       from './asset/asset.controller';
 
-import { ApiService }           from '../app/components/api/api.service'
+import { ApiService }            from '../app/components/api/api.service'
 
-import { SessionProvider }      from '../app/components/session/session.provider';
-import { ConstantsProvider }    from '../app/components/constants/constants.provider';
+import { SessionProvider }       from '../app/components/session/session.provider';
+import { ConstantsProvider }     from '../app/components/constants/constants.provider';
 
-import { CategoriesDirective }    from '../app/categories/categories.directive';
-import { CategoriesX2Directive }  from '../app/categories/categories_x2.directive';
-import { SeriesDirective }      from '../app/series/series.directive';
-import { AssetDirective }       from '../app/components/asset/asset.directive';
+import { CategoriesDirective }   from '../app/categories/categories.directive';
+import { CategoriesX2Directive } from '../app/categories/categories_x2.directive';
+import { SeriesDirective }       from '../app/series/series.directive';
+import { AssetDirective }        from '../app/components/asset/asset.directive';
+import { BillboardAdDirective }  from '../app/components/ad/billboardad.directive';
 
-import { Popup }                from '../app/components/popup/popup';
-import { PopupDirective }       from '../app/components/popup/cmsPopup.directive'
-import { Slick }                from '../app/components/angular-slick/angular-slick';
+import { Popup }                 from '../app/components/popup/popup';
+import { PopupDirective }        from '../app/components/popup/cmsPopup.directive'
+import { Slick }                 from '../app/components/angular-slick/angular-slick';
 
 
 angular.module('appcmsClient', [
@@ -45,10 +47,12 @@ angular.module('appcmsClient', [
   .controller('LoginController',      LoginController)
   .controller('CategoriesController', CategoriesController)
   .controller('CategoryController',   CategoryController)
+  .controller('AssetController',      AssetController)
   .directive('cmsCategory',           CategoriesDirective)
   .directive('cmsCategoryX2',         CategoriesX2Directive)
   .directive('cmsSeries',             SeriesDirective.directiveFactory)
   .directive('cmsAsset',              AssetDirective)
   .directive('cmsPopup',              PopupDirective)
+  .directive('cmsBillboardAd',        BillboardAdDirective)
   ;
 

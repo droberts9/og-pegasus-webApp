@@ -15,19 +15,6 @@ class CategoriesController {
       this.categories = [];
     }
 
-    /*
-    this.api.getCategory('bww').then( (result) => {
-      if (result && result.categories[0] && result.categories[0].assets) {
-        this.assets['bww'] = utils.groupOf(result.categories[0].assets, 2);
-      }
-    });
-    this.api.getCategory('bbc').then( (result) => {
-      if (result && result.categories[0] && result.categories[0].assets) {
-        this.assets['bbc'] = utils.groupOf(result.categories[0].assets, 2);
-      }
-    });
-    */
-
     this.getCategory('bww');
     this.getCategory('bbc', 'big');
   }
@@ -48,6 +35,7 @@ class CategoriesController {
           this.assets[categoryName]['main'] = slides.shift();
         }
         this.assets[categoryName]['playList'] = this.utils.groupOf(slides, 2);
+        this.assets[categoryName]['category'] = result.categories[0];
       }
     });
   }
