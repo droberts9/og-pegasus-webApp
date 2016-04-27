@@ -5,7 +5,7 @@ export function config ($provide, $logProvider, $authProvider, $locationProvider
   // disable debug info
   // $compileProvider.debugInfoEnabled(false);
   // Disable hash (#) on urls
-  $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode({enabled: true});
   // Configure Auth
   $authProvider.configure({
     apiUrl: constantsProvider.setup.appConfig.apiUrl ,
