@@ -1,13 +1,16 @@
 
 class AssetController {
 
-  constructor($log, category, asset, utils) {
+  constructor($log, category, asset, utils, playerService) {
     'ngInject';
 
     this.$log = $log;
     this.category = category.categories[0];
     this.asset = asset;
-    this.episodes = utils.groupOf(this.category.assets, 2)
+    this.episodes = utils.groupOf(this.category.assets, 2);
+
+    playerService.init('playerMain', this.category, asset.embed_code);
+    playerService.play(asset.embed_code);
 
   }
 

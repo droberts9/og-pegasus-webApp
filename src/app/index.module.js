@@ -13,6 +13,7 @@ import { CategoryController }    from './category/category.controller';
 import { AssetController }       from './asset/asset.controller';
 
 import { ApiService }            from '../app/components/api/api.service'
+import { PlayerService }         from '../app/components/player/player.service'
 
 import { SessionProvider }       from '../app/components/session/session.provider';
 import { ConstantsProvider }     from '../app/components/constants/constants.provider';
@@ -41,6 +42,7 @@ angular.module('appcmsClient', [
   .run(runBlock)
 
   .service('apiService',              ApiService)
+  .service('playerService',           PlayerService)
   .factory('utils',                   () => new Utils())
   .filter('timerFilter',              TimerFilter)
   .controller('MainController',       MainController)

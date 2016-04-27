@@ -3,7 +3,8 @@
     .row
       .col-sm-offset-2.col-sm-9.mt-big
         .asset-player__preview
-          img(ng-src="{{ vm.default_asset_image() }}" class="img-responsive")
+          .player-container
+            #playerMain.player-wrapper
     .row
       .col-sm-offset-2.col-sm-6.mt-big
         .asset-player__metadata
@@ -15,13 +16,11 @@
           ul.list-inline
             li Share:
             li
-              cms-svg(icon="#svgFacebook" classes="MyCho")
+              img(src="/assets/images/facebook-logo.png" class="asset-player__social-icon asset-player__social-icon-fb")
               | Facebook
-            li Twitter
-          svg(viewbox="0 0 100 100")
-            use(xlink:href="#svgFacebook")
-          svg(viewBox="0 0 100 100" class="icon shape-codepen")
-            use(xlink:href="#shape-codepen")
+            li
+              img(src="/assets/images/twitter-logo.png" class="asset-player__social-icon")
+              |  Twitter
 
 .container.mt-lg
   cms-billboard-ad(class="mt-lg pb-lg")
