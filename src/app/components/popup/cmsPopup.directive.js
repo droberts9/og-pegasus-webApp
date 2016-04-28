@@ -9,7 +9,7 @@ export function PopupDirective($log, dropWrapper) {
       elem: '@cmsPopup',
       fn: '=callback',
       tpl: '@template',
-      followLink: '='
+      followLink: '=?'
     },
     link: function(scope, elem) {
 
