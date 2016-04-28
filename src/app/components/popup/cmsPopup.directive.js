@@ -1,6 +1,6 @@
 
 
-export function PopupDirective(dropWrapper) {
+export function PopupDirective($log, dropWrapper) {
   'ngInject';
 
   let directive = {
@@ -8,9 +8,12 @@ export function PopupDirective(dropWrapper) {
     scope: {
       elem: '@cmsPopup',
       fn: '=callback',
-      tpl: '@template'
+      tpl: '@template',
+      followLink: '='
     },
     link: function(scope, elem) {
+
+      scope.followLink = (scope.followLink == true) || (scope.followLink == 'true') || (scope.followLink == undefined) ? true : false;
 
       let drop = dropWrapper({
         target: elem,

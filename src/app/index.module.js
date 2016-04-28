@@ -23,6 +23,7 @@ import { CategoriesX2Directive } from '../app/categories/categories_x2.directive
 import { SeriesDirective }       from '../app/series/series.directive';
 import { AssetDirective }        from '../app/components/asset/asset.directive';
 import { BillboardAdDirective }  from '../app/components/ad/billboardad.directive';
+import { PlayerDirective }       from '../app/components/player/player.directive';
 
 import { Popup }                 from '../app/components/popup/popup';
 import { PopupDirective }        from '../app/components/popup/cmsPopup.directive'
@@ -56,5 +57,6 @@ angular.module('appcmsClient', [
   .directive('cmsAsset',              AssetDirective)
   .directive('cmsPopup',              PopupDirective)
   .directive('cmsBillboardAd',        BillboardAdDirective)
+  .directive('cmsPlayer',             PlayerDirective)
   ;
 

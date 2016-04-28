@@ -13,7 +13,8 @@ export function CategoriesX2Directive() {
       category: '=',
       mainAsset: '=',
       caption: '@',
-      kind: '@'
+      kind: '@',
+      followLink: '@'
     },
     controller: Categoriesx2Controller,
     controllerAs: 'ctrl',
@@ -30,9 +31,10 @@ export function CategoriesX2Directive() {
 
 class Categoriesx2Controller {
 
-  constructor($log, utils) {
+  constructor($log, utils, playerService) {
     'ngInject';
 
+    this.player = playerService;
     this.kindTypes = ['big', 'regular'];
     this.$log = $log;
     this.utils = utils;
@@ -43,6 +45,7 @@ class Categoriesx2Controller {
     if (!_.includes(this.kindTypes, this.kind)) {
       this.$log.error( 'Slider property kind invalid: ['+this.kind+']');
     }
+    this.followLink = (this.followLink == 'true') || (this.followLink == undefined) ? true : false;
 
   }
 
@@ -66,5 +69,10 @@ class Categoriesx2Controller {
       return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=315&h=175";
     }
   }
+
+  play(options) {
+    this.player.play(options);
+  }
+
 
 }

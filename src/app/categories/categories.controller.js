@@ -15,8 +15,8 @@ class CategoriesController {
       this.categories = [];
     }
 
-    this.getCategory('bww');
-    this.getCategory('bbc', 'big');
+    this.getCategory('scubalab-tv');
+    this.getCategory('boat-buyers-guide-2016', 'big');
   }
 
 

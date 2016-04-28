@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <base href="/">
-    <script src="http://player.ooyala.com/v3/f61d7058fa384953a2c16ef9a4c6b0e4"></script>
+    <script src="http://player.ooyala.com/v3/7bfa863a71254398b20d70b9fc25124f"></script>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:300,400,700' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="/assets/js/slick/slick.js"></script>
@@ -58,7 +58,8 @@
         <div class="popup__description-wrap">
           <p class="popup__description">{{ asset.description }}</p>
         </div>
-        <a ui-sref="home.asset({slug: ctrl.category.slug, asset: asset.slug})" class="popup_button btn btn-black mt-lg">Watch Now</a>
+        <a ng-if="ctrl.followLink" ui-sref="home.asset({slug: ctrl.category.slug, asset: asset.slug})" class="popup_button btn btn-black mt-lg">Watch Now</a>
+        <a ng-if="!ctrl.followLink" ng-click="ctrl.play(asset.embed_code)" class="popup_button btn btn-black mt-lg">Watch Now</a>
       </div>
     </script>
 

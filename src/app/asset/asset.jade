@@ -3,8 +3,7 @@
     .row
       .col-sm-offset-2.col-sm-9.mt-big
         .asset-player__preview
-          .player-container
-            #playerMain.player-wrapper
+          cms-player(embed_code="::vm.asset.embed_code" playlist="::vm.category")
     .row
       .col-sm-offset-2.col-sm-6.mt-big
         .asset-player__metadata
@@ -24,7 +23,7 @@
 
 .container.mt-lg
   cms-billboard-ad(class="mt-lg pb-lg")
-  cms-category-x2(items="vm.episodes" category="vm.category" caption="Episodes" class="mt-lg")
+  cms-category-x2(items="vm.episodes" category="vm.category" caption="Episodes" class="mt-lg" follow-link="false")
 
 
 

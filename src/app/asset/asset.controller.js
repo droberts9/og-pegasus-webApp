@@ -1,17 +1,18 @@
 
 class AssetController {
 
-  constructor($log, category, asset, utils, playerService) {
+  constructor($log, $document, $timeout, category, asset, utils, playerService) {
     'ngInject';
 
     this.$log = $log;
+    this.$timeout = $timeout;
     this.category = category.categories[0];
     this.asset = asset;
     this.episodes = utils.groupOf(this.category.assets, 2);
+    this.player = playerService;
 
-    playerService.init('playerMain', this.category, asset.embed_code);
-    playerService.play(asset.embed_code);
-
+    // event received from playerService when a video change
+    angular.element($document).on('update-video-data', ()=>{ this.updateCurrentVideo() })
   }
 
   default_asset_image() {
@@ -26,6 +27,17 @@ class AssetController {
       // TODO: move this to constants
       return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=950&h=535";
     }
+  }
+
+  updateCurrentVideo() {
+    let current = this.player.currentVideo();
+    if (angular.isUndefined(current)) {
+      return;
+    }
+    // $timeout by default trigger an $apply cycle.. to refresh the front
+    this.$timeout(()=> {
+      this.asset = current;
+    }, 0)
   }
 
 }
