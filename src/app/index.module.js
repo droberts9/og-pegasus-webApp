@@ -4,13 +4,13 @@ import { config }                from './index.config';
 import { routerConfig }          from './index.route';
 import { runBlock }              from './index.run';
 
-import { Utils }                 from './components/utils/utils.factory';
-import { TimerFilter }           from './components/utils/timer.filter';
-import { MainController }        from './main/main.controller';
-import { LoginController }       from './login/login.controller';
-import { CategoriesController }  from './categories/categories.controller';
-import { CategoryController }    from './category/category.controller';
-import { AssetController }       from './asset/asset.controller';
+import { Utils }                 from '../app/components/utils/utils.factory';
+import { TimerFilter }           from '../app/components/utils/timer.filter';
+import { MainController }        from '../app/main/main.controller';
+import { LoginController }       from '../app/login/login.controller';
+import { CategoriesController }  from '../app/categories/categories.controller';
+import { CategoryController }    from '../app/category/category.controller';
+import { AssetController }       from '../app/asset/asset.controller';
 
 import { ApiService }            from '../app/components/api/api.service'
 import { PlayerService }         from '../app/components/player/player.service'
