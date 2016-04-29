@@ -2,17 +2,21 @@ import _ from 'lodash';
 
 class CategoriesController {
 
-  constructor(apiService, $scope, $log, utils, categories) {
+  constructor(apiService, $scope, $log, utils, categories, featured) {
     'ngInject';
     this.api = apiService;
     this.$log = $log;
     this.assets = {};
     this.utils = utils;
+    this.categories = [];
+    this.featured = [];
 
-    if (categories && categories.categories[0]) {
-      this.categories = categories.categories[0].subcategories;
-    } else {
-      this.categories = [];
+    if (featured) {
+      this.featured = featured.assets;
+    }
+
+    if (categories) {
+      this.categories = categories.subcategories;
     }
 
     this.getCategory('aqua-lung-scuba-2015');
@@ -28,14 +32,14 @@ class CategoriesController {
     // Retrieve it
     this.api.getCategory(categoryName).then( (result) => {
 
-      if (result && result.categories[0] && result.categories[0].assets) {
+      if (result && result.assets) {
         // If is a big carousel, slice the first on the slide
-        var slides = _.clone(result.categories[0].assets, true);
+        var slides = _.clone(result.assets, true);
         if (kind == 'big') {
           this.assets[categoryName]['main'] = slides.shift();
         }
         this.assets[categoryName]['playList'] = this.utils.groupOf(slides, 2);
-        this.assets[categoryName]['category'] = result.categories[0];
+        this.assets[categoryName]['category'] = result;
       }
     });
   }

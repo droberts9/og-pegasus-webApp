@@ -46,6 +46,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
             categories: function(apiService) {
               'ngInject';
               return apiService.getCategory('categories')
+            },
+            featured: function(apiService) {
+              'ngInject';
+              return apiService.getCategory('costa-rica')
             }
           }
         }

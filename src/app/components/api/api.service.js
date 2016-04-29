@@ -1,3 +1,5 @@
+import { AssetModel } from '../../models/asset'
+import { CategoryModel } from '../../models/category'
 
 class ApiService {
 
@@ -27,11 +29,15 @@ class ApiService {
   }
 
   getCategory(slug) {
-    return this.get('/categories/'+slug+'?device=web'); //.then( (resp) => { return resp.categories[0]})
+    return this.get('/categories/'+slug+'?device=web').then((resp) => {
+      return new CategoryModel(resp.categories[0]);
+    })
   }
 
   getAsset(slug) {
-    return this.get('/assets/'+slug+'?device=web');
+    return this.get('/assets/'+slug+'?device=web').then((data) => {
+      return new AssetModel(data);
+    });
   }
 
   getSeries() {
