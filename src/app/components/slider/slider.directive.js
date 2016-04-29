@@ -3,7 +3,7 @@ export function SliderDirective() {
 
   let directive = {
     restrict: 'E',
-    templateUrl: './app/components/slider/slider.directive.html',
+    templateUrl: 'app/components/slider/slider.directive.html',
     scope: {
       playlist: '='
     },
