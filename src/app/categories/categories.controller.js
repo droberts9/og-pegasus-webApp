@@ -15,8 +15,8 @@ class CategoriesController {
       this.categories = [];
     }
 
-    this.getCategory('scubalab-tv');
-    this.getCategory('boat-buyers-guide-2016', 'big');
+    this.getCategory('aqua-lung-scuba-2015');
+    this.getCategory('costa-rica', 'big');
   }
 
 

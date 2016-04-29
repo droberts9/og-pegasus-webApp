@@ -5,7 +5,7 @@ class ConstantsProvider {
     this.setup = {
       appConfig: {
         apiUrl_dev: 'http://dev.fish.local.dev:4000/api/v1',
-        apiUrl: 'http://dev.bhd.sporkers.com/api/v1'
+        apiUrl: 'http://dev.fish.sporkers.com/api/v1'
       }
     };
   }
