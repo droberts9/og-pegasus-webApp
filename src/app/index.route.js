@@ -43,8 +43,8 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
           controller: 'CategoriesController',
           controllerAs: 'vm',
           resolve: {
-            categories: function(apiService) {
-              return apiService.getCategory('categories');
+            series: function(apiService) {
+              return apiService.getSeries();
             },
             featured: function(apiService) {
               'ngInject';

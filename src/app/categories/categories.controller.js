@@ -2,24 +2,25 @@ import _ from 'lodash';
 
 class CategoriesController {
 
-  constructor(apiService, $scope, $log, utils, categories, featured) {
+  constructor(apiService, $scope, $log, utils, series, featured) {
     'ngInject';
     this.api = apiService;
     this.$log = $log;
     this.assets = {};
     this.utils = utils;
-    this.categories = [];
+    this.series = [];
     this.featured = [];
 
     if (featured) {
       this.featured = featured;
     }
 
-    if (categories) {
-      this.categories = categories.subcategories;
+    if (series) {
+      this.series = series;
     }
 
     this.getCategory('aqua-lung-scuba-2015');
+
   }
 
 
