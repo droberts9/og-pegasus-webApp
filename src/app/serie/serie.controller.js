@@ -9,7 +9,7 @@ class SerieController {
     this.$log = $log;
 
     //this.api.getSerie().then( result => this.items = result.series );
-    this.serie = serie.series[0];
+    this.serie = serie;
 
   }
 

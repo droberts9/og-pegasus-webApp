@@ -1,6 +1,6 @@
-import { AssetModel } from '../../models/asset'
-import { CategoryModel } from '../../models/category'
-import { SerieModel } from '../../models/serie'
+import { AssetModel }     from '../../models/asset'
+import { CategoryModel }  from '../../models/category'
+import { SerieModel }     from '../../models/serie'
 
 class ApiService {
 
@@ -42,11 +42,17 @@ class ApiService {
   }
 
   getSeries() {
-    return this.get('/series');
+    return this.get('/series?device=web').then((resp) => {
+      let data = [];
+      resp.series.forEach(serie => data.push( new SerieModel(serie)) );
+      return data;
+    })
   }
 
   getSerie(slug) {
-    return this.get('/series/'+slug+'?device=web');
+    return this.get('/series/'+slug+'?device=web').then((data) => {
+      return new SerieModel(data.series[0]);
+    });
   }
 
   getSeriesFeatured() {

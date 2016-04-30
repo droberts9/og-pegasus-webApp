@@ -11,9 +11,11 @@ import { LoginController }       from '../app/login/login.controller';
 import { CategoriesController }  from '../app/categories/categories.controller';
 import { CategoryController }    from '../app/category/category.controller';
 import { AssetController }       from '../app/asset/asset.controller';
+import { SeriesController }      from '../app/series/series.controller';
+import { SerieController }       from '../app/serie/serie.controller';
 
-import { ApiService }            from '../app/components/api/api.service'
-import { PlayerService }         from '../app/components/player/player.service'
+import { ApiService }            from '../app/components/api/api.service';
+import { PlayerService }         from '../app/components/player/player.service';
 
 import { SessionProvider }       from '../app/components/session/session.provider';
 import { ConstantsProvider }     from '../app/components/constants/constants.provider';
@@ -27,7 +29,7 @@ import { PlayerDirective }       from '../app/components/player/player.directive
 import { SliderDirective }       from '../app/components/slider/slider.directive';
 
 import { Popup }                 from '../app/components/popup/popup';
-import { PopupDirective }        from '../app/components/popup/cmsPopup.directive'
+import { PopupDirective }        from '../app/components/popup/cmsPopup.directive';
 import { Slick }                 from '../app/components/angular-slick/angular-slick';
 
 
@@ -47,18 +49,21 @@ angular.module('appcmsClient', [
   .service('playerService',           PlayerService)
   .factory('utils',                   () => new Utils())
   .filter('timerFilter',              TimerFilter)
+
   .controller('MainController',       MainController)
   .controller('LoginController',      LoginController)
   .controller('CategoriesController', CategoriesController)
   .controller('CategoryController',   CategoryController)
   .controller('AssetController',      AssetController)
+  .controller('SeriesController',     SeriesController)
+  .controller('SerieController',      SerieController)
+
   .directive('cmsCategory',           CategoriesDirective)
   .directive('cmsCategoryX2',         CategoriesX2Directive)
-  .directive('cmsSeries',             SeriesDirective.directiveFactory)
+  .directive('cmsSeries',             SeriesDirective)
   .directive('cmsAsset',              AssetDirective)
   .directive('cmsPopup',              PopupDirective)
   .directive('cmsBillboardAd',        BillboardAdDirective)
   .directive('cmsPlayer',             PlayerDirective)
   .directive('cmsSlider',             SliderDirective)
   ;
-

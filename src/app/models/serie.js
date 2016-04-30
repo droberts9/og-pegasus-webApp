@@ -1,14 +1,13 @@
-
 class SerieModel {
 
   constructor(data) {
+    this.title = '';
     this.description = '';
-    this.footages = [];
-    this.images = [];
-    this.rating = 0;
     this.slug = '';
     this.studio = '';
-    this.title = '';
+    this.rating = 0;
+    this.images = [];
+    this.footages = [];
 
     this.initValues(data);
   }
@@ -36,16 +35,20 @@ class SerieModel {
     }
   }
 
-  defaultImage() {
-
+  get defaultImage() {
     if ((this.images) && (this.images.length > 0)) {
       return this.images[0].url;
+
     } else {
       // TODO: move this to constants
       return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=1980&h=800";
     }
   }
 
+  get slug_url() {
+    return `/series/${this.slug}`;
+  }
 }
 
 export { SerieModel }
+

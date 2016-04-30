@@ -1,19 +1,15 @@
-class SeriesDirective {
+export function SeriesDirective() {
+  'ngInject';
 
-  constructor() {
-    'ngInject'
-    this.templateUrl = 'app/series/series.directive.html';
-    this.restrict = 'E';
-    this.replace = true;
-    this.scope = {
+  let directive = {
+    templateUrl: 'app/series/series.directive.html',
+    restrict: 'E',
+    replace: true,
+    scope: {
       items: '='
-    };
-  }
+    }
+  };
 
-  static directiveFactory() {
-    return new SeriesDirective();
-  }
+  return directive;
 
 }
-
-export { SeriesDirective }
