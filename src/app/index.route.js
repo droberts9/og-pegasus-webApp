@@ -49,7 +49,7 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
             },
             featured: function(apiService) {
               'ngInject';
-              return apiService.getCategory('costa-rica')
+              return apiService.getSeriesFeatured()
             }
           }
         }

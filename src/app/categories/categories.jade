@@ -1,13 +1,12 @@
-
 .slider-wrapper
   cms-slider(playlist="vm.featured")
 
 .container
   .mt-big
-    cms-category-x2(items="vm.assets['aqua-lung-scuba-2015'].playList", category="vm.assets['aqua-lung-scuba-2015'].category" caption="Aqua Lung Scuba 2015")
+    cms-category-x2(items="vm.assets['aqua-lung-scuba-2015'].playList", category="vm.assets['aqua-lung-scuba-2015'].category" caption="Promoted Shows")
+
+  .mt-lg
+    cms-billboard-ad(class="mt-lg pb-lg")
 
   .mt-big
-    cms-category-x2(items="vm.assets['costa-rica'].playList", category="vm.assets['costa-rica'].category" main-asset="vm.assets['costa-rica'].main", caption="Costa Rica", kind="big")
-
-  .mt-big
-    cms-category(items="::vm.categories", caption="Channels")
+    cms-category(items="::vm.categories", caption="Shows")

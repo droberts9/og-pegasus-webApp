@@ -1,5 +1,6 @@
 import { AssetModel } from '../../models/asset'
 import { CategoryModel } from '../../models/category'
+import { SerieModel } from '../../models/serie'
 
 class ApiService {
 
@@ -46,6 +47,12 @@ class ApiService {
 
   getSerie(slug) {
     return this.get('/series/'+slug+'?device=web');
+  }
+
+  getSeriesFeatured() {
+    return this.get('/series/featured?device=web').then((resp) => {
+      return SerieModel.loadData(resp.series);
+    });
   }
 
 

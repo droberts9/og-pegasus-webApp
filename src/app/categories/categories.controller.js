@@ -12,7 +12,7 @@ class CategoriesController {
     this.featured = [];
 
     if (featured) {
-      this.featured = featured.assets;
+      this.featured = featured;
     }
 
     if (categories) {
@@ -20,7 +20,6 @@ class CategoriesController {
     }
 
     this.getCategory('aqua-lung-scuba-2015');
-    this.getCategory('costa-rica', 'big');
   }
 
 

@@ -11,3 +11,14 @@
 .navbar-brand {
   padding: 14px 15px;
 }
+
+.footer {
+  height: 50px;
+  background-color: $header-color;
+  color: #fff;
+}
+
+.footer-wrap {
+  font: $footer-title;
+  line-height: 50px;
+}

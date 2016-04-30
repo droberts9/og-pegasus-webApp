@@ -1,12 +1,14 @@
 
 .billboard {
   margin: 0 auto;
-  width: 970px;
+  width: 100%;
+  max-width: 970px;
   height: 250px;
   line-height: 250px;
   background-color: #efefef;
   border: 7px solid #ddd;
   text-align: center;
+  overflow: hidden;
 }
 
 .billboard p {
