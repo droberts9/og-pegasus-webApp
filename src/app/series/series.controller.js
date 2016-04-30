@@ -1,17 +1,12 @@
+export class SeriesController {
 
-class SeriesController {
-
-  constructor(apiService, $scope, $log) {
-    'ngInject'
+  constructor(apiService, $log, series) {
+    'ngInject';
 
     this.api = apiService;
-    this.$scope = $scope;
     this.$log = $log;
-
-    this.api.getSeries().then( result => this.items = result.series );
-
+    this.series = series;
+    $log.debug(series);
   }
 
 }
-
-export { SeriesController}

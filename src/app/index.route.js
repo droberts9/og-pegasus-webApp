@@ -17,7 +17,7 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
           auth: function($auth, $state, $log) {
             return $auth.validateUser()
                       .then((rsp) => { $log.info('logged user', rsp) })
-                      .catch( () =>{ $state.go('login'); })
+                      .catch( () =>{ $state.go('login'); });
           }
         },
         footer: {
@@ -44,12 +44,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
           controllerAs: 'vm',
           resolve: {
             categories: function(apiService) {
-              'ngInject';
-              return apiService.getCategory('categories')
+              return apiService.getCategory('categories');
             },
             featured: function(apiService) {
-              'ngInject';
-              return apiService.getCategory('costa-rica')
+              return apiService.getCategory('costa-rica');
             }
           }
         }
@@ -64,7 +62,7 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
           controllerAs: 'vm',
           resolve: {
             category: function(apiService, $stateParams) {
-              return apiService.getCategory($stateParams.slug)
+              return apiService.getCategory($stateParams.slug);
             }
           }
         }
@@ -79,10 +77,40 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
           controllerAs: 'vm',
           resolve: {
             category: function(apiService, $stateParams) {
-              return apiService.getCategory($stateParams.slug)
+              return apiService.getCategory($stateParams.slug);
             },
             asset: function(apiService, $stateParams) {
-              return apiService.getAsset($stateParams.asset)
+              return apiService.getAsset($stateParams.asset);
+            }
+          }
+        }
+      }
+    })
+    .state('home.series', {
+      url: '/series',
+      views:{
+        "@": {
+          templateUrl: 'app/series/series.html',
+          controller: 'SeriesController',
+          controllerAs: 'vm',
+          resolve: {
+            series: function(apiService) {
+              return apiService.getSeries();
+            }
+          }
+        }
+      }
+    })
+    .state('home.serie', {
+      url: '/series/:slug',
+      views: {
+        "@": {
+          templateUrl: 'app/serie/serie.html',
+          controller: 'SerieController',
+          controllerAs: 'vm',
+          resolve: {
+            serie: function(apiService, $stateParams) {
+              return apiService.getSerie($stateParams.slug);
             }
           }
         }

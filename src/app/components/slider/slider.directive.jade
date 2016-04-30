@@ -1,9 +1,9 @@
 .row
   slick.slider(infinite="false" data="ctrl.playlist" arrows="true" variable-width="true" init-onload="false" )
     .slider__item(ng-repeat="item in ctrl.playlist")
-      a.slider__item-link(ui-sref="home.asset({slug: item.category, asset: item.slug})")
+      a.slider__item-link(href="{{item.slug_url}}")
         .slider__head
           p.slider__title {{ item.name }}
           p.slider__description {{ item.description }}
           p.slider__rating Rating: {{ item.rating }}
-        img.slider__item-image.img-responsive(ng-src="{{ item.defaultImage() }}")
+        img.slider__item-image.img-responsive(ng-src="{{ item.defaultImage }}")
