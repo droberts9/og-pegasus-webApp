@@ -1,18 +1,15 @@
-class SerieModel {
-
+class SeasonModel {
   constructor(data) {
-    this.title = '';
-    this.description = '';
     this.slug = '';
-    this.studio = '';
-    this.rating = 0;
+    this.title = '';
+    this.tagline = '';
+    this.description = '';
     this.images = [];
-    this.footages = [];
-    this.seasons = [];
-
+    this.episodes = [];
+    
     this.initValues(data);
   }
-
+  
   static loadData(data) {
     if (!angular.isArray(data)) {
       /* eslint-disable */
@@ -22,12 +19,12 @@ class SerieModel {
     }
     var modelArray = [];
     for (var i = 0, l = data.length; i < l; i ++) {
-      var m = new SerieModel(data[i]);
+      var m = new SeasonModel(data[i]);
       modelArray.push(m);
     }
     return modelArray;
   }
-
+  
   initValues(data) {
     for (var prop in data) {
       if (data.hasOwnProperty(prop)) {
@@ -35,7 +32,7 @@ class SerieModel {
       }
     }
   }
-
+  
   get defaultImage() {
     if ((this.images) && (this.images.length > 0)) {
       return this.images[0].url;
@@ -45,11 +42,7 @@ class SerieModel {
       return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=1980&h=800";
     }
   }
-
-  get slug_url() {
-    return `/series/${this.slug}`;
-  }
+  
 }
 
-export { SerieModel }
-
+export { SeasonModel }

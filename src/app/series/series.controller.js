@@ -6,7 +6,6 @@ export class SeriesController {
     this.api = apiService;
     this.$log = $log;
     this.series = series;
-    $log.debug(series);
   }
 
 }

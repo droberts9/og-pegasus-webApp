@@ -1,6 +1,7 @@
 import { AssetModel }     from '../../models/asset'
 import { CategoryModel }  from '../../models/category'
 import { SerieModel }     from '../../models/serie'
+import { SeasonModel }     from '../../models/season'
 
 class ApiService {
 
@@ -43,15 +44,19 @@ class ApiService {
 
   getSeries() {
     return this.get('/series?device=web').then((resp) => {
-      let data = [];
-      resp.series.forEach(serie => data.push( new SerieModel(serie)) );
-      return data;
+      return SerieModel.loadData(resp.series);
     })
   }
 
   getSerie(slug) {
     return this.get('/series/'+slug+'?device=web').then((data) => {
       return new SerieModel(data.series[0]);
+    });
+  }
+  
+  getSeasons(slug) {
+    return this.get(`/series/${slug}/seasons?device=web`).then((data) => {
+      return SeasonModel.loadData(data.seasons);
     });
   }
 

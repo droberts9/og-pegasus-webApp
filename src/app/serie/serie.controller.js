@@ -1,15 +1,14 @@
 
 class SerieController {
 
-  constructor(apiService, $scope, $log, serie) {
+  constructor(apiService, $scope, $log, serie, seasons) {
     'ngInject'
 
     this.api = apiService;
     this.$scope = $scope;
     this.$log = $log;
-
-    //this.api.getSerie().then( result => this.items = result.series );
     this.serie = serie;
+    this.seasons = seasons;
 
   }
 

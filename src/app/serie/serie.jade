@@ -1,1 +1,12 @@
-h1 {{ vm.serie.title }}
+.serie__header(style="background-image:url({{vm.serie.defaultImage}})")
+    h1 {{ vm.serie.title }}
+    p {{ vm.serie.description }}
+    p Rating: {{ vm.serie.rating }}
+
+.mt-big(ng-repeat="season in ::vm.seasons")
+  h3 {{ season.title }}
+  p {{ season.description }}
+  cms-slider(playlist="season")
+      
+.mt-lg
+  cms-billboard-ad(class="mt-lg pb-lg")

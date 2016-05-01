@@ -112,6 +112,9 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
           resolve: {
             serie: function(apiService, $stateParams) {
               return apiService.getSerie($stateParams.slug);
+            },
+            seasons: function(apiService, $stateParams) {
+              return apiService.getSeasons($stateParams.slug);
             }
           }
         }
