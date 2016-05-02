@@ -19,6 +19,14 @@ class PlayerService {
     this.player.play(embed_code);
   }
 
+  pause() {
+    if (angular.isDefined(this.player)) {
+      this.player.pause();
+    } else {
+      return undefined;
+    }
+  }
+
   currentVideo() {
     if (angular.isDefined(this.player)) {
       return this.player.current;
