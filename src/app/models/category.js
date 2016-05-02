@@ -47,8 +47,13 @@ class CategoryModel {
     }
   }
 
-  defaultImage() {
-    // TODO
+  get defaultImage() {
+    if ((this.images) && (this.images.length > 0)) {
+      return this.images[0].url;
+    } else {
+      // TODO: move this to constants
+      return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=1980&h=800";
+    }
   }
 
 }

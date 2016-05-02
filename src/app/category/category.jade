@@ -3,14 +3,14 @@
   .channel-player
 
     .channel-preview
-      img(ng-src="{{ vm.default_category_image() }}" class="channel-preview__image img-responsive" alt="{{ ::vm.current.name}}")
+      img(ng-src="{{ vm.category.defaultImage }}" class="channel-preview__image img-responsive" alt="{{ ::vm.category.name}}")
 
     .channel-player__caption
       .row
         .col-sm-offset-1.col-sm-5.col-xs-12
           p.channel-player__head Watch latest episode
           .channel-preview
-            img(ng-src="{{ vm.default_image() }}" alt="{{ vm.current.name }}" class="img-responsive channel-preview__image")
+            img(ng-src="{{ vm.current.defaultImage }}" alt="{{ vm.current.name }}" class="img-responsive channel-preview__image")
             p.channel-preview__title {{ ::vm.current.name }}
             p.channel-preview__duration.pa-sm {{ ::vm.current.duration | timerFilter }}
         .col-sm-5

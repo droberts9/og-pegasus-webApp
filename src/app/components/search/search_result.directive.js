@@ -37,6 +37,12 @@ class SearchResultController {
       case 'SeasonModel':
         result = '/serie/??/season/'+model.slug;
         break
+      case 'SerieModel':
+        result = '/serie/'+model.slug;
+        break
+      case 'CategoryModel':
+        result = '/channels/'+model.slug;
+        break
 
     }
 

@@ -45,7 +45,7 @@ class AssetModel {
     }
   }
 
-  defaultImage() {
+  get defaultImage() {
 
     if (this.image) {
       return this.image;

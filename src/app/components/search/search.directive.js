@@ -22,13 +22,16 @@ export function SearchDirective($log) {
 
 class SearchController {
 
-  constructor($log, apiService) {
+  constructor($log, $rootScope, $scope, apiService) {
     'ngInject';
 
     this.$log = $log;
     this.search_text = "";
     this.api = apiService;
     this.search_result = undefined;
+    this.changeEventOff = $rootScope.$on('$stateChangeStart', ()=> { this.closeResults() });
+
+    $scope.$on('$destroy', ()=> { this.changeEventOff() });
   }
 
   hasResults() {
@@ -37,6 +40,7 @@ class SearchController {
   }
 
   submit() {
+
     this.api.search(this.search_text).then((resp) => {
       this.search_result = resp;
       this.search_result_not_found = undefined;

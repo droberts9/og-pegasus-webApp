@@ -108,10 +108,25 @@ class ApiService {
     return this.get('/search?query='+encodeURIComponent(query)).then((resp) => {
       if (resp) {
         this.$log.warn(resp);
-        return {
-          seasons: SeasonModel.loadData(resp.result.seasons),
-          episodes: EpisodeModel.loadData(resp.result.episodes)
-        };
+        var result = {};
+
+        if (resp.result.seasons) {
+          result.seasons = SeasonModel.loadData(resp.result.seasons);
+        }
+
+        if (resp.result.episodes) {
+          result.episodes = EpisodeModel.loadData(resp.result.episodes)
+        }
+
+        if (resp.result.series) {
+          result.series = SerieModel.loadData(resp.result.series);
+        }
+
+        if (resp.result.categories) {
+          result.categories = CategoryModel.loadData(resp.result.categories);
+        }
+
+        return result;
       } else {
         return [];
       }
