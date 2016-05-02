@@ -17,5 +17,7 @@
             cms-search-result(items="::ctrl.search_result.seasons", caption="Seasons")
           .search-results__series.mt-lg(ng-if="ctrl.search_result.episodes")
             cms-search-result(items="::ctrl.search_result.episodes", caption="Episodes")
+          .search-results__series.mt-lg(ng-if="ctrl.search_result.categories")
+            cms-search-result(items="::ctrl.search_result.categories", caption="Categories")
 
 

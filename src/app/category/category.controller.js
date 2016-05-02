@@ -6,8 +6,9 @@ class CategoryController {
     this.api = apiService;
     this.$log = $log;
 
-    if ( category && category.categories[0]) {
-      this.category = category.categories[0];
+    $log.warn(category);
+    if ( category) {
+      this.category = category;
       this.current = this.category.assets[0];
       this.assets = utils.groupOf(this.category.assets, 2);
     } else {
@@ -17,7 +18,7 @@ class CategoryController {
 
   }
 
-  default_category_image() {
+  xdefault_category_image() {
     // TODO: resolve default cannel image
     if (angular.isDefined(this.category.cover) && this.category.cover != "" && this.category.cover != null) {
       return this.category.cover;
@@ -29,7 +30,7 @@ class CategoryController {
     }
   }
 
-  default_image() {
+  xdefault_image() {
     // TODO: resolve default cannel image
     if (this.current.image) {
       return this.current.image;
