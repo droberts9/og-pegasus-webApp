@@ -32,7 +32,7 @@ class SeasonController {
     this.$log = $log;
     this.$state = $state;
     this.utils = utils;
-    this.willFollowLink = this.followLink || 'true';
+    this.willFollowLink = this.followLink === 'true';
   }
 
   nextSlide() {
@@ -63,7 +63,7 @@ class SeasonController {
       this.onplay({item: item});
     }
     else {
-      this.player.play(item);
+      this.player.play(item.embed_code);
     }
 
   }

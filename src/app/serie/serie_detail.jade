@@ -1,8 +1,8 @@
 .row
-  .col-xs-7(style="height:400px")
+  .col-xs-8(style="height:400px")
     cms-player(embed_code="::vm.episode.embed_code" playlist="vm.season_episodes")
-  .col-xs-5
-    p Some Ad {{ ::vm.season_episodes.length }}
+  .col-xs-4
+    p Some Ad
 
 .row
   .serie__detail__header
@@ -17,5 +17,5 @@
     cms-billboard-ad(class="mt-lg pb-lg")
   
   .mt-big
-    h3 {{ season.title }}
-    cms-season(playlist="::vm.season_episodes" onplay="vm.slplay(episode)" followLink="false")
+    h3 Season
+    cms-season(playlist="::vm.season_episodes" followLink="false")
