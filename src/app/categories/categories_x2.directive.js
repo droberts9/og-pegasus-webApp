@@ -38,14 +38,12 @@ class Categoriesx2Controller {
     this.kindTypes = ['big', 'regular'];
     this.$log = $log;
     this.utils = utils;
-    if (angular.isUndefined(this.kind)) {
-      this.kind = 'regular';
-    }
-    this.kind = this.kind.toLowerCase();
+    this.followLink = this.followLink || 'true';
+
+    this.kind = (this.kind || 'regular').toLowerCase();
     if (!_.includes(this.kindTypes, this.kind)) {
       this.$log.error( 'Slider property kind invalid: ['+this.kind+']');
     }
-    this.followLink = (this.followLink == 'true') || (this.followLink == undefined) ? true : false;
 
   }
 

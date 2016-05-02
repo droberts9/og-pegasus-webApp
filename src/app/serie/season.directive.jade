@@ -1,19 +1,8 @@
-.row.carousel
-  .col-xs-12
-    .carousel__arrows.pull-right
-      ul.list-inline
-        li.prev-button &larr;
-        li.next-button &rarr;
-    p.carousel__caption.pb-sm.mb-lg {{ ::ctrl.caption }}
-  .col-xs-12
-    .wrapper
-      slick.carousel(infinite="false" data="ctrl.items" arrows="false" variable-width="true" init-onload="false" )
-        .carousel__group(ng-repeat="group in ctrl.items")
-          .carousel__group-item.mb-md.mr-md(ng-repeat="asset in group" cms-popup template="asset-popup" follow-link="ctrl.followLink")
-            img(class="carousel__image img-responsive" ng-src="{{ ::ctrl.defaultImage(asset) }}" alt="{{ ::asset.name }}")
-            p.carousel__title {{ ::asset.name }}
-            p.carousel__duration.pa-sm {{ ::asset.duration | timerFilter }}
-
-
-
-
+.col-xs-12
+  .wrapper
+    slick.carousel(infinite="false" data="ctrl.playlist" arrows="true" variable-width="true" init-onload="false")
+      .carousel__group(ng-repeat="item in ::ctrl.playlist")
+        .carousel__group-item.mb-md.mr-md(cms-popup template="slider-item-popup")
+          img(class="carousel__image img-responsive" ng-src="{{ ctrl.defaultImage(item) }}" alt="{{ item.title }}")
+          p.carousel__title {{ item.title }}
+          p.carousel__duration.pa-sm {{ item.duration | timerFilter }}

@@ -103,7 +103,7 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       }
     })
     .state('home.serie', {
-      url: '/series/:slug',
+      url: '/series/:season',
       views: {
         "@": {
           templateUrl: 'app/serie/serie.html',
@@ -111,12 +111,20 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
           controllerAs: 'vm',
           resolve: {
             serie: function(apiService, $stateParams) {
-              return apiService.getSerie($stateParams.slug);
+              return apiService.getSerie($stateParams.season);
             },
             seasons: function(apiService, $stateParams) {
-              return apiService.getSeasons($stateParams.slug);
+              return apiService.getSeasons($stateParams.season);
             }
           }
+        }
+      }
+    })
+    .state('home.serie_show', {
+      url: '/series/:season/:show',
+      views: {
+        "@": {
+          template: 'Hola Show'
         }
       }
     })
