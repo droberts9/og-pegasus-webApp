@@ -1,0 +1,19 @@
+.search-box
+  form(ng-submit="ctrl.submit()")
+    input.search-box__input.form-control(type="text" placeholder="Search..." ng-model="ctrl.search_text")
+
+  .search-results.pt-lg(ng-if="ctrl.has_results()")
+    .search-results__wrap
+      .search-results__content
+        p.search-results__not_found.mt-lg(ng-if="ctrl.search_result_not_found") {{ ctrl.search_result_not_found }}
+        .search-results__data(ng-if="ctrl.search_result")
+          .search-results__series.mt-lg(ng-if="ctrl.search_result.assets")
+            cms-search-result(items="::ctrl.search_result.assets", caption="Shows")
+          .search-results__series.mt-lg(ng-if="ctrl.search_result.series")
+            cms-search-result(items="::ctrl.search_result.series", caption="Series")
+          .search-results__series.mt-lg(ng-if="ctrl.search_result.seasons")
+            cms-search-result(items="::ctrl.search_result.seasons", caption="Seasons")
+          .search-results__series.mt-lg(ng-if="ctrl.search_result.episodes")
+            cms-search-result(items="::ctrl.search_result.episodes", caption="Episodes")
+
+

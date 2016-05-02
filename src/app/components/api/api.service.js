@@ -1,7 +1,8 @@
 import { AssetModel }     from '../../models/asset'
 import { CategoryModel }  from '../../models/category'
 import { SerieModel }     from '../../models/serie'
-import { SeasonModel }     from '../../models/season'
+import { SeasonModel }    from '../../models/season'
+import { EpisodeModel }   from '../../models/episode'
 
 class ApiService {
 
@@ -18,10 +19,6 @@ class ApiService {
       .then( (resp) => {
         this.$log.info('api: '+path, resp);
         return resp.data;
-      })
-      .catch( (error) => {
-        this.$log.error(error);
-        return null;
       });
 
   }
@@ -32,7 +29,11 @@ class ApiService {
 
   getCategory(slug) {
     return this.get('/categories/'+slug+'?device=web').then((resp) => {
-      return new CategoryModel(resp.categories[0]);
+      if (resp) {
+        return new CategoryModel(resp.categories[0]);
+      } else {
+        return new CategoryModel();
+      }
     })
   }
 
@@ -44,25 +45,55 @@ class ApiService {
 
   getSeries() {
     return this.get('/series?device=web').then((resp) => {
-      return SerieModel.loadData(resp.series);
+      if (resp) {
+        return SerieModel.loadData(resp.series);
+      } else {
+        return [];
+      }
     })
   }
 
   getSerie(slug) {
     return this.get('/series/'+slug+'?device=web').then((data) => {
-      return new SerieModel(data.series[0]);
+      if (data) {
+        return new SerieModel(data.series[0]);
+      } else {
+        return new SerieModel();
+      }
     });
   }
-  
+
   getSeasons(slug) {
     return this.get(`/series/${slug}/seasons?device=web`).then((data) => {
-      return SeasonModel.loadData(data.seasons);
+      if (data) {
+        return SeasonModel.loadData(data.seasons);
+      } else {
+        return [];
+      }
     });
   }
 
   getSeriesFeatured() {
     return this.get('/series/featured?device=web').then((resp) => {
-      return SerieModel.loadData(resp.series);
+      if (resp) {
+        return SerieModel.loadData(resp.series);
+      } else  {
+        return [];
+      }
+    });
+  }
+
+  search(query) {
+    return this.get('/search?query='+encodeURIComponent(query)).then((resp) => {
+      if (resp) {
+        this.$log.warn(resp);
+        return {
+          seasons: SeasonModel.loadData(resp.result.seasons),
+          episodes: EpisodeModel.loadData(resp.result.episodes)
+        }
+      } else {
+        return [];
+      }
     });
   }
 

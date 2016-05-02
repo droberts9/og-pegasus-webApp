@@ -20,14 +20,14 @@ export function CategoriesDirective() {
 
 class CategoryController {
 
-  constructor($log) {
+  constructor($log, $state) {
     'ngInject';
     this.$log = $log;
+    this.$state = $state;
   }
 
-  defaultImage() {
-    // TODO: resolve default cannel image
-    return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=315&h=175"
+  item_url(item) {
+    return this.$state.href('home.serie', {slug: item.slug})
   }
 
 }

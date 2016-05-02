@@ -1,9 +1,9 @@
 .row.channels
   p.channel__title.pb-sm.mb-lg.ml-md2.mr-md2 {{ ::ctrl.caption }}
-  .col-xs-6.col-sm-4.col-md-3.channel.mb-lg(ng-repeat="cat in ::ctrl.items")
-    a.channel__image(ui-sref="home.serie({slug: cat.slug})")
-      img(class="img-responsive" ng-src="{{ ::ctrl.defaultImage() }}" alt="{{ ::cat.title }}")
-    a.channel__link.mt-sm.mb-sm(ui-sref="home.serie({slug: cat.slug})") {{ ::cat.title }}
+  .col-xs-6.col-sm-4.col-md-3.channel.mb-lg(ng-repeat="item in ::ctrl.items")
+    a.channel__image(ui-sref="home.serie({slug: item.slug})")
+      img(class="img-responsive" ng-src="{{ ::item.defaultImage }}" alt="{{ ::item.title }}")
+    a.channel__link.mt-sm.mb-sm(href="{{ctrl.item_url(item)}}") {{ ::item.title }}
     .channel__description
-      p {{ ::cat.description }}
+      p {{ ::item.description }}
 

@@ -5,7 +5,7 @@
   border-radius: 0;
   margin-bottom: 0;
   border-top: 3px solid $violet;
-  min-height: 70px;
+  min-height: $header-height;
 }
 
 .navbar-brand {
@@ -13,12 +13,12 @@
 }
 
 .footer {
-  height: 50px;
+  height: $footer-height;
   background-color: $header-color;
   color: #fff;
 }
 
 .footer-wrap {
   font: $footer-title;
-  line-height: 50px;
+  line-height: $footer-height;
 }

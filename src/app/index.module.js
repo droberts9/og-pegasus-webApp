@@ -27,6 +27,8 @@ import { AssetDirective }        from '../app/components/asset/asset.directive';
 import { BillboardAdDirective }  from '../app/components/ad/billboardad.directive';
 import { PlayerDirective }       from '../app/components/player/player.directive';
 import { SliderDirective }       from '../app/components/slider/slider.directive';
+import { SearchDirective }       from '../app/components/search/search.directive';
+import { SearchResultDirective } from '../app/components/search/search_result.directive';
 
 import { Popup }                 from '../app/components/popup/popup';
 import { PopupDirective }        from '../app/components/popup/cmsPopup.directive';
@@ -66,4 +68,6 @@ angular.module('appcmsClient', [
   .directive('cmsBillboardAd',        BillboardAdDirective)
   .directive('cmsPlayer',             PlayerDirective)
   .directive('cmsSlider',             SliderDirective)
+  .directive('cmsSearch',             SearchDirective)
+  .directive('cmsSearchResult',       SearchResultDirective)
   ;
