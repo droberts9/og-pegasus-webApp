@@ -13,6 +13,7 @@ import { CategoryController }    from '../app/category/category.controller';
 import { AssetController }       from '../app/asset/asset.controller';
 import { SeriesController }      from '../app/series/series.controller';
 import { SerieController }       from '../app/serie/serie.controller';
+import { SerieDetailController}  from '../app/serie/serie_detail.controller';
 
 import { ApiService }            from '../app/components/api/api.service';
 import { PlayerService }         from '../app/components/player/player.service';
@@ -60,6 +61,7 @@ angular.module('appcmsClient', [
   .controller('AssetController',      AssetController)
   .controller('SeriesController',     SeriesController)
   .controller('SerieController',      SerieController)
+  .controller('SerieDetailController', SerieDetailController)
 
   .directive('cmsCategory',           CategoriesDirective)
   .directive('cmsCategoryX2',         CategoriesX2Directive)

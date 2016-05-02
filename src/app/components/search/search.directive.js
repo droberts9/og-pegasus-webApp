@@ -32,8 +32,8 @@ class SearchController {
   }
 
   has_results() {
-    this.$log.info(this.search_result);
-    return (this.search_result || this.search_result_not_found) ? true : false
+    this.$log.info('search result:', this.search_result);
+    return (this.search_result || this.search_result_not_found) ? true : false;
   }
 
   submit() {

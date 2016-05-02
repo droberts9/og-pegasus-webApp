@@ -1,8 +1,8 @@
-import { AssetModel }     from '../../models/asset'
-import { CategoryModel }  from '../../models/category'
-import { SerieModel }     from '../../models/serie'
-import { SeasonModel }    from '../../models/season'
-import { EpisodeModel }   from '../../models/episode'
+import { AssetModel }     from '../../models/asset';
+import { CategoryModel }  from '../../models/category';
+import { SerieModel }     from '../../models/serie';
+import { SeasonModel }    from '../../models/season';
+import { EpisodeModel }   from '../../models/episode';
 
 class ApiService {
 
@@ -50,11 +50,11 @@ class ApiService {
       } else {
         return [];
       }
-    })
+    });
   }
 
   getSerie(slug) {
-    return this.get('/series/'+slug+'?device=web').then((data) => {
+    return this.get(`/series/${slug}?device=web`).then((data) => {
       if (data) {
         return new SerieModel(data.series[0]);
       } else {
@@ -69,6 +69,27 @@ class ApiService {
         return SeasonModel.loadData(data.seasons);
       } else {
         return [];
+      }
+    });
+  }
+
+  getSeason(serie, season) {
+    return this.get(`/series/${serie}/${season}/episodes`).then((data) =>{
+      if (data.episodes) {
+        return EpisodeModel.loadData(data.episodes);
+      } else {
+        return [];
+      }
+
+    });
+  }
+
+  getEpisode(serie, season, episode) {
+    return this.get(`/series/${serie}/${season}/${episode}`).then((data) =>{
+      if (data.episodes) {
+        return new EpisodeModel(data.episodes[0]);
+      } else {
+        return new EpisodeModel();
       }
     });
   }
@@ -90,7 +111,7 @@ class ApiService {
         return {
           seasons: SeasonModel.loadData(resp.result.seasons),
           episodes: EpisodeModel.loadData(resp.result.episodes)
-        }
+        };
       } else {
         return [];
       }
@@ -100,4 +121,4 @@ class ApiService {
 
 }
 
-export { ApiService }
+export { ApiService };
