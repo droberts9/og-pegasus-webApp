@@ -1,4 +1,4 @@
-import TvtPlayer from './tqplayer'
+import TvtPlayer from './tqplayer';
 
 class PlayerService {
 
@@ -8,11 +8,11 @@ class PlayerService {
     this.$log = $log;
     this.player = undefined;
 
-    $log.info('player service init')
+    $log.info('player service init');
   }
 
   init(el, channel, start, options ) {
-    this.player = new TvtPlayer('playerMain', channel, start, options)
+    this.player = new TvtPlayer('playerMain', channel, start, options);
   }
 
   play(embed_code) {
