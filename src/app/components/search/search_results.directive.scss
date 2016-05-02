@@ -1,0 +1,29 @@
+.search-result-wrap {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.search-result-group {
+  height: 250px;
+  overflow: hidden;
+  color: #fff;
+}
+
+.search-data__link {
+  display: block;
+  color: #fff;
+  font: $asset-title;
+}
+
+.search-data__description {
+  font: $channel-desc;
+  height: 40px;
+  overflow: hidden;
+  color: #ccc;
+}
+
+.search-data__title {
+  font: $font-title;
+  text-transform: uppercase;
+  border-bottom: 3px solid $gray2;
+  color: $blue-color;
+}

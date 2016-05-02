@@ -1,0 +1,21 @@
+.search-results {
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.9);
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.search-results__title,
+.search-results__not_found {
+  font: $search-result-notfound;
+  color: orange;
+  text-align: center;
+}
+
+.search-results__title {
+  text-align: left;
+}
