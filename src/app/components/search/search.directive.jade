@@ -1,8 +1,10 @@
 .search-box
   form(ng-submit="ctrl.submit()")
-    input.search-box__input.form-control(type="text" placeholder="Search..." ng-model="ctrl.search_text")
+    input.search-box__input.form-control(type="text" placeholder="Search..." ng-model="ctrl.search_text" ng-model-options="{ debounce: 250 }")
 
-  .search-results.pt-lg(ng-if="ctrl.has_results()")
+  .search-results.pt-lg(ng-if="ctrl.hasResults()")
+    .search-results__close
+      span.search-results__close-btn(ng-click="ctrl.closeResults()")
     .search-results__wrap
       .search-results__content
         p.search-results__not_found.mt-lg(ng-if="ctrl.search_result_not_found") {{ ctrl.search_result_not_found }}

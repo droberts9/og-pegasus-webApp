@@ -453,10 +453,9 @@ OO.plugin("TQPlayerNextEventsModule", function(OO, _, $, W) {
 var TtvPlayer;
 
 TtvPlayer = (function() {
-  function TtvPlayer(el, channel, start, options) {
+  function TtvPlayer(el, playlist, start, options) {
     var params;
     this.oyala = null;
-    this.channel = channel;
     this.playlist = [];
     this.current = {};
     this.nextEvents = [];
@@ -475,7 +474,8 @@ TtvPlayer = (function() {
     this.options = {
       chromeless: false,
       live_mode: false,
-      barker_mode: false
+      barker_mode: false,
+      behavior: 'vod'
     };
     this.platform = {
       isMobile: /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent),
@@ -504,13 +504,9 @@ TtvPlayer = (function() {
           wmode: 'transparent'
         };
       }
-      if (this.channel === void 0 || this.channel.length === 0) {
-        console.error("channel empty");
-        return;
-      }
       this.oyala = OO.Player.create(this.def_wrapper, '', params);
-      this.playlist = channel.assets;
-      if ((start == null) && this.channel.behavior === 'programmed') {
+      this.playlist = playlist;
+      if ((start == null) && this.options.behavior === 'programmed') {
         console.log("Programmed mode");
         this.setCurrent(this.calcStart());
       } else {
@@ -638,7 +634,7 @@ TtvPlayer = (function() {
 
   TtvPlayer.prototype.showCover = function() {
     var cover;
-    cover = this.channel.cover !== "" ? this.channel.cover : this.current.preview_image_url;
+    cover = this.current.defaultImage;
     if (cover) {
       this.oyala.mb.publish('ttv-show-cover', {
         cover: cover

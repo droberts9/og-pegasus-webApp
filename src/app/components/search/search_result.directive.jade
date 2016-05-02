@@ -1,8 +1,8 @@
 .row.search-result-wrap
   p.search-data__title.pb-sm.mb-lg.ml-md2.mr-md2 {{ ::ctrl.caption }}
   .col-xs-6.col-sm-4.col-md-3.mb-lg.search-result__group(ng-repeat="item in ::ctrl.items")
-    a.search-data__image(href="{{ ctrl.item_url(item) }}")
-      img(class="img-responsive" ng-src="{{ ::item.defaultImage }}" alt="{{ ::item.title }}")
+    a.search-data__image-link(href="{{ ctrl.item_url(item) }}")
+      img(class="img-responsive search-result__image" ng-src="{{ ::item.defaultImage }}" alt="{{ ::item.title }}")
     a.search-data__link.mt-sm.mb-sm(href="{{ctrl.item_url(item)}}") {{ ::item.title }}
     .search-data__description
       p {{ ::item.description }}

@@ -31,7 +31,7 @@ class SearchController {
     this.search_result = undefined;
   }
 
-  has_results() {
+  hasResults() {
     this.$log.info('search result:', this.search_result);
     return (this.search_result || this.search_result_not_found) ? true : false;
   }
@@ -49,6 +49,11 @@ class SearchController {
         this.$log.error(resp);
       }
     })
+  }
+
+  closeResults() {
+    this.search_result = undefined;
+    this.search_result_not_found = undefined;
   }
 
 }

@@ -19,3 +19,16 @@
 .search-results__title {
   text-align: left;
 }
+
+.search-results__close {
+  color: #fff;
+  position: absolute;
+  right: 45px;
+  top: 20px;
+  text-align: right;
+}
+
+span.search-results__close-btn:after {
+  display: inline-block;
+  content: "Close";
+}
