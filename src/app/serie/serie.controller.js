@@ -13,7 +13,7 @@ class SerieController {
   }
 
   slplay(item) {
-    this.$state.go('home.serie_show', {season: item.season_slug, show: item.slug});
+    this.$state.go('home.serie_show', {serie: item.serie_slug, season: item.season_slug, show: item.slug});
   }
 
 }

@@ -1,15 +1,16 @@
 class SeasonModel {
   constructor(data) {
     this.slug = '';
+    this.serie_slug = '';
     this.title = '';
     this.tagline = '';
     this.description = '';
     this.images = [];
     this.episodes = [];
-    
+
     this.initValues(data);
   }
-  
+
   static loadData(data) {
     if (!angular.isArray(data)) {
       /* eslint-disable */
@@ -24,7 +25,7 @@ class SeasonModel {
     }
     return modelArray;
   }
-  
+
   initValues(data) {
     for (var prop in data) {
       if (data.hasOwnProperty(prop)) {
@@ -32,7 +33,7 @@ class SeasonModel {
       }
     }
   }
-  
+
   get defaultImage() {
     if ((this.images) && (this.images.length > 0)) {
       return this.images[0].url;
@@ -42,7 +43,7 @@ class SeasonModel {
       return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=1980&h=800";
     }
   }
-  
+
 }
 
 export { SeasonModel }

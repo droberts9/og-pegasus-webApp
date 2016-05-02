@@ -1,16 +1,18 @@
 class EpisodeModel {
 
   constructor(data) {
-    this.aired = '';
+    this.slug = '';
+    this.season_slug = '';
+    this.serie_slug = '';
+    this.title = '';
     this.description = '';
     this.duration = 0;
     this.embed_code = '';
     this.preview_image_url = '';
     this.rating = 0;
     this.season = '';
-    this.slug = '';
+    this.aired = '';
     this.studio = '';
-    this.title = '';
 
     this.initValues(data);
   }
