@@ -32,7 +32,7 @@ class SeasonController {
     this.$log = $log;
     this.$state = $state;
     this.utils = utils;
-    this.willFollowLink = this.followLink === 'true';
+    //this.willFollowLink = this.followLink === 'true';
   }
 
   nextSlide() {
@@ -59,10 +59,13 @@ class SeasonController {
   }
 
   play(item) {
-    if (this.willFollowLink && angular.isDefined(this.onplay)) {
+    console.log('play');
+    if (angular.isDefined(this.onplay)) {
+      console.log('onplay');
       this.onplay({item: item});
     }
     else {
+      console.log("item", item);
       this.player.play(item.embed_code);
     }
 
