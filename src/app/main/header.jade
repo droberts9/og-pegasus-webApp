@@ -6,14 +6,15 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand(href="/channels")
+      a.navbar-brand(href="/")
         img(src="/assets/images/driven_to_fish.png" alt="Driven to Fish")
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav.main-menu
         li
           a(ui-sref="home.series") Series
-      ul.nav.navbar-nav.navbar-right
         li
-          a(href="#") SignIn
-      .navbar-form.navbar-right
-        cms-search
+          cms-search
+      ul.nav.navbar-nav.navbar-right
+        li.navbar__sponsor
+          img.navbar__sponsor-img(src="/assets/images/yeti.png" alt="Yeti")
+
