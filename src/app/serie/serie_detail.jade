@@ -1,5 +1,5 @@
 .row
-  .col-xs-8
+  .col-xs-8.serie__player-wrap
     cms-player(embed_code="::vm.episode.embed_code" playlist="vm.season_episodes")
   .col-xs-4
     cms-billboard-ad(class="mt-lg pb-lg")
@@ -15,7 +15,7 @@
 .container
   .mt-lg
     cms-billboard-ad(class="mt-lg pb-lg")
-  
+
   .mt-big
     h3 Season
     cms-season(playlist="::vm.season_episodes")
