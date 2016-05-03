@@ -2,16 +2,21 @@ import TvtPlayer from './tqplayer';
 
 class PlayerService {
 
-  constructor($log) {
+  constructor($log, constants) {
     'ngInject';
 
     this.$log = $log;
+    this.constants = constants;
     this.player = undefined;
 
     $log.info('player service init');
   }
 
   init(el, channel, start, options ) {
+    if (angular.isUndefined(options)) {
+      options = {};
+    }
+    options.ooplayer = this.constants.ooplayer;
     this.player = new TvtPlayer('playerMain', channel, start, options);
   }
 

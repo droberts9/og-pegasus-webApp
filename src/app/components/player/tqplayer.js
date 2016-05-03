@@ -503,7 +503,8 @@ TtvPlayer = (function() {
           layout: 'chromeless',
           wmode: 'transparent'
         };
-      }
+      };
+      angular.extend(params, this.options.ooplayer);
       this.oyala = OO.Player.create(this.def_wrapper, '', params);
       this.playlist = playlist;
       if ((start == null) && this.options.behavior === 'programmed') {

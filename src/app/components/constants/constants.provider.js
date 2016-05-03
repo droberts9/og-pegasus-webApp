@@ -4,8 +4,13 @@ class ConstantsProvider {
     'ngInject';
     this.setup = {
       appConfig: {
-        apiUrl: 'http://dev.fish.local.dev:4000/api/v1',
-        apiUrl_prod: 'http://dev.fish.sporkers.com/api/v1'
+        apiUrl_dev: 'http://dev.fish.local.dev:4000/api/v1',
+        apiUrl: 'http://dev.fish.sporkers.com/api/v1'
+      },
+      ooplayer: {
+        pcode: 'RyZ2cyOqrM7SQLfKy4Hys7rcjg9c',
+        playerBrandingId: '24eb009549154660af0de0d4cd338508',
+        skin: {'config': '//player.ooyala.com/static/v4/stable/4.3.3/skin-plugin/skin.json'}
       }
     };
   }
