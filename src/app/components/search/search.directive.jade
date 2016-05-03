@@ -1,6 +1,9 @@
 .search-box
-  form(ng-submit="ctrl.submit()")
-    input.search-box__input.form-control(type="text" placeholder="Search..." ng-model="ctrl.search_text" ng-model-options="{ debounce: 250 }")
+  form.form-group(ng-submit="ctrl.submit()")
+    .input-group
+      input.search-box__input(type="text" placeholder="Search..." ng-model="ctrl.search_text" ng-model-options="{ debounce: 250 }")
+      span.input-group-addon
+        i.fa.fa-search(aria-hidden="true")
 
   .search-results.pt-lg(ng-if="ctrl.hasResults()")
     .search-results__close

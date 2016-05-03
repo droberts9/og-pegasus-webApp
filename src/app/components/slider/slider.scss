@@ -3,6 +3,8 @@
   position: relative;
   display: inline-block;
   width: 100vw;
+  max-height: 640px;
+  vertical-align: top;
 }
 
 .slider__item-link {
@@ -48,10 +50,6 @@
 
 .slider__item-image {
   width: 100%;
-}
-
-.slider .slick-track {
-  top: -30px;
 }
 
 .slider .slick-prev {
