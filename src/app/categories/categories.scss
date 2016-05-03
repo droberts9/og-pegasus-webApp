@@ -1,6 +1,5 @@
 
 .channel {
-  height: 250px;
   overflow: hidden;
 }
 
@@ -16,6 +15,19 @@
   height: 40px;
   overflow: hidden;
 }
+
+.channel__image-link {
+  max-height: 250px;
+  overflow: hidden;
+  display: block;
+}
+
+@media(min-width: 748px) {
+  .channel__image-link {
+    height: 150px;
+  }
+}
+
 
 .channel__title,
 .carousel__caption {

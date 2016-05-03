@@ -1,6 +1,7 @@
 .row.series
-  .col-xs-6.col-sm-4.channel.mb-lg(ng-repeat="serie in ::items")
+  .col-xs-12.col-sm-4.channel.mb-lg(ng-repeat="serie in ::items")
     a.channel__image(ui-sref="home.serie({slug: serie.slug})")
       img(class="img-responsive" ng-src="{{ serie.defaultImage }}" alt="{{ serie.title }}")
     a.channel__link.mt-sm.mb-sm(ui-sref="home.serie({slug: serie.slug})") {{ serie.title }}
-    p {{ serie.description }}
+    .channel__description
+      p {{ serie.description }}

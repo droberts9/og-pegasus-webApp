@@ -1,0 +1,13 @@
+
+.series .channel__image {
+  max-height: 250px;
+  overflow: hidden;
+  display: block;
+}
+
+@media(min-width: 748px) {
+  .series .channel__image {
+    height: 150px;
+  }
+}
+
