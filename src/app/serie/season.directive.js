@@ -59,13 +59,13 @@ class SeasonController {
   }
 
   play(item) {
-    console.log('play');
+    this.$log.log('play');
     if (angular.isDefined(this.onplay)) {
-      console.log('onplay');
+      this.$log.log('onplay');
       this.onplay({item: item});
     }
     else {
-      console.log("item", item);
+      this.$log.log("item", item);
       this.player.play(item.embed_code);
     }
 
