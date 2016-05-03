@@ -8,11 +8,11 @@
   .mt-big(ng-repeat="season in ::vm.seasons")
     h3 {{ season.title }}
     p {{ season.description }}
-    cms-season(playlist="season.episodes" onplay="vm.slplay(item)")
+    cms-season(playlist="season.episodes" onplay="vm.slplay(item)" followlink="true")
     
   .mt-lg
     cms-billboard-ad(class="mt-lg pb-lg")
 
   .mt.big(ng-if="vm.serie.footages.length > 0")
     h3 Clips
-    cms-season(playlist="vm.serie.footages" onplay="vm.slplay(item)")
+    cms-season(playlist="vm.serie.footages" onplay="vm.slplay(item)" followlink="true")

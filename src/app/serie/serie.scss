@@ -8,3 +8,10 @@
     margin: 0;
   }
 }
+
+.slider__simple {
+  .slick-prev:before, .slick-next:before {
+    color: #333;
+    font-size: 25px;
+  }
+}

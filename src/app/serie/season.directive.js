@@ -7,8 +7,8 @@ export function SeasonDirective() {
     replace: true,
     scope: {
       playlist: '=',
-      onplay: '&',
-      followLink: '='
+      followlink: '=',
+      onplay: '&'
     },
     controller: SeasonController,
     controllerAs: 'ctrl',
@@ -25,14 +25,11 @@ export function SeasonDirective() {
 
 class SeasonController {
 
-  constructor($log, $state, utils, playerService) {
+  constructor($log, playerService) {
     'ngInject';
 
     this.player = playerService;
     this.$log = $log;
-    this.$state = $state;
-    this.utils = utils;
-    //this.willFollowLink = this.followLink === 'true';
   }
 
   nextSlide() {
@@ -44,8 +41,6 @@ class SeasonController {
   }
 
   defaultImage(item) {
-    // TODO: resolve default cannel image
-    // this.$log.warn(item);
     if (item.image) {
       return item.image;
 
@@ -59,13 +54,10 @@ class SeasonController {
   }
 
   play(item) {
-    console.log('play');
-    if (angular.isDefined(this.onplay)) {
-      console.log('onplay');
+    if (angular.isDefined(this.followlink)) {
       this.onplay({item: item});
     }
     else {
-      console.log("item", item);
       this.player.play(item.embed_code);
     }
 
