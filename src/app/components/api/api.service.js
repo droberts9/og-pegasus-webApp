@@ -107,7 +107,6 @@ class ApiService {
   search(query) {
     return this.get('/search?query='+encodeURIComponent(query)).then((resp) => {
       if (resp) {
-        this.$log.warn(resp);
         var result = {};
 
         if (resp.result.seasons) {
@@ -127,6 +126,7 @@ class ApiService {
         }
 
         return result;
+
       } else {
         return [];
       }

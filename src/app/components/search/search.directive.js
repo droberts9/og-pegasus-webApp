@@ -1,9 +1,5 @@
-export function SearchDirective($log) {
+export function SearchDirective() {
   'ngInject';
-
-  let linkFn = function(scope, elem, attrs, ctrl) {
-    $log.warn(ctrl);
-  };
 
   let directive = {
     restrict: 'E',
@@ -12,8 +8,7 @@ export function SearchDirective($log) {
     },
     controller: SearchController,
     controllerAs: 'ctrl',
-    bindToController: true,
-    link: linkFn
+    bindToController: true
   };
 
   return directive;
@@ -22,12 +17,13 @@ export function SearchDirective($log) {
 
 class SearchController {
 
-  constructor($log, $rootScope, $scope, apiService) {
+  constructor($log, $rootScope, $scope, apiService, playerService) {
     'ngInject';
 
     this.$log = $log;
     this.search_text = "";
     this.api = apiService;
+    this.playerService = playerService;
     this.search_result = undefined;
     this.changeEventOff = $rootScope.$on('$stateChangeStart', ()=> { this.closeResults() });
 
@@ -35,15 +31,20 @@ class SearchController {
   }
 
   hasResults() {
-    this.$log.info('search result:', this.search_result);
-    return (this.search_result || this.search_result_not_found) ? true : false;
+    let results = (this.search_result || this.search_result_not_found) ? true : false;
+    if (results) {
+      this.playerService.pause();
+    }
+    return results;
   }
 
   submit() {
 
+    this.search_result_not_found = ' ';
+    this.search_result = undefined;
+
     this.api.search(this.search_text).then((resp) => {
       this.search_result = resp;
-      this.search_result_not_found = undefined;
     }).catch((resp) => {
       if ((resp.data.status == 'error') && (resp.status == 404)) {
         this.$log.error('search result', resp);

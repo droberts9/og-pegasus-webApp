@@ -32,13 +32,13 @@ class SearchResultController {
     switch (model.constructor.name) {
       case 'EpisodeModel':
         // TODO: Url to Episodes
-        result = '/serie/??/season/??/espide'+model.slug;
+        result = '/series/'+model.serie_slug+'/'+model.season_slug+'/'+model.slug;
         break;
       case 'SeasonModel':
-        result = '/serie/??/season/'+model.slug;
+        result = '/series/'+model.serie_slug+'/seasons/'+model.slug;
         break
       case 'SerieModel':
-        result = '/serie/'+model.slug;
+        result = '/series/'+model.slug;
         break
       case 'CategoryModel':
         result = '/channels/'+model.slug;
