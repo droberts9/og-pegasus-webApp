@@ -497,6 +497,7 @@ TtvPlayer = (function() {
           wmode: 'transparent'
         }
       };
+      /*
       if (this.options.chromeless) {
         params['layout'] = 'chromeless';
         params['flashParams'] = {
@@ -504,7 +505,9 @@ TtvPlayer = (function() {
           wmode: 'transparent'
         };
       };
+      */
       angular.extend(params, this.options.ooplayer);
+      params.debug = true;
       this.oyala = OO.Player.create(this.def_wrapper, '', params);
       this.playlist = playlist;
       if ((start == null) && this.options.behavior === 'programmed') {
