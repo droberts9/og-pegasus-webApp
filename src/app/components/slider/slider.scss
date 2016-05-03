@@ -46,6 +46,14 @@
 }
 */
 
+.slider__item-image {
+  width: 100%;
+}
+
+.slider .slick-track {
+  top: -30px;
+}
+
 .slider .slick-prev {
   left: 20px;
 }
@@ -58,3 +66,4 @@
 .slider .slick-next:before {
   font-size: 50px;
 }
+

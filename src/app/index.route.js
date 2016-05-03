@@ -28,10 +28,19 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
     .state('home.main', {
       url: '/',
       views: {
-        "": {
-          templateUrl: 'app/main/main.html',
-          controller: 'MainController',
-          controllerAs: 'main'
+        "@": {
+          templateUrl: 'app/categories/categories.html',
+          controller: 'CategoriesController',
+          controllerAs: 'vm',
+          resolve: {
+            series: function(apiService) {
+              return apiService.getSeries();
+            },
+            featured: function(apiService) {
+              'ngInject';
+              return apiService.getSeriesFeatured()
+            }
+          }
         }
       }
     })
