@@ -581,8 +581,9 @@ TtvPlayer = (function() {
       idx = 0;
     }
     this.pause();
-    this.setCurrent(this.playlist[idx].embed_code);
-    this.oyala.setEmbedCode(this.current.embed_code);
+    //this.setCurrent(this.playlist[idx].embed_code);
+    //this.oyala.setEmbedCode(this.current.embed_code);
+    this.play(this.playlist[idx].embed_code);
     if (this.options.barker_mode) {
       this.updateCurrentData();
     }
