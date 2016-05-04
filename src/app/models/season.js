@@ -1,3 +1,6 @@
+
+import { EpisodeModel } from './episode'
+
 class SeasonModel {
   constructor(data) {
     this.slug = '';
@@ -29,7 +32,11 @@ class SeasonModel {
   initValues(data) {
     for (var prop in data) {
       if (data.hasOwnProperty(prop)) {
-        this[prop] = data[prop];
+        if (prop === 'episodes') {
+          this[prop] = EpisodeModel.loadData(data[prop]);
+        } else {
+          this[prop] = data[prop];
+        }
       }
     }
   }

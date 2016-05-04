@@ -140,7 +140,7 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
             episode: function(apiService, $stateParams) {
               return apiService.getEpisode($stateParams.serie, $stateParams.season, $stateParams.show);
             },
-            season_episodes : function(apiService, $stateParams) {
+            season: function(apiService, $stateParams) {
               return apiService.getSeason($stateParams.serie, $stateParams.season);
             }
           }

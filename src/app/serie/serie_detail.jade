@@ -1,6 +1,6 @@
 .row
   .col-xs-8.serie__player-wrap
-    cms-player(embed_code="::vm.episode.embed_code" playlist="vm.season_episodes")
+    cms-player(embed_code="::vm.episode.embed_code" playlist="vm.season.episodes")
   .col-xs-4
     cms-billboard-ad(class="mt-lg pb-lg")
 
@@ -8,9 +8,10 @@
   .serie__detail__header
     h1 {{ vm.episode.title }}
     p {{ vm.episode.description }}
-    p {{ vm.season.title }}
+    p Season: {{ vm.season.title }}
+    p Episode: {{ vm.episode.number }}
     p Rating: {{ vm.episode.rating }}
-    p Duration: {{ vm.episode.duration | timerFilter }}
+    // p Duration: {{ vm.episode.duration | timerFilter }}
 
 .container
   .mt-lg
@@ -18,4 +19,4 @@
 
   .mt-big
     h3 Season
-    cms-season(playlist="::vm.season_episodes")
+    cms-season(playlist="::vm.season.episodes")

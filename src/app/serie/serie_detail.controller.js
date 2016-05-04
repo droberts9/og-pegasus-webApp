@@ -1,15 +1,14 @@
 class SerieDetailController {
 
-  constructor($log, $timeout, $document, $state, playerService, episode, season_episodes) {
+  constructor($log, $timeout, $document, $state, playerService, episode, season) {
     'ngInject';
 
-    this.$log = $log;
-    this.$state = $state;
+    this.$log     = $log;
+    this.$state   = $state;
     this.$timeout = $timeout;
-    this.episode = episode;
-    this.season_episodes = season_episodes;
-    this.season = {};
-    this.player = playerService;
+    this.episode  = episode;
+    this.season   = season;
+    this.player   = playerService;
 
     angular.element($document).on('update-video-data', ()=> this.updateCurrentVideo() );
   }

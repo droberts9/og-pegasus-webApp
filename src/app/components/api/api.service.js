@@ -74,6 +74,17 @@ class ApiService {
   }
 
   getSeason(serie, season) {
+    return this.get(`/series/${serie}/${season}`).then((data) =>{
+      if (data.seasons) {
+        return new SeasonModel(data.seasons[0]);
+      } else {
+        return [];
+      }
+
+    });
+  }
+
+  getSeasonEpisodes(serie, season) {
     return this.get(`/series/${serie}/${season}/episodes`).then((data) =>{
       if (data.episodes) {
         return EpisodeModel.loadData(data.episodes);
