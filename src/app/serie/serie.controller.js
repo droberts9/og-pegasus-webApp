@@ -13,7 +13,7 @@ class SerieController {
   }
 
   slplay(item) {
-    this.$log.debug("play:", {serie: item.serie_slug, season: item.season_slug, show: item.slug});
+    this.$log.warn("SerieController#slplay:", {serie: item.serie_slug, season: item.season_slug, show: item.slug});
     this.$state.go('home.serie_show', {serie: item.serie_slug, season: item.season_slug, show: item.slug});
   }
 

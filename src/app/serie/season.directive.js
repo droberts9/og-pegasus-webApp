@@ -25,11 +25,12 @@ export function SeasonDirective() {
 
 class SeasonController {
 
-  constructor($log, playerService) {
+  constructor($log, $state, playerService) {
     'ngInject';
 
     this.player = playerService;
     this.$log = $log;
+    this.$state = $state;
   }
 
   nextSlide() {
@@ -58,6 +59,12 @@ class SeasonController {
       this.onplay({item: item});
     }
     else {
+      // update url on browser without reload page
+      this.$state.go(
+          'home.serie_show',
+          {serie: item.serie_slug, season: item.season_slug, show: item.slug},
+          {location: true, inherit: true, relative: this.$state.$current, notify: false}
+          );
       this.player.play(item.embed_code);
     }
 
