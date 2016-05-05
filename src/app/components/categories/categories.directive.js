@@ -2,7 +2,7 @@ export function CategoriesDirective() {
   'ngInject'
 
   let directive = {
-    templateUrl: 'app/categories/categories.directive.html',
+    templateUrl: 'app/components/categories/categories.directive.html',
     restrict: 'E',
     replace: true,
     scope: {
