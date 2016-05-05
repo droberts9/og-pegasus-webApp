@@ -147,6 +147,21 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('home.pages', {
+      url: '/page/:slug',
+      views: {
+        "@": {
+          templateUrl: 'app/pages/page.html',
+          controller: 'PageController',
+          controllerAs: 'vm',
+          resolve: {
+            page: function(apiService, $stateParams) {
+              return apiService.getPage($stateParams.slug);
+            }
+          }
+        }
+      }
+    })
   ;
 
   $urlRouterProvider.otherwise('/');

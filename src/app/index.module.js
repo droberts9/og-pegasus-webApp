@@ -14,6 +14,7 @@ import { AssetController }       from '../app/asset/asset.controller';
 import { SeriesController }      from '../app/series/series.controller';
 import { SerieController }       from '../app/serie/serie.controller';
 import { SerieDetailController}  from '../app/serie/serie_detail.controller';
+import { PageController}         from '../app/pages/page.controller';
 
 import { ApiService }            from '../app/components/api/api.service';
 import { PlayerService }         from '../app/components/player/player.service';
@@ -21,8 +22,8 @@ import { PlayerService }         from '../app/components/player/player.service';
 import { SessionProvider }       from '../app/components/session/session.provider';
 import { ConstantsProvider }     from '../app/components/constants/constants.provider';
 
-import { CategoriesDirective }   from '../app/categories/categories.directive';
-import { CategoriesX2Directive } from '../app/categories/categories_x2.directive';
+import { CategoriesDirective }   from '../app/components/categories/categories.directive';
+import { CategoriesX2Directive } from '../app/components/categories/categories_x2.directive';
 import { SeriesDirective }       from '../app/series/series.directive';
 import { AssetDirective }        from '../app/components/asset/asset.directive';
 import { BillboardAdDirective }  from '../app/components/ad/billboardad.directive';
@@ -54,14 +55,15 @@ angular.module('appcmsClient', [
   .factory('utils',                   () => new Utils())
   .filter('timerFilter',              TimerFilter)
 
-  .controller('MainController',       MainController)
-  .controller('LoginController',      LoginController)
-  .controller('CategoriesController', CategoriesController)
-  .controller('CategoryController',   CategoryController)
-  .controller('AssetController',      AssetController)
-  .controller('SeriesController',     SeriesController)
-  .controller('SerieController',      SerieController)
-  .controller('SerieDetailController', SerieDetailController)
+  .controller('MainController',         MainController)
+  .controller('LoginController',        LoginController)
+  .controller('CategoriesController',   CategoriesController)
+  .controller('CategoryController',     CategoryController)
+  .controller('AssetController',        AssetController)
+  .controller('SeriesController',       SeriesController)
+  .controller('SerieController',        SerieController)
+  .controller('SerieDetailController',  SerieDetailController)
+  .controller('PageController',         PageController)
 
   .directive('cmsCategory',           CategoriesDirective)
   .directive('cmsCategoryX2',         CategoriesX2Directive)

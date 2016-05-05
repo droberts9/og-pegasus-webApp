@@ -3,6 +3,7 @@ import { CategoryModel }  from '../../models/category';
 import { SerieModel }     from '../../models/serie';
 import { SeasonModel }    from '../../models/season';
 import { EpisodeModel }   from '../../models/episode';
+import { PageModel }      from '../../models/page';
 
 class ApiService {
 
@@ -144,6 +145,15 @@ class ApiService {
     });
   }
 
+  getPage(slug) {
+    return this.get(`/pages/${slug}`).then((resp) => {
+      if (resp.page) {
+        return new PageModel(resp.page);
+      } else {
+        return new PageModel();
+      }
+    });
+  }
 
 }
 

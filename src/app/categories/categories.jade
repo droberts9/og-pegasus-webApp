@@ -2,8 +2,8 @@
   cms-slider(playlist="vm.featured")
 
 .container
-  .mt-big
-    cms-category-x2(items="vm.assets['aqua-lung-scuba-2015'].playList", category="vm.assets['aqua-lung-scuba-2015'].category" caption="Promoted Shows")
+  .mt-big(ng-if="vm.assets['featured'].playList.length > 0")
+    cms-category-x2(items="vm.assets['featured'].playList", category="vm.assets['featured'].category" caption="Promoted Shows")
 
   .mt-lg
     cms-billboard-ad(class="mt-lg pb-lg")

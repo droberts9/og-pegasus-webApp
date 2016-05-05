@@ -19,7 +19,7 @@ class CategoriesController {
       this.series = series;
     }
 
-    this.getCategory('aqua-lung-scuba-2015');
+    this.getCategory('featured');
 
   }
 
@@ -30,16 +30,16 @@ class CategoriesController {
     // Create an empty playlist
     this.assets[categoryName] = {playList: []}
     // Retrieve it
-    this.api.getCategory(categoryName).then( (result) => {
+    this.api.getCategory(categoryName).then( (category) => {
 
-      if (result && result.assets) {
+      if (category && category.assets.length > 0) {
         // If is a big carousel, slice the first on the slide
-        var slides = _.clone(result.assets, true);
+        var slides = _.clone(category.assets, true);
         if (kind == 'big') {
           this.assets[categoryName]['main'] = slides.shift();
         }
         this.assets[categoryName]['playList'] = this.utils.groupOf(slides, 2);
-        this.assets[categoryName]['category'] = result;
+        this.assets[categoryName]['category'] = category;
       }
     });
   }
