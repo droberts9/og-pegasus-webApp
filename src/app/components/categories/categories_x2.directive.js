@@ -1,4 +1,3 @@
-
 import _ from 'lodash';
 
 export function CategoriesX2Directive() {
@@ -9,12 +8,11 @@ export function CategoriesX2Directive() {
     restrict: 'E',
     replace: true,
     scope: {
-      items: '=',
-      category: '=',
-      mainAsset: '=',
+      playlist: '<',
       caption: '@',
       kind: '@',
-      followLink: '@'
+      followLink: '@',
+      onplay: '&'
     },
     controller: Categoriesx2Controller,
     controllerAs: 'ctrl',
@@ -44,7 +42,6 @@ class Categoriesx2Controller {
     if (!_.includes(this.kindTypes, this.kind)) {
       this.$log.error( 'Slider property kind invalid: ['+this.kind+']');
     }
-
   }
 
   nextSlide() {
@@ -55,22 +52,15 @@ class Categoriesx2Controller {
     this.slick.slick('slickPrev');
   }
 
-  defaultImage(item) {
-    // TODO: resolve default cannel image
-    // this.$log.warn(item);
-    if (item.image) {
-      return item.image;
-    } else if (item.preview_image_url) {
-      return item.preview_image_url;
-    } else {
-      // TODO: move this to constants
-      return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=315&h=175";
-    }
+  // Proxy the Play call to the Controller throw the 'onplay' parameter
+  // The controller know how to handle the request
+  play(episode) {
+    this.onplay({
+      options: {
+        followLink: this.followLink,
+        episode: episode
+      }
+    });
   }
-
-  play(options) {
-    this.player.play(options);
-  }
-
 
 }

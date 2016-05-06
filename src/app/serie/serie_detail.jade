@@ -18,9 +18,8 @@
     cms-billboard-ad(class="mt-lg pb-lg")
 
   .mt-big
-    h3 Season
-    cms-season(playlist="::vm.season.episodes")
+    cms-category-x2(playlist="::vm.season_episodes" caption="Season" follow-link="false" onplay="vm.play(options)")
 
   .mt-big
-    h3 Trending
-    cms-season(playlist="::vm.discovery")
+    cms-category-x2(playlist="::vm.discovery" caption="Trending" follow-link="false" onplay="vm.play(options)")
+
