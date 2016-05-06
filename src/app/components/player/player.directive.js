@@ -6,15 +6,15 @@ export function PlayerDirective($log, playerService) {
     restrict: 'E',
     replace: true,
     scope: {
-      embed_code: '@',
-      playlist: '='
+      episode: '<',
+      playlist: '<'
     },
     controller: PlayerController,
     controllerAs: 'ctrl',
     bindToController: true,
-    link: function(scope) {
-      playerService.init('playerMain', scope.ctrl.playlist, scope.ctrl.embed_code);
-      playerService.play(scope.ctrl.embed_code);
+    link: function(scope, elem, attr, ctrl) {
+      playerService.init('playerMain');
+      playerService.play(ctrl.episode);
     }
   }
 

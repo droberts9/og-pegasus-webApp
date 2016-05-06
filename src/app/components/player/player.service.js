@@ -12,12 +12,12 @@ class PlayerService {
     $log.info('player service init');
   }
 
-  init(el, channel, start, options ) {
+  init(el, options ) {
     if (angular.isUndefined(options)) {
       options = {};
     }
     options.ooplayer = this.constants.ooplayer;
-    this.player = new TvtPlayer('playerMain', channel, start, options);
+    this.player = new TvtPlayer('playerMain', options);
   }
 
   play(embed_code) {
@@ -37,6 +37,12 @@ class PlayerService {
       return this.player.current;
     } else {
       return undefined;
+    }
+  }
+  
+  setPlaylist(playlist) {
+    if (angular.isDefined(this.player)) {
+      this.player.setPlaylist(playlist);
     }
   }
 

@@ -453,8 +453,8 @@ OO.plugin("TQPlayerNextEventsModule", function(OO, _, $, W) {
 var TtvPlayer;
 
 TtvPlayer = (function() {
-  function TtvPlayer(el, playlist, start, options) {
-    var params;
+  function TtvPlayer(el, options) {
+    
     this.oyala = null;
     this.playlist = [];
     this.current = {};
@@ -475,7 +475,8 @@ TtvPlayer = (function() {
       chromeless: false,
       live_mode: false,
       barker_mode: false,
-      behavior: 'vod'
+      behavior: 'vod',
+      debug: false
     };
     this.platform = {
       isMobile: /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent),
@@ -488,54 +489,64 @@ TtvPlayer = (function() {
     };
     _.assign(this.options, options);
     if (typeof OO !== "undefined" && OO !== null) {
-      params = {
-        layout: 'default',
-        wmode: 'transparent',
-        onCreate: _.bind(this.onPlayerCreated, this),
-        flashParams: {
-          layout: 'default',
-          wmode: 'transparent'
-        }
-      };
-      /*
-      if (this.options.chromeless) {
-        params['layout'] = 'chromeless';
-        params['flashParams'] = {
-          layout: 'chromeless',
-          wmode: 'transparent'
-        };
-      };
-      */
-      angular.extend(params, this.options.ooplayer);
-      params.debug = true;
-      this.oyala = OO.Player.create(this.def_wrapper, '', params);
-      this.playlist = playlist;
-      if ((start == null) && this.options.behavior === 'programmed') {
-        console.log("Programmed mode");
-        this.setCurrent(this.calcStart());
-      } else {
-        console.log("Traditional mode");
-        if (this.playlist.length > 0) {
-          this.setCurrent(start || this.playlist[0].embed_code);
-        }
-      }
+      this.oyala = OO.Player.create(this.def_wrapper, '', this.buildPlayerParams());
+      
       this.showCover();
     } else {
       console.log("No player present");
     }
     return;
   }
+  
+  TtvPlayer.prototype.buildPlayerParams = function() {
+    var params = {
+      layout: 'default',
+      wmode: 'transparent',
+      onCreate: _.bind(this.onPlayerCreated, this),
+      flashParams: {
+        layout: 'default',
+        wmode: 'transparent'
+      },
+      debug: this.options.debug
+    };
 
-  TtvPlayer.prototype.setPlaylist = function(pl) {
-    this.playlist = pl;
+    if (this.options.chromeless) {
+      params.layout = 'chromeless';
+      params.flashParams.layout = 'chromeless';
+    };
+    
+    angular.extend(params, this.options.ooplayer);
+    return params;
+  }
+
+  TtvPlayer.prototype.setPlaylist = function(playlist, start) {
+   this.playlist = playlist;
+    if ((start == null) && this.options.behavior === 'programmed') {
+      console.log("Programmed mode");
+      this.setCurrent(this.calcStart());
+    } else {
+      console.log("Traditional mode");
+      if (this.playlist.length > 0) {
+        this.setCurrent(start || this.playlist[0].embed_code);
+      }
+    }
   };
+  
+  TtvPlayer.prototype.hasPlaylist = function() {
+    return (this.playlist.length > 0) ? true : false;
+  }
 
   TtvPlayer.prototype.setCurrent = function(item) {
-    this.current = this.findInPlaylist(item);
-    this.curr_idx = this.findIndex(this.current.embed_code);
-    this.current.plIndex = this.curr_idx;
-    if (this.options.barker_mode) {
-      this.updateCurrentData();
+    if (this.hasPlaylist()) {
+      this.current = this.findInPlaylist(item);
+      console.warn('find next', this.current);
+      this.curr_idx = this.findIndex(this.current);
+      this.current.plIndex = this.curr_idx;
+      if (this.options.barker_mode) {
+        this.updateCurrentData();
+      }
+    } else {
+      this.current = item;
     }
     console.warn('send update-video-data');
     angular.element('body').trigger('update-video-data');
@@ -563,27 +574,27 @@ TtvPlayer = (function() {
   };
 
   TtvPlayer.prototype.play = function(item) {
-    var code;
     if (item) {
       this.setCurrent(item);
     }
-    code = this.current.embed_code;
-    if (code) {
-      this.oyala.setEmbedCode(code);
+    if ((this.current) && (this.current.embed_code)) {
+      this.oyala.setEmbedCode(this.current.embed_code);
       this.oyala.play();
     }
   };
 
   TtvPlayer.prototype.playNext = function() {
-    var idx;
-    idx = this.curr_idx + 1;
+    if (!this.hasPlaylist()) {
+      return;
+    }
+    var idx = this.curr_idx + 1;
     if (idx > (this.playlist.length - 1)) {
       idx = 0;
     }
     this.pause();
-    //this.setCurrent(this.playlist[idx].embed_code);
+    //this.setCurrent(this.playlist[idx]);
     //this.oyala.setEmbedCode(this.current.embed_code);
-    this.play(this.playlist[idx].embed_code);
+    this.play(this.playlist[idx]);
     if (this.options.barker_mode) {
       this.updateCurrentData();
     }
@@ -591,13 +602,15 @@ TtvPlayer = (function() {
   };
 
   TtvPlayer.prototype.playPrevious = function() {
-    var idx;
-    idx = this.curr_idx - 1;
+    if (!this.hasPlaylist()) {
+      return;
+    }
+    var idx = this.curr_idx - 1;
     if (idx < 0) {
       idx = this.playlist.length - 1;
     }
     this.pause();
-    this.setCurrent(this.playlist[idx].embed_code);
+    this.setCurrent(this.playlist[idx]);
     this.oyala.setEmbedCode(this.current.embed_code);
     if (this.options.barker_mode) {
       this.updateCurrentData();
@@ -605,15 +618,15 @@ TtvPlayer = (function() {
     this.showCover();
   };
 
-  TtvPlayer.prototype.findInPlaylist = function(id) {
+  TtvPlayer.prototype.findInPlaylist = function(item) {
     return _.find(this.playlist, {
-      embed_code: id
+      embed_code: item.embed_code
     });
   };
 
-  TtvPlayer.prototype.findIndex = function(id) {
+  TtvPlayer.prototype.findIndex = function(item) {
     return _.findIndex(this.playlist, {
-      embed_code: id
+      embed_code: item.embed_code
     });
   };
 
@@ -634,7 +647,7 @@ TtvPlayer = (function() {
       }
       x++;
     }
-    return this.playlist[playElement].embed_code;
+    return this.playlist[playElement];
   };
 
   TtvPlayer.prototype.showCover = function() {
@@ -674,7 +687,7 @@ TtvPlayer = (function() {
         this.elWrapper.append(this.volume_btn);
       }
       this.elWrapper.append(OOYALA_INJECTIONS.html.signup);
-      if (!this.options.live_mode) {
+      if ((!this.options.live_mode) && (this.hasPlaylist())) {
         this.elWrapper.append(OOYALA_INJECTIONS.html.sliders);
       }
       if (this._is_user_signedin()) {
