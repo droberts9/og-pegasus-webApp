@@ -20,12 +20,13 @@
 
 .footer-wrap {
   font: $footer-title;
-  line-height: $footer-height;
+  line-height: 48px;
 }
 
 .footer__links {
   display: inline-block;
   font-size: 14px;
+  margin-bottom: 0;
 }
 .footer__link:visited,
 .footer__link {

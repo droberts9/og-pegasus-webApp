@@ -155,6 +155,16 @@ class ApiService {
     });
   }
 
+  getDiscoveryTrending() {
+    return this.get('/discovery/trending').then((resp) => {
+      if (resp) {
+        return new AssetModel.loadData(resp);
+      } else {
+        return [];
+      }
+    });
+  }
+
 }
 
 export { ApiService };

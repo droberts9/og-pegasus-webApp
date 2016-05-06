@@ -1,8 +1,9 @@
-.col-xs-12
-  .wrapper.slider__simple
-    slick.carousel(infinite="false" data="ctrl.playlist" arrows="true" variable-width="true" init-onload="false")
-      .carousel__group(ng-repeat="item in ::ctrl.playlist")
-        .carousel__group-item.mb-md.mr-md(cms-popup template="slider-item-popup")
-          img(class="carousel__image img-responsive" ng-src="{{ ctrl.defaultImage(item) }}" alt="{{ item.title }}")
-          p.carousel__title {{ item.title }}
-          p.carousel__duration.pa-sm {{ item.duration | timerFilter }}
+.row
+  .col-xs-12
+    .wrapper.slider__simple
+      slick.carousel(infinite="false" data="ctrl.playlist" arrows="true" variable-width="true" init-onload="false")
+        .carousel__group(ng-repeat="item in ::ctrl.playlist")
+          .carousel__group-item.mb-md.mr-md(cms-popup template="slider-item-popup")
+            img(class="carousel__image img-responsive" ng-src="{{ ctrl.defaultImage(item) }}" alt="{{ item.title || item.name }}")
+            p.carousel__title {{ item.title || item.name }}
+            p.carousel__duration.pa-sm {{ item.duration | timerFilter }}

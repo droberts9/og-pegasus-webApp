@@ -1,17 +1,24 @@
 
-.billboard {
+.adspot {
   margin: 0 auto;
   width: 100%;
-  max-width: 970px;
-  height: 250px;
-  line-height: 250px;
   background-color: #efefef;
   border: 7px solid #ddd;
   text-align: center;
   overflow: hidden;
 }
+.adspot-billboard {
+  width: 970px;
+  height: 250px;
+  line-height: 250px;
+}
+.adspot-square {
+  width: 320px;
+  height: 250px;
+  line-height: 250px;
+}
 
-.billboard p {
+.adspot p {
   vertical-align: middle;
   display: inline-block;
 }

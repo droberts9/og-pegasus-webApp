@@ -142,6 +142,9 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
             },
             season: function(apiService, $stateParams) {
               return apiService.getSeason($stateParams.serie, $stateParams.season);
+            },
+            discovery: function(apiService) {
+              return apiService.getDiscoveryTrending();
             }
           }
         }

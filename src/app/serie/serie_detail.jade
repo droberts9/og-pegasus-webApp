@@ -1,8 +1,8 @@
 .row
-  .col-xs-8.serie__player-wrap
+  .col-xs-12.col-sm-8.serie__player-wrap
     cms-player(embed_code="::vm.episode.embed_code" playlist="vm.season.episodes")
-  .col-xs-4
-    cms-billboard-ad(class="mt-lg pb-lg")
+  .col-xs-12.col-sm-4
+    cms-billboard-ad(class="mt-lg pb-lg" adsize="square")
 
 .row
   .serie__detail__header
@@ -20,3 +20,7 @@
   .mt-big
     h3 Season
     cms-season(playlist="::vm.season.episodes")
+
+  .mt-big
+    h3 Trending
+    cms-season(playlist="::vm.discovery")

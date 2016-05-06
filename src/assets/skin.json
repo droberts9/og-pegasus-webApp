@@ -2,7 +2,7 @@
   "general": {
     "watermark": {
       "imageResource": {
-        "url": "/assets/images/sftv.png",
+        "url": "/assets/images/slttv.png",
         "androidResource" : "logo",
         "iosResource" : "logo"
       }
@@ -158,8 +158,8 @@
     "autoHide": true,
     "height": 60,
     "watermark": {
-      "imageResource": {"url": "/assets/images/sftv.png","androidResource" : "logo","iosResource" : "logo"},
-      "clickUrl": "http://www.sportfishingmag.com",
+      "imageResource": {"url": "/assets/images/slttv.png","androidResource" : "logo","iosResource" : "logo"},
+      "clickUrl": "http://www.saltwater.tv",
       "width": 500,
       "height": 81
     },

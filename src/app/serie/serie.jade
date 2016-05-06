@@ -1,17 +1,18 @@
-.row
-  .serie__header(style="background-image:url({{vm.serie.defaultImage}})")
+.row.serie__wrapper.pb-big
+  .col-xs-12.col-sm-6
       h1 {{ vm.serie.title }}
       p {{ vm.serie.description }}
       p Rating: {{ vm.serie.rating }}
+  .col-xs-12.col-sm-6
+    .serie__header.mt-lg
+      img.img-responsive.serie__header-img(ng-src="{{vm.serie.defaultImage}}")
 
 .container
   .mt-big(ng-repeat="season in ::vm.seasons")
     h3 {{ season.title }}
     p {{ season.description }}
     cms-season(playlist="season.episodes" onplay="vm.slplay(item)" followlink="true")
-    
-  .mt-lg
-    cms-billboard-ad(class="mt-lg pb-lg")
+    cms-billboard-ad(class="mt-big")
 
   .mt.big(ng-if="vm.serie.footages.length > 0")
     h3 Clips
