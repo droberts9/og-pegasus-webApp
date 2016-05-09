@@ -2,7 +2,7 @@
   .col-xs-12.col-sm-8.serie__player-wrap
     cms-player(episode="::vm.episode" playlist="::vm.season.episodes")
   .col-xs-12.col-sm-4
-    cms-billboard-ad(class="mt-lg pb-lg" adsize="square")
+    cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-300x250-0" )
 
 .row
   .serie__detail__header
@@ -14,8 +14,8 @@
     // p Duration: {{ vm.episode.duration | timerFilter }}
 
 .container
-  .mt-lg
-    cms-billboard-ad(class="mt-lg pb-lg")
+  .mt-lg.ar-desktop
+    cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-970x250-0" )
 
   .mt-big
     cms-category-x2(playlist="::vm.season_episodes" caption="Season" follow-link="false" onplay="vm.play(options)")

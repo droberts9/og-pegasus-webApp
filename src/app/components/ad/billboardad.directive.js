@@ -5,7 +5,7 @@ export function BillboardAdDirective() {
     templateUrl: 'app/components/ad/billboardad.directive.html',
     restrict: 'E',
     scope: {
-      adsize: '@'
+      adspot: '@'
     },
     replace: true,
     controller: BillboardAdController,
@@ -22,15 +22,5 @@ class BillboardAdController {
     'ngInject';
 
     this.$log = $log;
-
-    if (angular.isUndefined(this.adsize)) {
-      this.spotSize = 'billboard';
-    } else {
-      this.spotSize = this.adsize;
-    }
-
-    this.spotSize = `adspot-${this.spotSize}`;
   }
-
-
 }

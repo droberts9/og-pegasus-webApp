@@ -1,15 +1,18 @@
 .row.serie__wrapper.pb-big
-  .col-xs-12.col-sm-6
-      h1 {{ vm.serie.title }}
+  .col-xs-12.col-sm-4
+      h1 {{ vm.serie.name }}
       p {{ vm.serie.description }}
       p Rating: {{ vm.serie.rating }}
-  .col-xs-12.col-sm-6
+  .col-xs-12.col-sm-8
     .serie__header.mt-lg
       img.img-responsive.serie__header-img(ng-src="{{vm.serie.defaultImage}}")
 
 .container
+  .mt-lg.ar-desktop
+    cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-970x250-0" )
+
   .mt-big(ng-repeat="season in ::vm.seasons")
-    h3 {{ season.title }}
+    h3 {{ season.name }}
     p {{ season.description }}
     cms-season(playlist="season.episodes" onplay="vm.slplay(item)" followlink="true")
     cms-billboard-ad(class="mt-big")

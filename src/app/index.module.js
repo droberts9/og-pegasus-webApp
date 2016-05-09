@@ -36,15 +36,22 @@ import { SearchResultDirective } from '../app/components/search/search_result.di
 import { Popup }                 from '../app/components/popup/popup';
 import { PopupDirective }        from '../app/components/popup/cmsPopup.directive';
 import { Slick }                 from '../app/components/angular-slick/angular-slick';
+import { AngularResponsive }     from '../app/components/angular-responsive/responsive-directive';
+import { ResponsiveDirectiveProvider,
+         arMobileDirective,
+         arTabletDirective,
+         arDesktopDirective,
+         arResponsiveDirective }  from '../app/components/angular-responsive/responsive';
 
 
 angular.module('appcmsClient', [
 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages',
 'ngAria', 'ui.router', 'ui.bootstrap', 'ng-token-auth',
-'angularEffDrop', 'slick'
+'angularEffDrop', 'slick', 'ngDfp', 'angular-responsive'
 ])
   .provider('session',                SessionProvider)
   .provider('constants',              ConstantsProvider)
+  .provider('responsiveHelper',       ResponsiveDirectiveProvider)
 
   .config(config)
   .config(routerConfig)
@@ -64,6 +71,11 @@ angular.module('appcmsClient', [
   .controller('SerieController',        SerieController)
   .controller('SerieDetailController',  SerieDetailController)
   .controller('PageController',         PageController)
+
+  .directive('arMobile',                arMobileDirective)
+  .directive('arTablet',                arTabletDirective)
+  .directive('arDesktop',               arDesktopDirective)
+  .directive('arResponsive',            arResponsiveDirective)
 
   .directive('cmsCategory',           CategoriesDirective)
   .directive('cmsCategoryX2',         CategoriesX2Directive)
