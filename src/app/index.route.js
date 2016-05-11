@@ -39,6 +39,9 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
             },
             trending: function(apiService) {
               return apiService.getDiscoveryTrending();
+            },
+            recent: function(apiService) {
+              return apiService.getRecentEpisodes();
             }
             
           }

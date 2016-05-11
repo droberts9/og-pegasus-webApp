@@ -1,6 +1,6 @@
 class CategoriesController {
 
-  constructor(apiService, $scope, $log, $state, utils, featured, trending) {
+  constructor(apiService, $scope, $log, $state, utils, featured, trending, recent) {
     'ngInject';
     this.api = apiService;
     this.$log = $log;
@@ -9,6 +9,7 @@ class CategoriesController {
     this.utils = utils;
     this.featured = [];
     this.trending = [];
+    this.recent = [];
 
     if (featured) {
       this.featured = featured;
@@ -17,6 +18,11 @@ class CategoriesController {
     if (trending) {
       this.trending = this.utils.groupOf(trending, 2);
     }
+    
+    if (recent) {
+      this.recent = this.utils.groupOf(recent, 2);
+    }
+
 
     this.getCategory('featured');
 

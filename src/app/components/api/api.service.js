@@ -164,6 +164,18 @@ class ApiService {
       }
     });
   }
+  
+  getRecentEpisodes() {
+    return this.get('/series/recent_episodes').then((resp) => {
+      if (resp) {
+        return new EpisodeModel.loadData(resp.series);
+      } else {
+        return [];
+      }
+    })
+  }
+  
+  
 
 }
 
