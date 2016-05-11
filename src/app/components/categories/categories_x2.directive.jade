@@ -1,13 +1,13 @@
 .row.carousel
   .col-xs-12
-    .carousel__arrows.pull-right
-      ul.list-inline
-        li.prev-button &larr;
-        li.next-button &rarr;
+    //.carousel__arrows.pull-right
+      //ul.list-inline
+        //li.prev-button &larr;
+        //li.next-button &rarr;
     p.carousel__caption.pb-sm.mb-lg {{ ::ctrl.caption }}
   .col-xs-12
-    .wrapper
-      slick.carousel(infinite="false" data="ctrl.playlist" arrows="false" variable-width="true" init-onload="false" )
+    .wrapper.slider__simple
+      slick.carousel(infinite="false" data="ctrl.playlist" arrows="true" variable-width="true" init-onload="false" )
         .carousel__group.carousel__group--big(ng-if="ctrl.mainAsset" cms-popup template="asset-popup")
           .carousel__group-item.mb-md.mr-md
             img(class="carousel__image img-responsive" ng-src="{{ ::ctrl.defaultImage(ctrl.mainAsset) }}" alt="{{ ::ctrl.mainAsset.name }}")
@@ -18,6 +18,8 @@
             img(class="carousel__image img-responsive" ng-src="{{ item.defaultImage }}" alt="{{ ::item.name }}")
             p.carousel__title {{ ::item.name }}
             p.carousel__duration.pa-sm {{ ::item.duration | timerFilter }}
+      button.slick-prev.slick-disabled(type='button', data-role='none', aria-label='previous', style='display: block;') Previous
+      button.slick-next.slick-disabled(type='button', data-role='none', aria-label='next', style='display: block;') Next
 
 
 
