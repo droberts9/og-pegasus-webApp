@@ -468,7 +468,6 @@ TtvPlayer = (function() {
     this.def_wrapper = el || 'player-wrapper';
     this.elRoot = $('#' + this.containerId);
     this.elWrapper = this.elRoot.parent('.player-container');
-    this.volume_status = 'off';
     this.current_volume = 0.8;
     this.isPlaying = false;
     this.options = {
@@ -476,7 +475,9 @@ TtvPlayer = (function() {
       live_mode: false,
       barker_mode: false,
       behavior: 'vod',
-      debug: false
+      debug: false,
+      volume_status: 'on',
+      show_volume_icon: true
     };
     this.platform = {
       isMobile: /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent),
@@ -682,9 +683,11 @@ TtvPlayer = (function() {
     var playerWidth, ref;
     playerWidth = this.elRoot.width() - 32;
     if (playerWidth > 480) {
-      this.volume_btn = $(OOYALA_INJECTIONS.html.volume);
-      if (!(this.options.live_mode && ((ref = this.nextEvents.next_events) != null ? ref.length : void 0) === 0)) {
-        this.elWrapper.append(this.volume_btn);
+      if (this.options.show_volume_icon) {
+        this.volume_btn = $(OOYALA_INJECTIONS.html.volume);
+        if (!(this.options.live_mode && ((ref = this.nextEvents.next_events) != null ? ref.length : void 0) === 0)) {
+          this.elWrapper.append(this.volume_btn);
+        }
       }
       this.elWrapper.append(OOYALA_INJECTIONS.html.signup);
       if ((!this.options.live_mode) && (this.hasPlaylist())) {
@@ -711,7 +714,9 @@ TtvPlayer = (function() {
   };
 
   TtvPlayer.prototype._setupHandlers = function() {
-    this.volume_btn.on('click', _.bind(this.toggleVolume, this));
+    if (this.options.show_volume_icon) {
+      this.volume_btn.on('click', _.bind(this.toggleVolume, this));
+    }
     this.elWrapper.on('mousemove', _.bind(this._mouseMoveHandler, this));
     this.elWrapper.on('mouseleave', _.bind(this._mouseLeaveHandler, this));
     this.elWrapper.on('mousedown', _.bind(this.togglePlay, this));
@@ -724,7 +729,7 @@ TtvPlayer = (function() {
       return;
     }
     this.volume_btn.removeClass('oo-volume-off').addClass('oo-volume-on');
-    this.volume_status = 'on';
+    this.options.volume_status = 'on';
   };
 
   TtvPlayer.prototype.volumeUIoff = function() {
@@ -732,14 +737,14 @@ TtvPlayer = (function() {
       return;
     }
     this.volume_btn.removeClass('oo-volume-on').addClass('oo-volume-off');
-    this.volume_status = 'off';
+    this.options.volume_status = 'off';
   };
 
   TtvPlayer.prototype.toggleVolume = function(ev) {
     if (ev.stopPropagation) {
       ev.stopPropagation();
     }
-    if (this.volume_status === 'on') {
+    if (this.options.volume_status === 'on') {
       this.current_volume = this.oyala.getVolume();
       this.oyala.setVolume(0);
     } else {
@@ -748,7 +753,7 @@ TtvPlayer = (function() {
   };
 
   TtvPlayer.prototype.setVolume = function() {
-    if (this.volume_status === 'on') {
+    if (this.options.volume_status === 'on') {
       this.oyala.setVolume(this.current_volume || 0.8);
     } else {
       this.oyala.setVolume(0);
@@ -759,7 +764,7 @@ TtvPlayer = (function() {
     if (volumeLevel < 0.1) {
       this.volumeUIoff();
     } else {
-      if (this.volume_status !== 'on') {
+      if (this.options.volume_status !== 'on') {
         this.volumeUIon();
       }
     }
