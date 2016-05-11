@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 class CategoriesController {
 
   constructor(apiService, $scope, $log, $state, utils, series, featured) {
@@ -42,7 +40,7 @@ class CategoriesController {
       }
     });
   }
-  
+
   play(options) {
     this.$log.warn('play', options);
     this.$state.go(
