@@ -5,16 +5,18 @@
   .ar-desktop
     cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-970x250-0" )
 
-  .mt-big(ng-if="vm.assets['featured'].playList.length > 0")
-    cms-category-x2(playlist="vm.assets['featured'].playList" caption="Promoted Shows" follow-link="true" onplay="vm.play(options)")
+  .mt-big
+    cms-category(items="::vm.featured", caption="Featured Shows")
 
-  .ar-desktop
-    cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-640x480-0" )
-  .ar-mobile
-    cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-300x250-0" )
+  .mt-big(ng-if="vm.trending.length > 0")
+    cms-category-x2(playlist="vm.trending" caption="Top Trending" follow-link="true" onplay="vm.play(options)")
+
+  // 
+    .ar-desktop
+      cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-640x480-0" )
+    .ar-mobile
+      cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-300x250-0" )
 
   .mt-lg
     cms-billboard-ad(class="mt-lg pb-lg")
 
-  .mt-big
-    cms-category(items="::vm.series", caption="Shows")

@@ -14,7 +14,7 @@ class AssetModel {
     this.metadata          = {};
     this.name              = '';
     this.preview_image_url = '';
-    this.rating            = 0;
+    this.rating            = '';
     this.slug              = '';
 
     this.initValues(data);

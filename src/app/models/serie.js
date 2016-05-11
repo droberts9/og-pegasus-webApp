@@ -5,7 +5,7 @@ class SerieModel {
     this.description = '';
     this.slug = '';
     this.studio = '';
-    this.rating = 0;
+    this.rating = '';
     this.images = [];
     this.footages = [];
     this.seasons = [];
