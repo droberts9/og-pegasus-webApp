@@ -1,4 +1,6 @@
-
+.topMargin{
+  margin-top:21%;
+}
 .slider__item {
   position: relative;
   display: inline-block;
@@ -13,8 +15,8 @@
 
 .slider__head {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 5%;
+  left: 5%;
   color: #fff;
   background-color: rgba(0,0,0,0.7);
   padding: 20px;
