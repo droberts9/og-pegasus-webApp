@@ -1,9 +1,9 @@
 .row.carousel
   .col-xs-12
-    //.carousel__arrows.pull-right
-      //ul.list-inline
-        //li.prev-button &larr;
-        //li.next-button &rarr;
+    .carousel__arrows.pull-right
+      ul.list-inline
+        li.prev-button &larr;
+        li.next-button &rarr;
     p.carousel__caption.pb-sm.mb-lg {{ ::ctrl.caption }}
   .col-xs-12
     .wrapper.slider__simple
@@ -18,8 +18,8 @@
             img(class="carousel__image img-responsive" ng-src="{{ item.defaultImage }}" alt="{{ ::item.name }}")
             p.carousel__title {{ ::item.name }}
             p.carousel__duration.pa-sm {{ ::item.duration | timerFilter }}
-      button.slick-prev.slick-disabled(type='button', data-role='none', aria-label='previous', style='display: block;') Previous
-      button.slick-next.slick-disabled(type='button', data-role='none', aria-label='next', style='display: block;') Next
+      //button.slick-prev.slick-disabled(type='button', data-role='none', aria-label='previous', style='display: block;') Previous
+      //button.slick-next(type='button', data-role='none', aria-label='next', style='display: block;') Next
 
 
 

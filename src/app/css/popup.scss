@@ -6,9 +6,9 @@
 }
 
 .popup__description-wrap {
-  height: 140px;
+  max-height: 140px;
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .popup__title {
