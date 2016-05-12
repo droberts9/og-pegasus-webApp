@@ -20,7 +20,12 @@ class ApiService {
       .then( (resp) => {
         this.$log.info('api: '+path, resp);
         return resp.data;
-      });
+        },
+        (resp) => {
+          this.$log.error(resp);
+          return null;
+        }
+      );
 
   }
 

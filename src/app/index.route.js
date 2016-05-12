@@ -42,6 +42,9 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
             },
             recent: function(apiService) {
               return apiService.getRecentEpisodes();
+            },
+            carousel: function(apiService) {
+              return apiService.getCategory('main-carousel');
             }
             
           }

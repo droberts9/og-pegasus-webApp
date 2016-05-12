@@ -1,6 +1,6 @@
 class CategoriesController {
 
-  constructor(apiService, $scope, $log, $state, utils, featured, trending, recent) {
+  constructor(apiService, $scope, $log, $state, utils, featured, trending, recent, carousel) {
     'ngInject';
     this.api = apiService;
     this.$log = $log;
@@ -10,6 +10,7 @@ class CategoriesController {
     this.featured = [];
     this.trending = [];
     this.recent = [];
+    this.carousel = [];
 
     if (featured) {
       this.featured = featured;
@@ -23,8 +24,11 @@ class CategoriesController {
       this.recent = this.utils.groupOf(recent, 2);
     }
 
+    if (carousel) {
+      this.carousel = carousel;
+    }
 
-    this.getCategory('featured');
+    // this.getCategory('featured');
 
   }
 
@@ -48,7 +52,6 @@ class CategoriesController {
   }
 
   play(options) {
-    this.$log.warn('play', options);
     this.$state.go(
       'home.serie_show',
       {serie: options.episode.serie_slug, season: options.episode.season_slug, show: options.episode.slug}

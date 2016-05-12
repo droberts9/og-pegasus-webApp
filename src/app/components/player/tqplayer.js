@@ -219,7 +219,7 @@ OO.plugin("TQPlayerCoverModule", function(OO, _, $, W) {
       this.mb.subscribe(OO.EVENTS.PLAYER_CREATED, "torqueUI", _.bind(this.onPlayerCreate, this));
       this.mb.subscribe(OO.EVENTS.PLAYING, "torqueUI", _.bind(this.hideCover, this));
       this.mb.subscribe('ttv-show-cover', "torqueUI", _.bind(this.activateCover, this));
-      this.mb.subscribe('ttv-hide-cover', "torqueUi", _.bind(this.hideCover, this));
+      this.mb.subscribe('ttv-hide-cover', "torqueUI", _.bind(this.hideCover, this));
       this.coverExists = false;
     },
     onPlayerCreate: function(event, elementId, params) {
@@ -241,7 +241,7 @@ OO.plugin("TQPlayerCoverModule", function(OO, _, $, W) {
       this.coverExists = true;
     },
     _coverClick: function() {
-      this.mb.publish(OO.EVENTS.PLAY);
+      this.mb.publish('ttv-user-play');
     }
   };
   return PlayerCtrls.TQPlayerCoverModule;
@@ -520,17 +520,20 @@ TtvPlayer = (function() {
     return params;
   }
 
-  TtvPlayer.prototype.setPlaylist = function(playlist, start) {
-   this.playlist = playlist;
-    if ((start == null) && this.options.behavior === 'programmed') {
+  TtvPlayer.prototype.setPlaylist = function(playlist, startItem) {
+    this.playlist = playlist;
+    if ((startItem == null) && this.options.behavior === 'programmed') {
       console.log("Programmed mode");
       this.setCurrent(this.calcStart());
     } else {
       console.log("Traditional mode");
       if (this.playlist.length > 0) {
-        this.setCurrent(start || this.playlist[0].embed_code);
+        this.setCurrent(startItem || this.playlist[0]);
       }
     }
+    this.showCover();
+    this.addSliders();
+    this.setupSliderHandler();
   };
   
   TtvPlayer.prototype.hasPlaylist = function() {
@@ -540,7 +543,6 @@ TtvPlayer = (function() {
   TtvPlayer.prototype.setCurrent = function(item) {
     if (this.hasPlaylist()) {
       this.current = this.findInPlaylist(item);
-      console.warn('find next', this.current);
       this.curr_idx = this.findIndex(this.current);
       this.current.plIndex = this.curr_idx;
       if (this.options.barker_mode) {
@@ -560,25 +562,33 @@ TtvPlayer = (function() {
     this.waitUntilRendered();
     player.subscribe("played", 'torqueUI', _.bind(this.playNext, this));
     player.subscribe(OO.EVENTS.PAUSED, 'torqueUI', _.bind(this.onPaused, this));
-    player.subscribe(OO.EVENTS.PLAYING, 'torqueUi', _.bind(this.onPlaying, this));
-    player.subscribe(OO.EVENTS.PLAYBACK_READY, 'torqueUi', _.bind(this.setVolume, this));
-    player.subscribe(OO.EVENTS.CHANGE_VOLUME, 'torqueUi', _.bind(this.onVolumeChange, this));
-    player.subscribe(OO.EVENTS.FULLSCREEN_CHANGED, 'torqueUi', _.bind(this.onScreenChange, this));
-    player.subscribe('ttv-user-login', 'torqueUi', _.bind(this.onUserLogin, this));
-    player.subscribe('ttv-did-hide-cover', 'torqueUi', _.bind(this.onHideCover, this));
-    //player.subscribe('*', 'torqueUi', function(oo, data) {console.warn(oo, data); });
-    player.subscribe(OO.EVENTS.ERROR, 'torqueUi', function(error, data) { console.error('TvtPlayer::ErrorEvent', error, data)});
+    player.subscribe(OO.EVENTS.PLAYING, 'torqueUI', _.bind(this.onPlaying, this));
+    player.subscribe(OO.EVENTS.PLAYBACK_READY, 'torqueUI', _.bind(this.setVolume, this));
+    player.subscribe(OO.EVENTS.CHANGE_VOLUME, 'torqueUI', _.bind(this.onVolumeChange, this));
+    player.subscribe(OO.EVENTS.FULLSCREEN_CHANGED, 'torqueUI', _.bind(this.onScreenChange, this));
+    player.subscribe(OO.EVENTS.WILL_PLAY_ADS, 'torqueUI', _.bind(this.hideCover, this));
+    player.subscribe('ttv-user-play', 'torqueUI', _.bind(this.play, this));
+    player.subscribe('ttv-user-login', 'torqueUI', _.bind(this.onUserLogin, this));
+    player.subscribe('ttv-did-hide-cover', 'torqueUI', _.bind(this.onHideCover, this));
+    //player.subscribe('*', 'torqueUI', function(oo, data) {console.warn(oo, data); });
+    player.subscribe(OO.EVENTS.ERROR, 'torqueUI', function(error, data) { console.error('TvtPlayer::ErrorEvent', error, data)});
   };
 
   TtvPlayer.prototype.destroyPlayer = function() {
     this.oyala.destroy();
   };
 
-  TtvPlayer.prototype.play = function(item) {
-    if (item) {
-      this.setCurrent(item);
-    }
-    if ((this.current) && (this.current.embed_code)) {
+  TtvPlayer.prototype.play = function(item, options) {
+    options = _.assign({checkPlaylist: true}, options);
+    if (options.checkPlaylist) {
+      if ((item) && (item !== 'ttv-user-play')) {
+        this.setCurrent(item);
+      }
+      if ((this.current) && (this.current.embed_code)) {
+        this.oyala.setEmbedCode(this.current.embed_code);
+        this.oyala.play();
+      }
+    } else {
       this.oyala.setEmbedCode(this.current.embed_code);
       this.oyala.play();
     }
@@ -593,9 +603,11 @@ TtvPlayer = (function() {
       idx = 0;
     }
     this.pause();
-    //this.setCurrent(this.playlist[idx]);
-    //this.oyala.setEmbedCode(this.current.embed_code);
-    this.play(this.playlist[idx]);
+    this.setCurrent(this.playlist[idx]);
+    this.oyala.setEmbedCode(this.current.embed_code);
+    if (this.options.autoplay) {
+      this.play(this.playlist[idx]);
+    }
     if (this.options.barker_mode) {
       this.updateCurrentData();
     }
@@ -613,6 +625,9 @@ TtvPlayer = (function() {
     this.pause();
     this.setCurrent(this.playlist[idx]);
     this.oyala.setEmbedCode(this.current.embed_code);
+    if (this.options.autoplay) {
+      this.play(this.playlist[idx]);
+    }
     if (this.options.barker_mode) {
       this.updateCurrentData();
     }
@@ -660,6 +675,10 @@ TtvPlayer = (function() {
       });
     }
   };
+  
+  TtvPlayer.prototype.hideCover = function() {
+    this.oyala.mb.publish('ttv-hide-cover');
+  };
 
   TtvPlayer.prototype.setNextEvents = function(events) {
     this.nextEvents = events;
@@ -690,9 +709,7 @@ TtvPlayer = (function() {
         }
       }
       this.elWrapper.append(OOYALA_INJECTIONS.html.signup);
-      if ((!this.options.live_mode) && (this.hasPlaylist())) {
-        this.elWrapper.append(OOYALA_INJECTIONS.html.sliders);
-      }
+      this.addSliders();
       if (this._is_user_signedin()) {
         this.elWrapper.find('.oo-signup-banner').hide();
       } else {
@@ -712,6 +729,14 @@ TtvPlayer = (function() {
       }
     }
   };
+  
+  TtvPlayer.prototype.addSliders = function() {
+    if ((!this.options.live_mode) && (this.hasPlaylist())) {
+      if (this.elWrapper.find('.oo-slider').length == 0) {
+        this.elWrapper.append(OOYALA_INJECTIONS.html.sliders);
+      }
+    }
+  };
 
   TtvPlayer.prototype._setupHandlers = function() {
     if (this.options.show_volume_icon) {
@@ -720,9 +745,15 @@ TtvPlayer = (function() {
     this.elWrapper.on('mousemove', _.bind(this._mouseMoveHandler, this));
     this.elWrapper.on('mouseleave', _.bind(this._mouseLeaveHandler, this));
     this.elWrapper.on('mousedown', _.bind(this.togglePlay, this));
-    this.elWrapper.find('.oo-slider-left').on('click', _.bind(this.playPrevious, this));
-    this.elWrapper.find('.oo-slider-right').on('click', _.bind(this.playNext, this));
+    this.setupSliderHandler();
   };
+  
+  TtvPlayer.prototype.setupSliderHandler = function() {
+    if (this.hasPlaylist()) {
+      this.elWrapper.find('.oo-slider-left').on('click', _.bind(this.playPrevious, this));
+      this.elWrapper.find('.oo-slider-right').on('click', _.bind(this.playNext, this));
+    }
+  }
 
   TtvPlayer.prototype.volumeUIon = function() {
     if (!this.volume_btn) {

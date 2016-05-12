@@ -1,4 +1,4 @@
-export function PlayerDirective($log, playerService) {
+export function PlayerDirective() {
   'ngInject';
 
   let directive = {
@@ -7,15 +7,12 @@ export function PlayerDirective($log, playerService) {
     replace: true,
     scope: {
       episode: '<',
-      playlist: '<'
+      playlist: '<',
+      options: '@'
     },
     controller: PlayerController,
     controllerAs: 'ctrl',
-    bindToController: true,
-    link: function(scope, elem, attr, ctrl) {
-      playerService.init('playerMain');
-      playerService.play(ctrl.episode);
-    }
+    bindToController: true
   }
 
   return directive;
@@ -23,10 +20,36 @@ export function PlayerDirective($log, playerService) {
 
 class PlayerController {
 
-  constructor($log) {
+  constructor($log, playerService) {
     'ngInject';
 
     this.$log = $log;
+    this.player = playerService;
+    if (this.options) {
+      this.parseOptions();
+    }
+  }
+  
+  parseOptions() {
+    try {
+      this.options = angular.fromJson(this.options);
+    } catch (error) {
+      this.$log.error('Error parsing player options. Must be valid JSON format', error);
+      this.$log.debug(this.options);      
+    }
+  }
+  
+  $postLink() {
+    this.player.init('playerMain', this.options);
+    if (this.playlist) {
+      this.player.setPlaylist(this.playlist, this.episode);
+      this.$log.warn('playerDirective#postlink', this.playlist);
+      if (this.options.autoplay) {
+        this.player.play();
+      }
+    } else {
+      this.player.play(this.playlist, this.episode);
+    }
   }
 
 }
