@@ -36,7 +36,10 @@
   }
 }
 
-
+.carousel {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 .channel__title,
 .carousel__caption {
   font: $font-title;
@@ -46,6 +49,8 @@
 .carousel__group {
   position: relative;
   display: inline-block;
+  width: 245px;
+  height: 480px;
 }
 
 .carousel__group-item {
