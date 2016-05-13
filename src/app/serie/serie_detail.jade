@@ -1,7 +1,7 @@
 .row
   .col-xs-12.col-sm-8.serie__player-wrap
     cms-player(episode="::vm.episode" playlist="::vm.season.episodes" options='{"autoplay": true}')
-  .col-xs-12.col-sm-4
+  .col-xs-12.col-sm-4.ar-desktop
     cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-300x250-2" )
 
 .row
@@ -12,6 +12,8 @@
     p Episode: {{ vm.episode.number }}
     p Rating: {{ vm.episode.rating }}
     // p Duration: {{ vm.episode.duration | timerFilter }}
+.col-xs-12.col-sm-4.ar-mobile
+  cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-300x250-2" )
 
 .container
   .mt-lg.ar-desktop
