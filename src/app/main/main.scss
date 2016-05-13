@@ -58,10 +58,13 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a054b8', endColorstr='#7d4793',GradientType=0 ); /* IE6-9 */
 }
 
-.navbar__sponsor-img {
+ .navbar__sponsor-img {
   margin: 0 auto;
   display: block;
   padding-top: 10px;
+    position: absolute;
+  z-index: +999;
+  right: 62px;
 }
 
 .navbar-select {
