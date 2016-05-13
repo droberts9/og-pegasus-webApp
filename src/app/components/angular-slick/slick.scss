@@ -1,3 +1,4 @@
+@charset "UTF-8";
 
 .slick-slider {
   box-sizing: border-box;
@@ -14,38 +15,28 @@
   max-height:300px;
 }
 
-.slick-slider,
-.slick-list {
-  position: relative;
-  display: block;
-  outline: none;
-}
-
-
 .slick-slider .slick-track, .slick-slider .slick-list {
   -webkit-transform: translate3d(0,0,0);
   -ms-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
+
+.slick-slider, .slick-list {
+  position: relative;
+  display: block;
+  outline: none;
+}
 .slick-list {
   overflow: hidden;
   margin: 0;
   padding: 0;
- 
-}
-.slick-slider, .slick-list {
-  position: relative;
-  display: block;
 }
 .slick-track {
   position: relative;
   left: 0;
   top: 0;
   display: block;
-  
 }
-
-@charset "UTF-8";
 
 // Default Variables
 

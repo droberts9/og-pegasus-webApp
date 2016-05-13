@@ -42,10 +42,11 @@ class SerieDetailController {
             {serie: options.episode.serie_slug, season: options.episode.season_slug, show: options.episode.slug},
             {location: true, inherit: true, relative: this.$state.$current, notify: false}
             );
+            this.player.play(options.episode);
       } else {
         angular.element('body').scrollTop(0);
+        this.player.play(options.episode, {checkPlaylist: false});
       }
-      this.player.play(options.episode);
     }
   }  
 }

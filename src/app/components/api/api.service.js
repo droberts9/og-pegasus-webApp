@@ -20,7 +20,12 @@ class ApiService {
       .then( (resp) => {
         this.$log.info('api: '+path, resp);
         return resp.data;
-      });
+        },
+        (resp) => {
+          this.$log.error(resp);
+          return null;
+        }
+      );
 
   }
 
@@ -164,6 +169,18 @@ class ApiService {
       }
     });
   }
+  
+  getRecentEpisodes() {
+    return this.get('/series/recent_episodes').then((resp) => {
+      if (resp) {
+        return new EpisodeModel.loadData(resp.series);
+      } else {
+        return [];
+      }
+    })
+  }
+  
+  
 
 }
 

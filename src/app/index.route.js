@@ -33,13 +33,20 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
           controller: 'CategoriesController',
           controllerAs: 'vm',
           resolve: {
-            series: function(apiService) {
-              return apiService.getSeries();
-            },
             featured: function(apiService) {
               'ngInject';
               return apiService.getSeriesFeatured()
+            },
+            trending: function(apiService) {
+              return apiService.getDiscoveryTrending();
+            },
+            recent: function(apiService) {
+              return apiService.getRecentEpisodes();
+            },
+            carousel: function(apiService) {
+              return apiService.getCategory('main-carousel');
             }
+            
           }
         }
       }

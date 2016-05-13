@@ -7,7 +7,7 @@
     p.carousel__caption.pb-sm.mb-lg {{ ::ctrl.caption }}
   .col-xs-12
     .wrapper.slider__simple
-      slick.carousel(infinite="false" data="ctrl.playlist" arrows="false" variable-width="true" init-onload="false" )
+      slick.carousel(infinite="true" data="ctrl.playlist" arrows="false" variable-width="true" init-onload="false" responsive="[{breakpoint: 1200, settings: {slidesToShow: 7, slidesToScroll: 1}},{breakpoint: 992, settings: {slidesToShow: 4, slidesToScroll: 1}}, {breakpoint: 768, settings:{slidesToShow: 3, slidesToScroll: 1}}]" )
         .carousel__group.carousel__group--big(ng-if="ctrl.mainAsset" cms-popup template="asset-popup")
           .carousel__group-item.mb-md.mr-md
             img(class="carousel__image img-responsive" ng-src="{{ ::ctrl.defaultImage(ctrl.mainAsset) }}" alt="{{ ::ctrl.mainAsset.name }}")

@@ -12,7 +12,8 @@ var OOYALA_INJECTIONS = {
     "errors": ".oo-tv-errors{width:100%;height:100%;background-color:#6C737C;color:#343435;position:absolute;top:0;left:0;z-index:30}.oo-tv-errors .text{text-align:center;font-family:Oswald,Helvetica,Arial,sans-serif;font-size:26px;margin-bottom:0}.oo-tv-errors .lnk{color:#343435;text-decoration:underline}.oo-tv-errors .wrap{display:table;width:100%;height:100%}.oo-tv-errors .wrap .content{display:table-cell;vertical-align:middle}@media (min-width:320px){.oo-tv-errors .text{font-size:13px}}@media (min-width:480px){.oo-tv-errors .text{font-size:20px}}@media (min-width:768px){.oo-tv-errors .text{font-size:26px}}",
     "events": ".oo-events_content_wrapper{position:relative;z-index:20;width:100%;height:100%}.oo-events_content_wrapper .oo-title_wrapper{padding-top:25px;margin-left:35px}.oo-events_content_wrapper .oo-title_wrapper .oo-title{color:#fff;margin-bottom:0;font-weight:300}.oo-events_content_wrapper .oo-title_wrapper .oo-description{font:18px/1.4 Roboto,Helvetica,sans-serif;font-weight:300;color:#fff;max-width:600px}.oo-events_content_wrapper .oo-title_wrapper .oo-description p{margin-top:10px}.oo-events_content_wrapper .oo-next_events{margin-top:40px;margin-left:85px}.oo-events_content_wrapper .oo-next_events h3{margin:0 0 20px;font-weight:300;color:#fdb304}.oo-events_content_wrapper .oo-next_events .oo-bullets{color:#fff;margin:0 0 5px -10px;transition-property:margin-left;transition-duration:.4s;cursor:pointer;max-width:600px}.oo-events_content_wrapper .oo-next_events .oo-bullets:hover{margin-left:10px}.oo-events_content_wrapper .oo-next_events .oo-bullets:hover .oo-bullet{background-color:#ffcb05;color:#000}.oo-events_content_wrapper .oo-next_events .oo-bullets:hover .oo-detail{color:rgba(255,203,5,.8)}.oo-events_content_wrapper .oo-next_events .oo-bullets .oo-bullet{display:inline-block;background-color:#343435;width:55px;height:55px;border-radius:50px;text-align:center;text-transform:uppercase}.oo-events_content_wrapper .oo-next_events .oo-bullets .oo-bullet .oo-bullet-wrap{padding-top:9px}.oo-events_content_wrapper .oo-next_events .oo-bullets .oo-bullet .oo-bullet-time{display:block;margin:0;padding:0;line-height:1!important}.oo-events_content_wrapper .oo-next_events .oo-bullets .oo-bullet .oo-date{font:12px/1.4 Roboto,Helvetica,sans-serif;font-weight:300}.oo-events_content_wrapper .oo-next_events .oo-bullets .oo-bullet .oo-day{font:400 21px/1.4 Oswald,Helvetica,sans-serif}.oo-events_content_wrapper .oo-next_events .oo-bullets .oo-detail{display:inline-block;height:32px;vertical-align:text-bottom;line-height:1;margin-left:20px;font:18px/1.4 Oswald,Helvetica,sans-serif;font-weight:300;color:rgba(152,150,150,.6);max-width:600px;overflow:hidden}.oo-events_content_wrapper .oo-social-channel{display:inline-block;vertical-align:bottom}.oo-events_content_wrapper .oo-social-channel img{width:30px;height:30px;margin:10px 10px 0 0}.oo-signup-banner{height:83px;background-color:rgba(92,91,91,.6);position:absolute;left:0;right:0;bottom:0;z-index:30}.oo-signup-banner .btn{font-family:Roboto,Helvetica,sans-serif;font-weight:700;font-size:14px;line-height:1.4;-webkit-font-smoothing:antialiased}.oo-signup-banner .oo-text{font:24px/1.4 Roboto,Helvetica,sans-serif;font-weight:300;color:#fff}@media (min-width:320px){.oo-signup-banner{height:50px}.oo-signup-banner .row{margin:0}.oo-signup-banner .oo-text{font-family:Roboto,Helvetica,sans-serif;font-weight:300;font-size:12px;line-height:1.4;-webkit-font-smoothing:antialiased}.oo-signup-banner .oo-text-wrap{text-align:center;margin-top:4px}.oo-signup-banner .oo-signupbtn{margin-top:10px;text-align:center}.oo-signup-banner .oo-signupbtn .signup{font-size:10px;min-width:0;margin-left:-20px}}@media (min-width:480px){.oo-signup-banner{height:60px}.oo-signup-banner .oo-text{font-family:Roboto,Helvetica,sans-serif;font-weight:300;font-size:18px;line-height:1.4;-webkit-font-smoothing:antialiased}.oo-signup-banner .oo-text-wrap{text-align:center;margin-top:3px}.oo-signup-banner .oo-signupbtn{margin-top:12px;text-align:center}.oo-signup-banner .oo-signupbtn .signup{font-size:13px;min-width:0}}@media (min-width:768px){.oo-signup-banner{height:80px}.oo-signup-banner .oo-text{font-family:Roboto,Helvetica,sans-serif;font-weight:300;font-size:20px;line-height:1.4;-webkit-font-smoothing:antialiased}.oo-signup-banner .oo-text-wrap{text-align:center;margin-top:12px}.oo-signup-banner .oo-signupbtn{margin-top:25px}.oo-signup-banner .oo-signupbtn .signup{font-size:14px}}@media (min-width:992px){.oo-signup-banner .oo-text{font-family:Roboto,Helvetica,sans-serif;font-weight:300;font-size:24px;line-height:1.4;-webkit-font-smoothing:antialiased}.oo-signup-banner .oo-text-wrap{text-align:center;margin-top:24px}.oo-signup-banner .oo-signupbtn .signup{font-size:14px;min-width:170px}}",
     "mobile": ".oo-slider-mobil{position:absolute;top:50%;height:70px;width:30px;background-color:#000;z-index:20;margin-top:-35px;opacity:.6;font-size:24px;padding-left:2px;padding-top:21px;color:#fff}.oo-slider-mobil.oo-slider-mobil-left{left:0}.oo-slider-mobil.oo-slider-mobil-right{right:0}.oo-play{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABCCAQAAABJXchjAAAEHElEQVR4Ac2aXWhbZQCGn5wmaNscfwbrss26OsrS1KF1NoKTtoi4Vlgr2G7syhtbvZHdKNgrvWl1eOPqBuJAHBjY6pzgxXArCgplsHY/UeZc1zjJWpNS52/SdFrp61APderWc3JOcnye+/DCV8r3ve8J4BiZ3MFq7mYT91KPCfzMV3zGab4gyzQ5HBIQDljJDuI00MQME0wxy0/MU4FJmBXUEiVCkvOMc5BvvQ9RRTNP0cZvXGSEj5khR4FFljCowiTCI2xhPUE+5S1OUsAOWt6gejWqvBLqUY2wYY16lFBeo+pTUCwnWs4OJXVJQ4qpQjiwQjENKa2kOtyFqNNBFTSkqCjSqIZU0LDqig3RpYzG1CZc2qoxZdTlPESFBjWnQZnCA82/fq3CSYiwDmhWPcJDezSrAwrbDWFqRJOKC4+Na1IjMu2EMHVMKTWKEtiolI7JXC5ESIeUUkyUyKhSOqTQjUIENKDLahYltFmXNajA9UNsVV7dosQ+oby2Xi/EncpoUJTBAWW07r9CBDSsMVWLMlitMQ0r8O8Q7ZpTiyiTLZpT+z9DhJTUblFGdyup0LUhepVRvSij9cqo1wphndEeUWZft/4GEUJtyismymxMObUthTis/TJEmTW0X4etEBGl1SUcuVkvKipc2qm0IgKhnUqpRjjwQU1Lyuo53S5cWKOUdgqEEjoiHLlXFqe0XbjwiBLCwCTKUZxxExabeId32UixHCWKiWJaUJNw5D5dy3faVeTBNGlBMYM1zFzVHSt4geNsJ4RTZsiyxqCR8+RxTwPDfMBmnJFngkaDOFMU8IbHGOEV1mGfAlPEDZrIsohXVNPPRzxNEHsskuU+g/Xk8JZ63mSEtdgjx10GlVzBex5mF/a4QpUB/mMwTyXe8wn92ONmCgYXuQVvSfEMW/gGe9zK10GSrMJgEW8osIc3SGMXg1WcMRinliq84UMepd9BBKiilnGDczQQxj0T7OBxjuOMMFHOBckQueoMbviBfbzK9zgnwmoyBtMkacEZAZb4lfdopb+oCNBCkmmDHBN04IxfsDjNk2zjLMXSzgQ5d9e7511e71YuXe8iSqtTOPIhveTJRfeSIn5f+d/W+39//OT8evz4/wwcV7X/D+I+v6uB15RUyO+SpKCO/2ldhNYpowEfijPfKsTOG5Wpg2UpU19WYPlaucHPWtkq2CcVK9H/yEk7Bbs1NVxQcwkO4oKdqcHSLNnoYvo/PwWLG+JOqNWDIe5EMUOcZZ2G/5gkN4gi3WBNku7H2bR/46xlUH0aVU4JddueqbuVUM7mTO1gsH+AZ4mzYHOwDzHOXsYoeP/pwmq20UyMJjJcYIpZfmQeqOQ2aqhlA2s5w5ec5BBZbBMQjvnzI46N3M891BMG8qT4nFOcLe4jjt8BJ+eOolh61qsAAAAASUVORK5CYII=);position:absolute;top:50%;left:50%;margin-top:-33px;margin-left:-33px;z-index:20;width:66px;height:66px}",
-    "volume": ".oo-volume-button{background-image:url(data:image/png;base64,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);background-repeat:no-repeat;width:52px;height:52px;position:absolute;top:55px;right:15px;z-index:30;cursor:pointer}.oo-volume-button:hover{opacity:1!important}.oo-volume-on{background-position:0 0}.oo-volume-off{background-position:0 -52px}"
+    "volume": ".oo-volume-button{background-image:url(data:image/png;base64,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);background-repeat:no-repeat;width:52px;height:52px;position:absolute;top:55px;right:15px;z-index:30;cursor:pointer}.oo-volume-button:hover{opacity:1!important}.oo-volume-on{background-position:0 0}.oo-volume-off{background-position:0 -52px}",
+    "header": ".oo-title_wrapper{z-index:30;position:absolute}"
   },
   "html": {
     "barker": "<div class='oo-barker-wrapper'>   <h1 class='oo-title'>{{title}}</h1>   <div class='oo-description'>{{description}}</div>    <div class='oo-button-wrap'>     <a href='{{channel_url}}' class='btn btn140'>Go to {{channel_name}}</a>     <div id='oo-social-channel' class='oo-social-channel'></div>   </div> </div> ",
@@ -28,6 +29,7 @@ var OOYALA_INJECTIONS = {
     "wrapper": "<div class='oo-events_content_wrapper'>{{content}}</div> "
   }
 };
+/*
 OO.plugin("TQPlayerCoutdownModule", function(OO, _, $, W) {
   var PlayerCtrls;
   PlayerCtrls = {};
@@ -47,16 +49,16 @@ OO.plugin("TQPlayerCoutdownModule", function(OO, _, $, W) {
       this.mb.subscribe(OO.EVENTS.PLAYER_CREATED, "torqueUI", _.bind(this.onPlayerCreate, this));
       this.mb.subscribe('ttv-show-countdown', "torqueUI", _.bind(this.showTimer, this));
       this.mb.subscribe('ttv-new-countdown', "torqueUI", _.bind(this.newCountdown, this));
-      /*
-      try {
-        injector = angular.element('body > div').injector();
-        this.torqueAPI = injector.get('TorqueAPI');
-      } catch (_error) {
-        e = _error;
-        console.error('cannot instantiate TorqueAPI');
-        console.log(e);
-      }
-      */
+      
+      // try {
+      //   injector = angular.element('body > div').injector();
+      //   this.torqueAPI = injector.get('TorqueAPI');
+      // } catch (_error) {
+      //   e = _error;
+      //   console.error('cannot instantiate TorqueAPI');
+      //   console.log(e);
+      // }
+      
     },
     onPlayerCreate: function(event, elementId, params) {
       console.info('Events Module', event);
@@ -205,6 +207,7 @@ OO.plugin("TQPlayerCoutdownModule", function(OO, _, $, W) {
   };
   return PlayerCtrls.TQPlayerCountdownModule;
 });
+*/
 
 OO.plugin("TQPlayerCoverModule", function(OO, _, $, W) {
   var PlayerCtrls;
@@ -219,7 +222,7 @@ OO.plugin("TQPlayerCoverModule", function(OO, _, $, W) {
       this.mb.subscribe(OO.EVENTS.PLAYER_CREATED, "torqueUI", _.bind(this.onPlayerCreate, this));
       this.mb.subscribe(OO.EVENTS.PLAYING, "torqueUI", _.bind(this.hideCover, this));
       this.mb.subscribe('ttv-show-cover', "torqueUI", _.bind(this.activateCover, this));
-      this.mb.subscribe('ttv-hide-cover', "torqueUi", _.bind(this.hideCover, this));
+      this.mb.subscribe('ttv-hide-cover', "torqueUI", _.bind(this.hideCover, this));
       this.coverExists = false;
     },
     onPlayerCreate: function(event, elementId, params) {
@@ -241,7 +244,7 @@ OO.plugin("TQPlayerCoverModule", function(OO, _, $, W) {
       this.coverExists = true;
     },
     _coverClick: function() {
-      this.mb.publish(OO.EVENTS.PLAY);
+      this.mb.publish('ttv-user-play');
     }
   };
   return PlayerCtrls.TQPlayerCoverModule;
@@ -281,6 +284,7 @@ OO.plugin("TQPlayerErrorsModule", function(OO, _, $, W) {
   return PlayerCtrls.TQPlayerErrorsModule;
 });
 
+/*
 OO.plugin("TQPlayerNextEventsModule", function(OO, _, $, W) {
   var PlayerCtrls;
   PlayerCtrls = {};
@@ -449,7 +453,48 @@ OO.plugin("TQPlayerNextEventsModule", function(OO, _, $, W) {
   };
   return PlayerCtrls.TQPlayerNextEventsModule;
 });
-
+*/
+/*
+OO.plugin("TQPlayerHeaderModule", function(OO, _, $, W) {
+  var PlayerCtrls;
+  PlayerCtrls = {};
+  PlayerCtrls.TQPlayerHeaderModule = function(mb, id) {
+    this.mb = mb;
+    this.id = id;
+    this.player = undefined;
+    return this.init();
+  };  
+  PlayerCtrls.TQPlayerHeaderModule.prototype = {
+    init: function() {
+      console.info('TQPlayerHeaderModule init');
+      this.mb.subscribe(OO.EVENTS.PLAYER_CREATED,   "torqueUI", _.bind(this.onPlayerCreate, this));
+      this.mb.subscribe(OO.EVENTS.PLAYING,          "torqueUI", _.bind(this.hideHeader, this));
+      this.mb.subscribe(OO.EVENTS.WILL_PLAY_ADS,    "torqueUI", _.bind(this.hideHeader, this));
+      this.mb.subscribe('ttv-show-header',          "torqueUI", _.bind(this.showHeader, this));
+      this.mb.subscribe('ttv-show-cover',           "torqueUI", _.bind(this.showHeader, this));
+      this.mb.subscribe('ttv-hide-header',          "torqueUI", _.bind(this.hideHeader, this));
+    },
+    onPlayerCreate: function(event, elementId, params) {
+      this.elementId = elementId;
+      this.elRoot = $('#' + elementId);
+      this.elWrapper = this.elRoot.parent('.player-container');
+      this.player = window.ooyalaPlayers[this.elementId];
+    },
+    showHeader: function() {
+      console.warn(this.player.current);
+      var header = OOYALA_INJECTIONS.html.header
+        .replace('{{title}}', this.player.current.name)
+        .replace('{{description}}', this.player.current.description);
+      this.elWrapper.prepend(header);
+      this.elWrapper.find('.oo-header').show();
+    },
+    hideHeader: function() {
+      this.elWrapper.find('.oo-header').hide();
+    }    
+  };
+  return PlayerCtrls.TQPlayerHeaderModule;
+});
+*/
 var TtvPlayer;
 
 TtvPlayer = (function() {
@@ -520,17 +565,20 @@ TtvPlayer = (function() {
     return params;
   }
 
-  TtvPlayer.prototype.setPlaylist = function(playlist, start) {
-   this.playlist = playlist;
-    if ((start == null) && this.options.behavior === 'programmed') {
+  TtvPlayer.prototype.setPlaylist = function(playlist, startItem) {
+    this.playlist = playlist;
+    if ((startItem == null) && this.options.behavior === 'programmed') {
       console.log("Programmed mode");
       this.setCurrent(this.calcStart());
     } else {
       console.log("Traditional mode");
       if (this.playlist.length > 0) {
-        this.setCurrent(start || this.playlist[0].embed_code);
+        this.setCurrent(startItem || this.playlist[0]);
       }
     }
+    this.showCover();
+    this.addSliders();
+    this.setupSliderHandler();
   };
   
   TtvPlayer.prototype.hasPlaylist = function() {
@@ -540,7 +588,6 @@ TtvPlayer = (function() {
   TtvPlayer.prototype.setCurrent = function(item) {
     if (this.hasPlaylist()) {
       this.current = this.findInPlaylist(item);
-      console.warn('find next', this.current);
       this.curr_idx = this.findIndex(this.current);
       this.current.plIndex = this.curr_idx;
       if (this.options.barker_mode) {
@@ -560,25 +607,33 @@ TtvPlayer = (function() {
     this.waitUntilRendered();
     player.subscribe("played", 'torqueUI', _.bind(this.playNext, this));
     player.subscribe(OO.EVENTS.PAUSED, 'torqueUI', _.bind(this.onPaused, this));
-    player.subscribe(OO.EVENTS.PLAYING, 'torqueUi', _.bind(this.onPlaying, this));
-    player.subscribe(OO.EVENTS.PLAYBACK_READY, 'torqueUi', _.bind(this.setVolume, this));
-    player.subscribe(OO.EVENTS.CHANGE_VOLUME, 'torqueUi', _.bind(this.onVolumeChange, this));
-    player.subscribe(OO.EVENTS.FULLSCREEN_CHANGED, 'torqueUi', _.bind(this.onScreenChange, this));
-    player.subscribe('ttv-user-login', 'torqueUi', _.bind(this.onUserLogin, this));
-    player.subscribe('ttv-did-hide-cover', 'torqueUi', _.bind(this.onHideCover, this));
-    //player.subscribe('*', 'torqueUi', function(oo, data) {console.warn(oo, data); });
-    player.subscribe(OO.EVENTS.ERROR, 'torqueUi', function(error, data) { console.error('TvtPlayer::ErrorEvent', error, data)});
+    player.subscribe(OO.EVENTS.PLAYING, 'torqueUI', _.bind(this.onPlaying, this));
+    player.subscribe(OO.EVENTS.PLAYBACK_READY, 'torqueUI', _.bind(this.setVolume, this));
+    player.subscribe(OO.EVENTS.CHANGE_VOLUME, 'torqueUI', _.bind(this.onVolumeChange, this));
+    player.subscribe(OO.EVENTS.FULLSCREEN_CHANGED, 'torqueUI', _.bind(this.onScreenChange, this));
+    player.subscribe(OO.EVENTS.WILL_PLAY_ADS, 'torqueUI', _.bind(this.hideCover, this));
+    player.subscribe('ttv-user-play', 'torqueUI', _.bind(this.play, this));
+    player.subscribe('ttv-user-login', 'torqueUI', _.bind(this.onUserLogin, this));
+    player.subscribe('ttv-did-hide-cover', 'torqueUI', _.bind(this.onHideCover, this));
+    //player.subscribe('*', 'torqueUI', function(oo, data) {console.warn(oo, data); });
+    player.subscribe(OO.EVENTS.ERROR, 'torqueUI', function(error, data) { console.error('TvtPlayer::ErrorEvent', error, data)});
   };
 
   TtvPlayer.prototype.destroyPlayer = function() {
     this.oyala.destroy();
   };
 
-  TtvPlayer.prototype.play = function(item) {
-    if (item) {
-      this.setCurrent(item);
-    }
-    if ((this.current) && (this.current.embed_code)) {
+  TtvPlayer.prototype.play = function(item, options) {
+    options = _.assign({checkPlaylist: true}, options);
+    if (options.checkPlaylist) {
+      if ((item) && (item !== 'ttv-user-play')) {
+        this.setCurrent(item);
+      }
+      if ((this.current) && (this.current.embed_code)) {
+        this.oyala.setEmbedCode(this.current.embed_code);
+        this.oyala.play();
+      }
+    } else {
       this.oyala.setEmbedCode(this.current.embed_code);
       this.oyala.play();
     }
@@ -593,9 +648,11 @@ TtvPlayer = (function() {
       idx = 0;
     }
     this.pause();
-    //this.setCurrent(this.playlist[idx]);
-    //this.oyala.setEmbedCode(this.current.embed_code);
-    this.play(this.playlist[idx]);
+    this.setCurrent(this.playlist[idx]);
+    this.oyala.setEmbedCode(this.current.embed_code);
+    if (this.options.autoplay) {
+      this.play(this.playlist[idx]);
+    }
     if (this.options.barker_mode) {
       this.updateCurrentData();
     }
@@ -613,6 +670,9 @@ TtvPlayer = (function() {
     this.pause();
     this.setCurrent(this.playlist[idx]);
     this.oyala.setEmbedCode(this.current.embed_code);
+    if (this.options.autoplay) {
+      this.play(this.playlist[idx]);
+    }
     if (this.options.barker_mode) {
       this.updateCurrentData();
     }
@@ -660,6 +720,10 @@ TtvPlayer = (function() {
       });
     }
   };
+  
+  TtvPlayer.prototype.hideCover = function() {
+    this.oyala.mb.publish('ttv-hide-cover');
+  };
 
   TtvPlayer.prototype.setNextEvents = function(events) {
     this.nextEvents = events;
@@ -690,9 +754,7 @@ TtvPlayer = (function() {
         }
       }
       this.elWrapper.append(OOYALA_INJECTIONS.html.signup);
-      if ((!this.options.live_mode) && (this.hasPlaylist())) {
-        this.elWrapper.append(OOYALA_INJECTIONS.html.sliders);
-      }
+      this.addSliders();
       if (this._is_user_signedin()) {
         this.elWrapper.find('.oo-signup-banner').hide();
       } else {
@@ -712,6 +774,14 @@ TtvPlayer = (function() {
       }
     }
   };
+  
+  TtvPlayer.prototype.addSliders = function() {
+    if ((!this.options.live_mode) && (this.hasPlaylist())) {
+      if (this.elWrapper.find('.oo-slider').length == 0) {
+        this.elWrapper.append(OOYALA_INJECTIONS.html.sliders);
+      }
+    }
+  };
 
   TtvPlayer.prototype._setupHandlers = function() {
     if (this.options.show_volume_icon) {
@@ -720,9 +790,15 @@ TtvPlayer = (function() {
     this.elWrapper.on('mousemove', _.bind(this._mouseMoveHandler, this));
     this.elWrapper.on('mouseleave', _.bind(this._mouseLeaveHandler, this));
     this.elWrapper.on('mousedown', _.bind(this.togglePlay, this));
-    this.elWrapper.find('.oo-slider-left').on('click', _.bind(this.playPrevious, this));
-    this.elWrapper.find('.oo-slider-right').on('click', _.bind(this.playNext, this));
+    this.setupSliderHandler();
   };
+  
+  TtvPlayer.prototype.setupSliderHandler = function() {
+    if (this.hasPlaylist()) {
+      this.elWrapper.find('.oo-slider-left').on('click', _.bind(this.playPrevious, this));
+      this.elWrapper.find('.oo-slider-right').on('click', _.bind(this.playNext, this));
+    }
+  }
 
   TtvPlayer.prototype.volumeUIon = function() {
     if (!this.volume_btn) {

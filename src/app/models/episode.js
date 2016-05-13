@@ -9,7 +9,7 @@ class EpisodeModel {
     this.duration = 0;
     this.embed_code = '';
     this.preview_image_url = '';
-    this.rating = 0;
+    this.rating = '';
     this.season = '';
     this.aired = '';
     this.studio = '';
