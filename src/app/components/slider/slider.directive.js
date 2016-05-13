@@ -22,15 +22,21 @@ class SliderController {
     'ngInject';
 
     this.$log = $log;
-    $log.warn(this.playlist);
   }
   
   hasCustomButton(item) {
     if (angular.isDefined(item.metadata.ButtonTitle)) {
-    this.$log.warn("aa", item);
       return true;
     } else {
       return false;
+    }
+  }
+  
+  isRemoteLink(item) {
+    if (item.metadata.NewTab === "true") {
+      return '_blank';
+    } else {
+      return '_self';
     }
   }
 }

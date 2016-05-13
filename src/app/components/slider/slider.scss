@@ -14,10 +14,14 @@
   display: block;
 }
 
-.slider__head {
+.slider__head-wrapper {
   position: absolute;
   top: 5%;
   left: 5%;
+  width: 600px;
+}
+
+.slider__head {
   color: #fff;
   background-color: rgba(0,0,0,0.7);
   padding: 20px;
@@ -29,15 +33,16 @@
 }
 .slider__description {
   font-size: 18px;
-  width: 600px;
 }
 
+/*
 .slider__descr {
   position: absolute;
   top: 40px;
   left: 40px;
   font-size: 32px;
 }
+*/
 
 /*
 .slider .slick-prev,
@@ -68,9 +73,7 @@
   font-size: 50px;
 }
 .slider__button-wrapper {
-  position: absolute;
-  top: 30%;
-  left: 5%;
+
 }
 .slider__button-wrapper .btn-trans {
   color: #fff;
