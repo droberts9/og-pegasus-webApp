@@ -43,7 +43,6 @@ class PlayerController {
     this.player.init('playerMain', this.options);
     if (this.playlist) {
       this.player.setPlaylist(this.playlist, this.episode);
-      this.$log.warn('playerDirective#postlink', this.playlist);
       if (this.options.autoplay) {
         this.player.play();
       }

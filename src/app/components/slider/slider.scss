@@ -1,11 +1,12 @@
-.topMargin{
-  margin-top:21%;
+.slick-slider {
+  max-height: none;
 }
+
 .slider__item {
   position: relative;
   display: inline-block;
   width: 100vw;
-  max-height: 640px;
+  /* max-height: 640px; */
   vertical-align: top;
 }
 
@@ -56,16 +57,24 @@
 
 .slider .slick-prev {
   left: 20px;
-  top:100%;
 }
 .slider .slick-prev:before {
   font-size: 50px;
 }
 .slider .slick-next {
   right: 50px;
-  top:100%;
 }
 .slider .slick-next:before {
   font-size: 50px;
 }
-
+.slider__button-wrapper {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+}
+.slider__button-wrapper .btn-trans {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+  font-size: 22px;
+}
