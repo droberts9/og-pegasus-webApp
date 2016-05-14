@@ -634,7 +634,8 @@ TtvPlayer = (function() {
         this.oyala.play();
       }
     } else {
-      this.oyala.setEmbedCode(this.current.embed_code);
+      this.setCurrent(item);
+      this.oyala.setEmbedCode(item.embed_code);
       this.oyala.play();
     }
   };

@@ -27,6 +27,8 @@ class PlayerController {
     this.player = playerService;
     if (this.options) {
       this.parseOptions();
+    } else {
+      this.options = {};
     }
   }
   
@@ -47,8 +49,14 @@ class PlayerController {
         this.player.play();
       }
     } else {
-      this.player.play(this.playlist, this.episode);
+      this.player.play(this.episode, this.options);
     }
   }
+
+  /*  
+  $onDestroy() {
+    this.player.destroyPlayer();
+  }
+  */
 
 }

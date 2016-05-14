@@ -172,6 +172,25 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('home.trending', {
+      url: '/trending/:slug',
+      views: {
+        "@": {
+          templateUrl: 'app/trending/trending.html',
+          controller: 'TrendingController',
+          controllerAs: 'vm',
+          resolve: {
+            asset: (apiService, $stateParams) => {
+              return apiService.getAsset($stateParams.slug)
+            },
+            discovery: function(apiService) {
+              return apiService.getDiscoveryTrending();
+            }
+          }
+          
+        }
+      }
+    })
   ;
 
   $urlRouterProvider.otherwise('/');
