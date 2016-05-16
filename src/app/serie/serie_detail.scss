@@ -1,6 +1,14 @@
 .serie__player {
   background-color: #000;
 }
+.serie__player > div {
+  float: none;
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;
+}
+
+
 .serie__caption {
   background-color: $blue-color;
 }
@@ -15,3 +23,17 @@
   background-color: #000;
 }
 
+
+@media (min-width: 992px) {
+
+  .serie__player > div:first-child {
+    width: 65%;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .col-sm-7 {
+      width: 57%;
+  }
+}
