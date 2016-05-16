@@ -1,9 +1,15 @@
-.row
+.row.carousel
+  .col-xs-12
+    .carousel__arrows.pull-right
+      ul.list-inline
+        li.prev-button &larr;
+        li.next-button &rarr;
+    p.carousel__caption.pb-sm.mt-big {{ctrl.caption}}
   .col-xs-12
     .wrapper.slider__simple
-      slick.carousel(infinite="false" data="ctrl.playlist" arrows="true" variable-width="true" init-onload="false")
+      slick.carousel(infinite="true" data="ctrl.playlist" arrows="false" variable-width="true" init-onload="false" )
         .carousel__group(ng-repeat="item in ::ctrl.playlist")
-          .carousel__group-item.mb-md.mr-md(cms-popup template="slider-item-popup")
+          .carousel__group-item.mb-md.mr-md( cms-popup template="slider-item-popup")
             img(class="carousel__image img-responsive" ng-src="{{ ctrl.defaultImage(item) }}" alt="{{ item.title || item.name }}")
             p.carousel__title {{ item.title || item.name }}
             p.carousel__duration.pa-sm {{ item.duration | timerFilter }}

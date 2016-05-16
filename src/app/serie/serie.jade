@@ -13,7 +13,7 @@
 
   .mt-big(ng-repeat="season in ::vm.seasons")
     h3 {{ season.name }}
-    p {{ season.description }}
+    //p {{ season.description }}
     cms-season(playlist="season.episodes" onplay="vm.slplay(item)" followlink="true")
     cms-billboard-ad(class="mt-big")
 
