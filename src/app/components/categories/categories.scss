@@ -1,16 +1,9 @@
 .mt-big{
   /*height:330px;
   overflow:hidden;*/
- 
-}
-.channel {
-  overflow: hidden;
- height:305px
+
 }
 
-.channels.mb-lg{
-  height:300px;
-}
 
 .channel__link {
   display: block;
@@ -25,21 +18,26 @@
 }
 
 .channel__image-link {
-  max-height: 250px;
   overflow: hidden;
   display: block;
 }
 
-@media(min-width: 748px) {
+@media(min-width: 768px) {
+  .channel {
+    overflow: hidden;
+    height:305px
+  }
   .channel__image-link {
     height: 150px;
   }
 }
 
+/*
 .carousel {
   margin: 0 !important;
   padding: 0 !important;
 }
+*/
 .channel__title,
 .carousel__caption {
   font: $font-title;
