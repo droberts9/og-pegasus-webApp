@@ -13,12 +13,12 @@ export function config ($provide, $logProvider, $authProvider, $locationProvider
       sessionProvider.registerUser(resp.data.user);
     }
   });
-  
+
   DoubleClickProvider.defineSlot('/6747/saltwatertv', [970, 250], 'div-gpt-ad-970x250-0')
                      .defineSlot('/6747/saltwatertv', [728, 90],  'div-gpt-ad-728x90-0')
                      .defineSlot('/6747/saltwatertv', [300, 250], 'div-gpt-ad-300x250-0')
                      .defineSlot('/6747/saltwatertv', [300, 250], 'div-gpt-ad-300x250-1')
-                     .defineSlot('/6747/saltwatertv', [300, 250], 'div-gpt-ad-300x250-2')
+                     .defineSlot('/6747/saltwatertv', [320, 250], 'div-gpt-ad-320x250-0')
                      .defineSlot('/6747/saltwatertv', [640, 480], 'div-gpt-ad-640x480-0');
 
   // monkey-patches $templateCache to have a keys() method
