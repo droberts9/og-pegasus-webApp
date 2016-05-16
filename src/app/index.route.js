@@ -41,12 +41,12 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
               return apiService.getDiscoveryTrending();
             },
             recent: function(apiService) {
-              return apiService.getRecentEpisodes();
+              return apiService.getCategory('recently-added');
             },
             carousel: function(apiService) {
               return apiService.getCategory('main-carousel');
             }
-            
+
           }
         }
       }
@@ -187,7 +187,7 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
               return apiService.getDiscoveryTrending();
             }
           }
-          
+
         }
       }
     })
