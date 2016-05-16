@@ -28,7 +28,7 @@ class CategoriesController {
       this.carousel = carousel;
     }
 
-    //this.getCategory('top-trending');
+    //no issue had changedthis.getCategory('top-trending');
 
   }
 
