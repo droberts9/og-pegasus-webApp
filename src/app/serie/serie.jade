@@ -1,24 +1,22 @@
-.row.serie__player
-  .col-xs-12.col-sm-8.col-sm-offset-2.serie__player-wrap
-    cms-player(serie="::vm.serie" playlist="::vm.serie.episodes" options='{"autoplay": true}')
-.row.serie__caption
-  .col-xs-12.col-sm-7.col-md-8
-    .serie__detail__header.pl-lg.pr-lg
+.row.serie__wrapper.pb-big
+  .col-xs-12.col-sm-4.pl-lg.pr-lg
       h1 {{ vm.serie.name }}
       p {{ vm.serie.description }}
-      p Season: {{ vm.serie.name }}
-      p Episode: {{ vm.serie.number }}
       p Rating: {{ vm.serie.rating }}
-      // p Duration: {{ vm.serie.duration | timerFilter }}
+  .col-xs-12.col-sm-8
+    .serie__header.mt-lg.mr-lg
+      img.img-responsive.serie__header-img(ng-src="{{vm.serie.defaultImage}}")
 
 .container
   .mt-lg.ar-desktop
     cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-970x250-0" )
 
-  .mt-big(ng-repeat="serie in vm.serie.seasons")
-    h3 {{serie.name }}
-    cms-season(playlist="serie.episodes" onplay="vm.play(item)" followlink="false")
+  //.mt-big(ng-repeat="serie in vm.serie.seasons")
+    //h3 {{serie.name }}
+    //cms-season(playlist="serie.episodes" onplay="vm.play(item)" followlink="true")
     //cms-category-x2(playlist="serie.episodes"  follow-link="false" onplay="vm.play(options)")
+  .mt-big(ng-repeat="serie in vm.serie.seasons")
+    cms-category-x2(playlist="serie.episodes" caption="seasons" follow-link="true" onplay="vm.play(options)")
     cms-billboard-ad(class="mt-big")
 
   .mt.big(ng-if="vm.serie.footages.length > 0")
