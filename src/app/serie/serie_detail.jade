@@ -1,17 +1,17 @@
-.row
-  .col-xs-12.col-sm-8.serie__player-wrap
-    cms-player(episode="::vm.episode" playlist="::vm.season.episodes")
-  .col-xs-12.col-sm-4
-    cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-300x250-0" )
-
-.row
-  .serie__detail__header
-    h1 {{ vm.episode.name }}
-    p {{ vm.episode.description }}
-    p Season: {{ vm.season.name }}
-    p Episode: {{ vm.episode.number }}
-    p Rating: {{ vm.episode.rating }}
-    // p Duration: {{ vm.episode.duration | timerFilter }}
+.row.serie__player
+  .col-xs-12.col-sm-8.col-sm-offset-2.serie__player-wrap
+    cms-player(episode="::vm.episode" playlist="::vm.season.episodes" options='{"autoplay": true}')
+.row.serie__caption
+  .col-xs-12.col-sm-7.col-md-8
+    .serie__detail__header.pl-lg.pr-lg
+      h1 {{ vm.episode.name }}
+      p {{ vm.episode.description }}
+      p Season: {{ vm.season.name }}
+      p Episode: {{ vm.episode.number }}
+      p Rating: {{ vm.episode.rating }}
+      // p Duration: {{ vm.episode.duration | timerFilter }}
+  .col-sm-5.col-md-4
+    cms-billboard-ad(class="center-block adspot" adspot="div-gpt-ad-300x250-0" )
 
 .container
   .mt-lg.ar-desktop
@@ -21,5 +21,4 @@
     cms-category-x2(playlist="::vm.season_episodes" caption="Season" follow-link="false" onplay="vm.play(options)")
 
   .mt-big
-    cms-category-x2(playlist="::vm.discovery" caption="Trending" follow-link="false" onplay="vm.play(options)")
-
+    cms-category-x2(playlist="::vm.discovery" caption="Trending" follow-link="true" onplay="vm.play(options)")

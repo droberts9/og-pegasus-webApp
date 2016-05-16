@@ -1,14 +1,16 @@
-
-.slider-wrapper
-  cms-slider(playlist="vm.carousel.assets")
-//   
-  .container   
-    cms-player(playlist="::vm.carousel.assets" options='{"show_volume_icon": false, "autoplay": false}')
+.row
+  .slider-wrapper
+    cms-slider(playlist="vm.carousel.assets")
+  //   
+    .container   
+      cms-player(playlist="::vm.carousel.assets" options='{"show_volume_icon": false, "autoplay": false}')
 
   
 .container
   .ar-desktop
     cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-970x250-0" )
+  .ar-mobile
+    cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-300x250-1" )
 
   .mt-big
     cms-category(items="::vm.featured", caption="Featured Shows")
@@ -17,7 +19,8 @@
     cms-category-x2(playlist="vm.recent" caption="Recent Episodes" follow-link="true" onplay="vm.play(options)")
 
   .mt-big(ng-if="vm.trending.length > 0")
-    cms-category-x2(playlist="vm.trending" caption="Top Trending" follow-link="true" onplay="vm.play(options)")
+    //cms-category-x2(playlist="vm.trending" caption="Top Trending" follow-link="true" onplay="vm.play(options)")
+    cms-category-x2(playlist="vm.assets['top-trending'].playList" caption="Top Trending" follow-link="true" onplay="vm.play(options)")
     
   // 
     .ar-desktop

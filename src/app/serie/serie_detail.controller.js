@@ -27,11 +27,8 @@ class SerieDetailController {
   }
   
   play(options) {
-    if (options.followLink == 'true') {
-      this.$state.go(
-        'home.serie_show',
-        {serie: options.episode.serie_slug, season: options.episode.season_slug, show: options.episode.slug}
-      );
+    if (options.followLink == true) {
+      this.$state.go('home.trending', {slug: options.episode.slug});      
     } else {
       // Only the episodes can change the url
       // Trending videos don't have an url
@@ -43,12 +40,11 @@ class SerieDetailController {
             {location: true, inherit: true, relative: this.$state.$current, notify: false}
             );
             this.player.play(options.episode);
-      } else {
         angular.element('body').scrollTop(0);
-        this.player.play(options.episode, {checkPlaylist: false});
       }
     }
-  }  
+  }
+    
 }
 
 export { SerieDetailController };

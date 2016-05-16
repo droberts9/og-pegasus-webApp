@@ -1,11 +1,17 @@
+.serie__player {
+  background-color: #000;
+}
+.serie__caption {
+  background-color: $blue-color;
+}
+
 .serie__detail__header {
-  padding: 20px;
-  background-color: #ddd;
-  min-height: 200px;
+  background-color: $blue-color;
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .serie__player-wrap {
   background-color: #000;
-  margin: 0 auto;
 }
 

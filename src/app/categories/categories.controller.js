@@ -28,7 +28,7 @@ class CategoriesController {
       this.carousel = carousel;
     }
 
-    // this.getCategory('featured');
+    this.getCategory('top-trending');
 
   }
 
@@ -52,10 +52,18 @@ class CategoriesController {
   }
 
   play(options) {
-    this.$state.go(
-      'home.serie_show',
-      {serie: options.episode.serie_slug, season: options.episode.season_slug, show: options.episode.slug}
-    )
+    this.$log.warn('options', options);
+    if (options.episode.constructor.name == 'AssetModel') {
+      this.$state.go(
+        'home.trending',
+        {slug: options.episode.slug}
+      );      
+    } else {
+      this.$state.go(
+        'home.serie_show',
+        {serie: options.episode.serie_slug, season: options.episode.season_slug, show: options.episode.slug}
+      )
+    }
   }
 
 }

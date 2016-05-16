@@ -15,6 +15,7 @@ import { SeriesController }      from '../app/series/series.controller';
 import { SerieController }       from '../app/serie/serie.controller';
 import { SerieDetailController}  from '../app/serie/serie_detail.controller';
 import { PageController}         from '../app/pages/page.controller';
+import { TrendingController}     from '../app/trending/trending.controller';
 
 import { ApiService }            from '../app/components/api/api.service';
 import { PlayerService }         from '../app/components/player/player.service';
@@ -71,6 +72,7 @@ angular.module('appcmsClient', [
   .controller('SerieController',        SerieController)
   .controller('SerieDetailController',  SerieDetailController)
   .controller('PageController',         PageController)
+  .controller('TrendingController',     TrendingController)
 
   .directive('arMobile',                arMobileDirective)
   .directive('arTablet',                arTabletDirective)
