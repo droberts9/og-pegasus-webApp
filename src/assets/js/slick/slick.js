@@ -1144,24 +1144,24 @@
             _.$prevArrow.on('click.slick', {
                 message: 'previous'
             }, _.changeSlide);
-            _.$prevArrow.on('mouseenter', function() {
-              _.direction = 0
-              _.playOnHover();
-            });
-            _.$prevArrow.on('mouseleave', function() {
-              _.onHoverClear();
-            });
+            //_.$prevArrow.on('mouseenter', function() {
+            //  _.direction = 0
+            //  _.playOnHover();
+            //});
+            //_.$prevArrow.on('mouseleave', function() {
+            //  _.onHoverClear();
+            //});
 
             _.$nextArrow.on('click.slick', {
                 message: 'next'
             }, _.changeSlide);
-            _.$nextArrow.on('mouseenter', function() {
-              _.direction = 1
-              _.playOnHover();
-            });
-            _.$nextArrow.on('mouseleave', function() {
-              _.onHoverClear();
-            });
+            //_.$nextArrow.on('mouseenter', function() {
+            //  _.direction = 1
+            //  _.playOnHover();
+            //});
+            //_.$nextArrow.on('mouseleave', function() {
+            //  _.onHoverClear();
+            //});
         }
 
     };
