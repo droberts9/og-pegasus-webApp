@@ -19,9 +19,9 @@ class CategoriesController {
     if (trending) {
       this.trending = this.utils.groupOf(trending, 2);
     }
-    
+
     if (recent) {
-      this.recent = this.utils.groupOf(recent, 2);
+      this.recent = this.utils.groupOf(recent.assets, 2);
     }
 
     if (carousel) {
@@ -57,7 +57,7 @@ class CategoriesController {
       this.$state.go(
         'home.trending',
         {slug: options.episode.slug}
-      );      
+      );
     } else {
       this.$state.go(
         'home.serie_show',
