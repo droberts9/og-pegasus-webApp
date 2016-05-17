@@ -6,14 +6,11 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand(href="/")
-        img(src="/assets/images/saltlogo.png" alt="Driven to Fish")
-      ul.nav.navbar-nav.navbar-right.hidden-lg.hidden-sm.hidden-md.m0
-        li
-        a(href="http://yeticoolers.com" alt="Yeti"  target="_blank")
-          img.navbar__sponsor-img-xs(src="/assets/images/yetilog.png" alt="Yeti")  
-    #navbar
-      //ul.nav.navbar-nav.main-menu
+      .brand-wrap
+        a.brand-logo.center-block(href="/")
+          img(src="/assets/images/saltlogo.png" alt="Driven to Fish")
+    #navbar.navbar-collapse.collapse
+      ul.nav.navbar-nav.main-menu
         li
           a(ui-sref="home.series") Series
         li
@@ -24,8 +21,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         li.ml-sm
           select.form-control.navbar-select
             option(value="shows") Shows
-      ul.nav.navbar-nav.navbar-right.hidden-xs.hidden-sm
-        li
-        a(href="http://yeticoolers.com" alt="Yeti"  target="_blank")
-          img.navbar__sponsor-img(src="/assets/images/yetilog.png" alt="Yeti")
+    .nav.navbar__sponsor
+      a.navbar__sponsor-link(href="http://yeticoolers.com" alt="Yeti"  target="_blank")
+        img.navbar__sponsor-img(src="/assets/images/yetilog.png" alt="Yeti")
 
