@@ -5,20 +5,19 @@
       p Rating: {{ vm.serie.rating }}
   .col-xs-12.col-sm-8
     .serie__header.mt-lg.mr-lg
-      img.img-responsive.serie__header-img(ng-src="{{vm.serie.defaultImage}}")
+      .serie__image-wrapper(ng-if="!vm.hasFootage()")
+        img.img-responsive.serie__header-img(ng-src="{{vm.serie.defaultImage}}")
+      .serie__player-wrapper(ng-if="vm.hasFootage()")
+        cms-player(playlist="::vm.serie.footages" options='{"autoplay": true}')
+
 
 .container
   .mt-lg.ar-desktop
     cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-970x250-0" )
 
-  //.mt-big(ng-repeat="serie in vm.serie.seasons")
-    //h3 {{serie.name }}
-    //cms-season(playlist="serie.episodes" onplay="vm.play(item)" followlink="true")
-    //cms-category-x2(playlist="serie.episodes"  follow-link="false" onplay="vm.play(options)")
-  .mt-big(ng-repeat="serie in vm.serie.seasons")
-    cms-category-x2(playlist="serie.episodes" caption="seasons" follow-link="true" onplay="vm.play(options)")
+  .mt-big(ng-repeat="season in vm.serie.seasons")
+    cms-category-x2(playlist="season.episodes" caption="{{ season.name }}" follow-link="true" onplay="vm.play(options)")
     cms-billboard-ad(class="mt-big")
 
   .mt.big(ng-if="vm.serie.footages.length > 0")
-    h3 Clips
-    cms-season(playlist="vm.serie.footages" onplay="vm.slplay(item)" followlink="true")
+    cms-category-x2(playlist="vm.serie_footages" caption="Clips" follow-link="false" onplay="vm.play(options)")

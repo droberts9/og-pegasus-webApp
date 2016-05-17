@@ -1,17 +1,22 @@
 class SerieController {
 
-  constructor($document, apiService, playerService, utils,  $scope, $log, $state, serie) {
+  constructor($document, $timeout, apiService, playerService, utils,  $scope, $log, $state, serie) {
     'ngInject';
 
     this.api = apiService;
     this.$scope = $scope;
     this.$log = $log;
     this.$state = $state;
+    this.$timeout = $timeout;
     this.serie = serie;
-    //this.season    = seasons;
-    this.serie_episodes   = utils.groupOf(serie.seasons, 2);
-    //this.discovery = utils.groupOf(discovery, 2);
-    this.player    = playerService;
+    this.player = playerService;
+    this.serie_footages = utils.groupOf(serie.footages, 2);
+
+    serie.seasons.forEach(function(season) {
+      season.episodes = utils.groupOf(season.episodes, 2);
+    }, this);
+
+
 
     angular.element($document).on('update-video-data', ()=> this.updateCurrentVideo() );
 
@@ -35,21 +40,22 @@ class SerieController {
 
   play(options) {
     if (options.followLink == true) {
-      this.$state.go('home.trending', {slug: options.episode.slug});      
-    } else {
-      // Only the episodes can change the url
-      // Trending videos don't have an url
       if (angular.isDefined(options.episode.serie_slug)) {
         // update url on browser without reload page
         this.$state.go(
             'home.serie_show',
-            {serie: options.episode.serie_slug, season: options.episode.season_slug, show: options.episode.slug},
-            {location: true, inherit: true, relative: this.$state.$current, notify: false}
+            {serie: options.episode.serie_slug, season: options.episode.season_slug, show: options.episode.slug}
             );
-            this.player.play(options.episode);
         angular.element('body').scrollTop(0);
       }
+    } else {
+      this.player.play(options.episode);
+      angular.element('body').scrollTop(0);
     }
+  }
+
+  hasFootage() {
+    return (this.serie.footages.length > 0);
   }
 
 }

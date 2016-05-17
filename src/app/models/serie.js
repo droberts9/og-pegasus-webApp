@@ -1,3 +1,6 @@
+import { AssetModel } from './asset'
+import { SeasonModel } from './season'
+
 class SerieModel {
 
   constructor(data) {
@@ -31,7 +34,13 @@ class SerieModel {
   initValues(data) {
     for (var prop in data) {
       if (data.hasOwnProperty(prop)) {
-        this[prop] = data[prop];
+        if (prop === 'footages') {
+          this[prop] = AssetModel.loadData(data[prop]);
+        } else if (prop === 'seasons') {
+          this[prop] = SeasonModel.loadData(data[prop]);
+        } else {
+          this[prop] = data[prop];
+        }
       }
     }
   }
