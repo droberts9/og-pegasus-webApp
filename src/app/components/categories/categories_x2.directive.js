@@ -1,10 +1,19 @@
 import _ from 'lodash';
 
-export function CategoriesX2Directive() {
+export function CategoriesX2Directive($log, utils, responsiveHelper) {
   'ngInject';
 
+  let determineTemplate = function() {
+    if (responsiveHelper.isMobile()) {
+      return 'app/components/categories/categories_x2.directive.mobile.html';
+    } else {
+      return 'app/components/categories/categories_x2.directive.desktop.html';
+    }
+  };
+
+
   let directive = {
-    templateUrl: 'app/components/categories/categories_x2.directive.html',
+    templateUrl: determineTemplate,
     restrict: 'E',
     replace: true,
     scope: {
@@ -29,19 +38,24 @@ export function CategoriesX2Directive() {
 
 class Categoriesx2Controller {
 
-  constructor($log, utils, playerService) {
+  constructor($log, utils, playerService, responsiveHelper) {
     'ngInject';
 
     this.player = playerService;
     this.kindTypes = ['big', 'regular'];
     this.$log = $log;
-    this.utils = utils;
-    this.followLink = this.followLink || 'true';
 
     this.kind = (this.kind || 'regular').toLowerCase();
     if (!_.includes(this.kindTypes, this.kind)) {
       this.$log.error( 'Slider property kind invalid: ['+this.kind+']');
     }
+
+    if (responsiveHelper.isMobile()) {
+      this.grp_playlist = utils.groupOf(this.playlist, 3);
+    } else {
+      this.grp_playlist = utils.groupOf(this.playlist, 2);
+    }
+
   }
 
   nextSlide() {
@@ -57,10 +71,11 @@ class Categoriesx2Controller {
   play(episode) {
     this.onplay({
       options: {
-        followLink: this.followLink,
+        followLink: (this.followLink == true) || (this.followLink == 'true') || (this.followLink == undefined) ? true : false,
         episode: episode
       }
     });
   }
+
 
 }

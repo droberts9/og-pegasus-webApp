@@ -10,16 +10,15 @@ class SerieController {
     this.$timeout = $timeout;
     this.serie = serie;
     this.player = playerService;
-    this.serie_footages = utils.groupOf(serie.footages, 2);
+    this.serie_footages = serie.footages;
 
+    /*
     serie.seasons.forEach(function(season) {
       season.episodes = utils.groupOf(season.episodes, 2);
     }, this);
-
-
+    */
 
     angular.element($document).on('update-video-data', ()=> this.updateCurrentVideo() );
-
   }
 
   updateCurrentVideo() {

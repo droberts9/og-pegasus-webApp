@@ -1,6 +1,6 @@
 class TrendingController {
 
-  constructor($log, $state, $document, $timeout, apiService, playerService, utils, asset, discovery) {
+  constructor($log, $state, $document, $timeout, apiService, playerService, asset, discovery) {
     'ngInject';
     this.$log = $log;
     this.$state = $state;
@@ -8,11 +8,11 @@ class TrendingController {
     this.api = apiService;
     this.player = playerService;
     this.asset = asset;
-    this.discovery = utils.groupOf(discovery, 2);
+    this.discovery = discovery;
 
     angular.element($document).on('update-video-data', ()=> this.updateCurrentVideo() );
   }
-  
+
   updateCurrentVideo() {
     let current = this.player.currentVideo();
     if (angular.isUndefined(current)) {
@@ -23,8 +23,8 @@ class TrendingController {
       this.asset = current;
     }, 0);
   }
-  
-  
+
+
   play(options) {
     if (options.followLink == false) {
       this.$state.go(
@@ -35,8 +35,8 @@ class TrendingController {
       this.player.play(options.episode, {checkPlaylist: false});
       angular.element('body').scrollTop(0);
     }
-  }  
-  
+  }
+
 }
 
 export { TrendingController }

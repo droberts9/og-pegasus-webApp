@@ -1,0 +1,14 @@
+.row.carousel
+  .col-xs-12
+    p.carousel__caption.pb-sm.mb-lg {{ ::ctrl.caption }}
+  .col-xs-12
+    .wrapper.slider__mobile
+      slick.carousel(infinite="true" data="ctrl.grp_playlist" arrows="false" variable-width="false" init-onload="false" slides-to-show="1" slides-to-scroll="1" dots="true")
+        .carousel__group(ng-repeat="group in ctrl.grp_playlist")
+          //.carousel__group-item.mb-md.mr-md(ng-repeat="item in group" cms-popup template="slider-item-popup" follow-link="ctrl.followLink")
+          .carousel__group-item.mb-md.mr-md(ng-repeat="item in group")
+            .carousel__item(ng-click="ctrl.play(item)")
+              .carousel__image-wrapper
+                img.carousel__image.img-responsive(ng-src="{{ item.defaultImage }}" alt="{{ ::item.name }}")
+                p.carousel__duration.pa-sm {{ ::item.duration | timerFilter }}
+              p.carousel__title {{ ::item.name }}

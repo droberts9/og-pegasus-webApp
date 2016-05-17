@@ -1,12 +1,11 @@
 class CategoriesController {
 
-  constructor(apiService, $scope, $log, $state, utils, featured, trending, recent, carousel) {
+  constructor(apiService, $scope, $log, $state, featured, trending, recent, carousel) {
     'ngInject';
     this.api = apiService;
     this.$log = $log;
     this.$state = $state;
     this.assets = {};
-    this.utils = utils;
     this.featured = [];
     this.trending = [];
     this.recent = [];
@@ -17,11 +16,11 @@ class CategoriesController {
     }
 
     if (trending) {
-      this.trending = this.utils.groupOf(trending, 2);
+      this.trending = trending;
     }
 
     if (recent) {
-      this.recent = this.utils.groupOf(recent.assets, 2);
+      this.recent = recent.assets;
     }
 
     if (carousel) {
@@ -45,14 +44,13 @@ class CategoriesController {
         if (kind == 'big') {
           this.assets[categoryName]['main'] = category.assets.shift();
         }
-        this.assets[categoryName]['playList'] = this.utils.groupOf(category.assets, 2);
+        this.assets[categoryName]['playList'] = category.assets;
         this.assets[categoryName]['category'] = category;
       }
     });
   }
 
   play(options) {
-    this.$log.warn('options', options);
     if (options.episode.constructor.name == 'AssetModel') {
       this.$state.go(
         'home.trending',

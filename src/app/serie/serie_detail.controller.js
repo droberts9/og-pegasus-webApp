@@ -1,6 +1,6 @@
 class SerieDetailController {
 
-  constructor($log, $timeout, $document, $state, playerService, utils, episode, season, discovery) {
+  constructor($log, $timeout, $document, $state, playerService, episode, season, discovery) {
     'ngInject';
 
     this.$log      = $log;
@@ -8,8 +8,7 @@ class SerieDetailController {
     this.$timeout  = $timeout;
     this.episode   = episode;
     this.season    = season;
-    this.season_episodes   = utils.groupOf(season.episodes, 2);
-    this.discovery = utils.groupOf(discovery, 2);
+    this.discovery = discovery;
     this.player    = playerService;
 
     angular.element($document).on('update-video-data', ()=> this.updateCurrentVideo() );
@@ -25,10 +24,10 @@ class SerieDetailController {
       this.episode = current;
     }, 0);
   }
-  
+
   play(options) {
     if (options.followLink == true) {
-      this.$state.go('home.trending', {slug: options.episode.slug});      
+      this.$state.go('home.trending', {slug: options.episode.slug});
     } else {
       // Only the episodes can change the url
       // Trending videos don't have an url
@@ -44,7 +43,7 @@ class SerieDetailController {
       }
     }
   }
-    
+
 }
 
 export { SerieDetailController };
