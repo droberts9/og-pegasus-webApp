@@ -1,16 +1,19 @@
 class TrendingController {
 
-  constructor($log, $state, $document, $timeout, apiService, playerService, asset, discovery) {
+  constructor($log, $state, $document, $timeout, apiService, playerService, metaService, asset, discovery) {
     'ngInject';
     this.$log = $log;
     this.$state = $state;
     this.$timeout = $timeout;
     this.api = apiService;
     this.player = playerService;
+    this.metaService = metaService;
     this.asset = asset;
     this.discovery = discovery;
 
     angular.element($document).on('update-video-data', ()=> this.updateCurrentVideo() );
+    this.metaService.keywords = this.asset.metadata.AdTags;
+
   }
 
   updateCurrentVideo() {
@@ -21,6 +24,7 @@ class TrendingController {
     // $timeout by default trigger an $apply cycle.. to refresh the front
     this.$timeout(()=> {
       this.asset = current;
+      this.metaService.keywords = this.asset.metadata.AdTags;
     }, 0);
   }
 

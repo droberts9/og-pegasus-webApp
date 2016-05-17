@@ -1,17 +1,20 @@
 class SerieDetailController {
 
-  constructor($log, $timeout, $document, $state, playerService, episode, season, discovery) {
+  constructor($log, $timeout, $document, $state, playerService, metaService, episode, season, discovery) {
     'ngInject';
 
-    this.$log      = $log;
-    this.$state    = $state;
-    this.$timeout  = $timeout;
-    this.episode   = episode;
-    this.season    = season;
-    this.discovery = discovery;
-    this.player    = playerService;
+    this.$log        = $log;
+    this.$state      = $state;
+    this.$timeout    = $timeout;
+    this.episode     = episode;
+    this.season      = season;
+    this.metaService = metaService;
+    this.discovery   = discovery;
+    this.player      = playerService;
 
     angular.element($document).on('update-video-data', ()=> this.updateCurrentVideo() );
+
+    this.metaService.keywords = this.episode.metadata.AdTags;
   }
 
   updateCurrentVideo() {
@@ -19,9 +22,11 @@ class SerieDetailController {
     if (angular.isUndefined(current)) {
       return;
     }
+
     // $timeout by default trigger an $apply cycle.. to refresh the front
     this.$timeout(()=> {
       this.episode = current;
+      this.metaService.keywords = this.episode.metadata.AdTags;
     }, 0);
   }
 

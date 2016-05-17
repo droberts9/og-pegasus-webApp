@@ -1,11 +1,9 @@
 
 class MainController {
-  constructor () {
+  constructor (metaService) {
     'ngInject';
 
-    this.awesomeThings = [];
-    this.classAnimation = '';
-    this.creationDate = 1461004405157;
+    this.metaService = metaService;
 
   }
 

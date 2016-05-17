@@ -19,6 +19,7 @@ import { TrendingController}     from '../app/trending/trending.controller';
 
 import { ApiService }            from '../app/components/api/api.service';
 import { PlayerService }         from '../app/components/player/player.service';
+import { MetaService }           from '../app/components/metaService/meta.service';
 
 import { SessionProvider }       from '../app/components/session/session.provider';
 import { ConstantsProvider }     from '../app/components/constants/constants.provider';
@@ -60,6 +61,7 @@ angular.module('appcmsClient', [
 
   .service('apiService',              ApiService)
   .service('playerService',           PlayerService)
+  .service('metaService',             MetaService)
   .factory('utils',                   () => new Utils())
   .filter('timerFilter',              TimerFilter)
 

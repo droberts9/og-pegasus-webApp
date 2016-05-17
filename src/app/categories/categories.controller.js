@@ -1,6 +1,6 @@
 class CategoriesController {
 
-  constructor(apiService, $scope, $log, $state, featured, trending, recent, carousel) {
+  constructor(apiService, $scope, $log, $state, metaService, featured, trending, recent, carousel) {
     'ngInject';
     this.api = apiService;
     this.$log = $log;
@@ -10,6 +10,7 @@ class CategoriesController {
     this.trending = [];
     this.recent = [];
     this.carousel = [];
+    this.metaService = metaService;
 
     if (featured) {
       this.featured = featured;
@@ -51,6 +52,7 @@ class CategoriesController {
   }
 
   play(options) {
+    this.$log.warn('options', options);
     if (options.episode.constructor.name == 'AssetModel') {
       this.$state.go(
         'home.trending',
