@@ -47,7 +47,7 @@ class SeasonModel {
 
     } else {
       // TODO: move this to constants
-      return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=1980&h=800";
+      return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=1920&h=1080";
     }
   }
 

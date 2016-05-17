@@ -63,6 +63,7 @@
   display: inline-block;
   vertical-align: middle;
   margin-left: 20px;
+  max-width: 220px;
 }
 
 .carousel__item:active,
@@ -103,5 +104,6 @@
   .slider__mobile .carousel__title {
     display: block;
     margin-left: 0;
+    max-width: auto;
   }
 }

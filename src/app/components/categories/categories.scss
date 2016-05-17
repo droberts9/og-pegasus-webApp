@@ -1,9 +1,3 @@
-.mt-big{
-  /*height:330px;
-  overflow:hidden;*/
-
-}
-
 
 .channel__link {
   display: block;
@@ -25,10 +19,7 @@
 @media(min-width: 768px) {
   .channel {
     overflow: hidden;
-    height:305px
-  }
-  .channel__image-link {
-    height: 150px;
+    height:250px
   }
 }
 
