@@ -1,15 +1,21 @@
 
 .navbar-inverse {
-  background-color: $header-color;
+  background-color: $background-color;
   border: none;
   border-radius: 0;
   margin-bottom: 0;
-  border-top: 3px solid $violet;
+  border-bottom: 5px solid $blue-color;
   min-height: $header-height;
 }
 
 .navbar-brand {
-  padding: 14px 15px;
+  padding: 8px 50px;
+}
+.mover{
+  float:left;
+  margin:20px;
+  padding:10px;
+  margin-right:10%;
 }
 
 .footer {
@@ -38,9 +44,10 @@
 }
 
 .main-menu {
-  margin-top: 10px;
+  margin-top: 25px;
   font-size: 20px;
 }
+
 
 .navbar__sponsor {
   width: 150px;
@@ -61,10 +68,10 @@
  .navbar__sponsor-img {
   margin: 0 auto;
   display: block;
-  padding-top: 10px;
+  padding-top: 55px;
     position: absolute;
   z-index: +999;
-  right: 62px;
+  right: 50px;
 }
 
 .navbar-select {
@@ -79,5 +86,24 @@
   box-shadow: none;
   outline: 0;
   /* box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); */
+}
+.navbar-inverse .navbar-toggle{
+  border:none;
+}
+.navbar-inverse .navbar-toggle .icon-bar{
+  background-color:#000 !important;
+  font-size:16px;
+}
+.navbar-toggle .icon-bar{
+  width:35px;
+  height:5px;
+}
+.navbar__sponsor-img-xs{
+  margin: 0 auto;
+  display: block;
+  padding-top: 35px;
+  position: absolute;
+  z-index: +999;
+  right: 40px;
 }
 
