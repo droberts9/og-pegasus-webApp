@@ -25,8 +25,9 @@
 
 .footer {
   height: $footer-height;
-  background-color: $header-color;
-  color: #fff;
+  background-color: $background-color;
+  border-top: 3px solid $blue-color;
+  color: #ddd;
 }
 
 .footer-wrap {
@@ -43,8 +44,10 @@
 .footer__link {
   color: #9d9d9d;
 }
+
+.header__link:hover,
 .footer__link:hover {
-  color: #fff;
+  color: $blue-color;
   text-decoration: underline;
 }
 
@@ -103,7 +106,7 @@
 
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #9d9d9d;
+  color: $blue-color;
 }
 
 .search__wrapper {
