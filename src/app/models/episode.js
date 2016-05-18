@@ -32,6 +32,10 @@ class EpisodeModel {
     return modelArray;
   }
 
+  klass() {
+    return 'EpisodeModel';
+  }
+
   initValues(data) {
     for (var prop in data) {
       if (data.hasOwnProperty(prop)) {

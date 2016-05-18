@@ -31,6 +31,10 @@ class SerieModel {
     return modelArray;
   }
 
+  klass() {
+    return 'SerieModel';
+  }
+
   initValues(data) {
     for (var prop in data) {
       if (data.hasOwnProperty(prop)) {

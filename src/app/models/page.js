@@ -18,6 +18,11 @@ class PageModel {
     }
   }
 
+  klass() {
+    return 'PageModel';
+  }
+
+
 }
 
 export { PageModel }

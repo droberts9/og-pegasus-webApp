@@ -31,7 +31,10 @@ class CategoryModel {
       modelArray.push(m);
     }
     return modelArray;
+  }
 
+  klass() {
+    return 'CategoryModel';
   }
 
 

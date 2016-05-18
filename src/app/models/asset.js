@@ -37,6 +37,10 @@ class AssetModel {
     return modelArray;
   }
 
+  klass() {
+    return 'AssetModel';
+  }
+
   initValues(data) {
     for (var prop in data) {
       if (data.hasOwnProperty(prop)) {
@@ -58,6 +62,7 @@ class AssetModel {
       return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=950&h=535";
     }
   }
+
 
 }
 

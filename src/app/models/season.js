@@ -29,6 +29,10 @@ class SeasonModel {
     return modelArray;
   }
 
+  klass() {
+    return 'SeasonModel';
+  }
+
   initValues(data) {
     for (var prop in data) {
       if (data.hasOwnProperty(prop)) {
