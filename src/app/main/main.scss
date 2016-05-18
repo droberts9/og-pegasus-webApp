@@ -110,3 +110,11 @@
   margin-top: 45px;
   margin-right: 100px;
 }
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover{
+  background-color:$blue-color !important;
+ }
+ .navbar-inverse .navbar-toggle:focus .icon-bar, .navbar-inverse .navbar-toggle:hover .icon-bar{
+ background-color:#fff !important;
+ }
+
