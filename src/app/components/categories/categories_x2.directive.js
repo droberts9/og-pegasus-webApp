@@ -42,7 +42,7 @@ class Categoriesx2Controller {
     'ngInject';
 
     this.player = playerService;
-    this.kindTypes = ['big', 'regular'];
+    this.kindTypes = ['big', 'regular', 'single'];
     this.$log = $log;
 
     this.kind = (this.kind || 'regular').toLowerCase();
@@ -53,9 +53,12 @@ class Categoriesx2Controller {
     if (responsiveHelper.isMobile()) {
       this.grp_playlist = utils.groupOf(this.playlist, 3);
     } else {
-      this.grp_playlist = utils.groupOf(this.playlist, 2);
+      if (this.kind === 'single') {
+        this.grp_playlist = this.playlist;
+      } else {
+        this.grp_playlist = utils.groupOf(this.playlist, 2);
+      }
     }
-
   }
 
   nextSlide() {
@@ -75,6 +78,10 @@ class Categoriesx2Controller {
         episode: episode
       }
     });
+  }
+
+  isKind(value) {
+    return this.kind === value;
   }
 
 
