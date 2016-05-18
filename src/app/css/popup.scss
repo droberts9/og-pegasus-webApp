@@ -18,3 +18,24 @@
 .popup__description {
   font: $popup-description;
 }
+.popup__social {
+    display: inline-block;
+    vertical-align: -webkit-baseline-middle;
+    font-size: 36px;
+    margin-top: 15px;
+}
+.popup__social-tw:active,
+.popup__social-tw:focus,
+.popup__social-tw:visited,
+.popup__social-tw:hover,
+.popup__social-tw {
+  color: #3cf;
+}
+.popup__social-fb:active,
+.popup__social-fb:focus,
+.popup__social-fb:visited,
+.popup__social-fb:hover,
+.popup__social-fb {
+  color: #3b5998;
+}
+

@@ -11,6 +11,13 @@ class Utils {
     });
     return _.toArray(grp);
   }
+
+  /* eslint-disable */
+  encodeUri(value) {
+    return window.encodeURIComponent(value);
+  }
+  /* eslint-enable */
+
 }
 
 export { Utils }

@@ -38,12 +38,14 @@ export function CategoriesX2Directive($log, utils, responsiveHelper) {
 
 class Categoriesx2Controller {
 
-  constructor($log, utils, playerService, responsiveHelper) {
+  constructor($log, $state, utils, playerService, responsiveHelper) {
     'ngInject';
 
     this.player = playerService;
     this.kindTypes = ['big', 'regular', 'single'];
     this.$log = $log;
+    this.$state = $state;
+    this.utils = utils;
 
     this.kind = (this.kind || 'regular').toLowerCase();
     if (!_.includes(this.kindTypes, this.kind)) {
@@ -79,6 +81,32 @@ class Categoriesx2Controller {
       }
     });
   }
+
+  encodedTitle(episode) {
+    return this.utils.encodeUri(episode.name);
+  }
+
+  encodedUrl(episode) {
+    if (angular.isUndefined(episode)) {
+      return this.$log.warn('episode empty');
+    }
+    if (episode.klass() == 'AssetModel') {
+      return this.$state.href(
+        'home.trending',
+        {slug: episode.slug},
+        {absolute: true}
+      );
+    } else if (episode.klass() == 'EpisodeModel') {
+      return this.$state.href(
+              'home.serie_show',
+              {serie: episode.serie_slug, season: episode.season_slug, show: episode.slug},
+              {absolute:true}
+            );
+    } else {
+      this.$log.debug('categoryx2#encodeUrl', episode.klass());
+    }
+  }
+
 
   isKind(value) {
     return this.kind === value;
