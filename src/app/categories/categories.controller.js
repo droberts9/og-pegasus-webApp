@@ -52,7 +52,6 @@ class CategoriesController {
   }
 
   play(options) {
-    this.$log.warn('options', options);
     if (options.episode.klass() == 'AssetModel') {
       this.$state.go(
         'home.trending',
