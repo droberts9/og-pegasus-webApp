@@ -2,7 +2,7 @@
 .channel__link {
   display: block;
   color: $base-font-color;
-  font: $asset-title;
+  font: 400 18px/1.4 Ubuntu, Helvetica, sans-serif;
 }
 
 .channel__description {
@@ -19,7 +19,7 @@
 @media(min-width: 768px) {
   .channel {
     overflow: hidden;
-    height:250px
+    height:180px
   }
 }
 
