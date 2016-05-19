@@ -10,13 +10,19 @@
 
 
 .serie__caption {
-  background-color: $blue-color;
+  background-color: #111111;
 }
 
 .serie__detail__header {
-  background-color: $blue-color;
+  background-color: #111111;
   color: #fff;
-  font-family: 'Ubuntu', sans-serif;
+  /*font-family: 'Ubuntu', sans-serif;*/
+  h1{
+  font:$serie-font-title;
+  }
+  p{
+  font:$channel-desc;
+  }
 }
 
 .serie__player-wrap {
