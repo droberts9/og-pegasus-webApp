@@ -23,7 +23,7 @@ class SliderController {
 
     this.$log = $log;
   }
-  
+
   hasCustomButton(item) {
     if (angular.isDefined(item.metadata.ButtonTitle)) {
       return true;
@@ -31,13 +31,18 @@ class SliderController {
       return false;
     }
   }
-  
+
   isRemoteLink(item) {
     if (item.metadata.NewTab === "true") {
       return '_blank';
     } else {
       return '_self';
     }
+  }
+
+  hasHead(item) {
+    return ((angular.isDefined(item.name) && item.name !== '') ||
+            (angular.isDefined(item.description) && item.description !== '' ));
   }
 }
 

@@ -2,10 +2,9 @@ slick.slider(infinite="false" data="ctrl.playlist" arrows="true" variable-width=
   .slider__item(ng-repeat="item in ::ctrl.playlist track by item.embed_code")
     a.slider__item-link(href="{{::item.slug_url}}")
       .slider__head-wrapper
-        .slider__head
-          p.slider__title {{ ::item.title }}
+        .slider__head(ng-if="ctrl.hasHead(item)")
+          p.slider__title {{ ::item.name }}
           p.slider__description {{ ::item.description }}
-          // p.slider__rating Rating: {{ ::item.rating }}
         .slider__button-wrapper.mt-lg(ng-if="ctrl.hasCustomButton(item)")
           a.btn.btn-trans(href="{{::item.metadata.ButtonLink}}" ng-attr-target="{{ctrl.isRemoteLink(item)}}") {{::item.metadata.ButtonTitle}}
       img.slider__item-image.img-responsive(ng-src="{{ ::item.defaultImage }}")
