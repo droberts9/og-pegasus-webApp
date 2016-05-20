@@ -15,8 +15,8 @@
     cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-970x250-0" )
 
   .mt-big(ng-repeat="season in vm.serie.seasons")
-    cms-category-x2(playlist="season.episodes" caption="{{ season.name }}" follow-link="true" onplay="vm.play(options)")
+    cms-category-x2(playlist="season.episodes" caption="{{ season.name }}" follow-link="true" onplay="vm.play(options)" kind="single")
     cms-billboard-ad(class="mt-big")
 
   .mt.big(ng-if="vm.serie.footages.length > 0")
-    cms-category-x2(playlist="vm.serie_footages" caption="Clips" follow-link="false" onplay="vm.play(options)")
+    cms-category-x2(playlist="vm.serie_footages" caption="Clips" follow-link="false" onplay="vm.play(options)" kind="single")
