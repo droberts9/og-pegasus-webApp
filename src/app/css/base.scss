@@ -51,6 +51,17 @@
 .pa-md2 { padding:        15px; }
 .pa-sm  { padding:        5px; }
 
+body {
+  background: whitesmoke !important;
+  color: #000;
+}
+
+.container-fluid {
+  max-width: 1580px;
+  position: relative;
+  box-shadow: 1px 0 10px #888;
+  background-color: #fff;
+}
 
 .main-content {
   margin-top: $header-height;
