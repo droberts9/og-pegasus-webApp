@@ -1,6 +1,6 @@
 slick.slider(infinite="false" data="ctrl.playlist" arrows="true" variable-width="true" init-onload="false" )
   .slider__item(ng-repeat="item in ::ctrl.playlist track by item.embed_code")
-    a.slider__item-link(href="{{::item.slug_url}}")
+    .slider__item-link
       .slider__head-wrapper
         .slider__head(ng-if="ctrl.hasHead(item)")
           p.slider__title {{ ::item.name }}
