@@ -35,3 +35,7 @@ gulp.task('development', function() {
 gulp.task('production', function() {
   createConfigFile((currentTask(this.tasks)));
 });
+
+gulp.task('staging', function() {
+  createConfigFile((currentTask(this.tasks)));
+});
