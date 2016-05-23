@@ -2,11 +2,11 @@ import TvtPlayer from './tqplayer';
 
 class PlayerService {
 
-  constructor($log, constants) {
+  constructor($log, EnvironmentConfig) {
     'ngInject';
 
     this.$log = $log;
-    this.constants = constants;
+    this.constants = EnvironmentConfig;
     this.player = undefined;
 
     $log.info('player service init');
@@ -42,7 +42,7 @@ class PlayerService {
       return undefined;
     }
   }
-  
+
   setPlaylist(playlist) {
     if (angular.isDefined(this.player)) {
       this.player.setPlaylist(playlist);
@@ -64,7 +64,7 @@ class PlayerService {
       this.$log.info('player destroyed');
     }
   }
-  
+
   isPlayerInit() {
     return angular.isDefined(this.player);
   }

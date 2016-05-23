@@ -7,12 +7,12 @@ import { PageModel }      from '../../models/page';
 
 class ApiService {
 
-  constructor($log, $http, constants) {
+  constructor($log, $http, EnvironmentConfig) {
     'ngInject';
 
     this.$log = $log;
     this.$http = $http;
-    this.constants = constants;
+    this.constants = EnvironmentConfig;
   }
 
   get(path) {
@@ -169,7 +169,7 @@ class ApiService {
       }
     });
   }
-  
+
   getRecentEpisodes() {
     return this.get('/series/recent_episodes').then((resp) => {
       if (resp) {
@@ -179,8 +179,8 @@ class ApiService {
       }
     })
   }
-  
-  
+
+
 
 }
 

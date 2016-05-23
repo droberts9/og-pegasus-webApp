@@ -22,7 +22,8 @@ import { PlayerService }         from '../app/components/player/player.service';
 import { MetaService }           from '../app/components/metaService/meta.service';
 
 import { SessionProvider }       from '../app/components/session/session.provider';
-import { ConstantsProvider }     from '../app/components/constants/constants.provider';
+//import { ConstantsProvider }     from '../app/components/constants/constants.provider';
+import configFile                from '../app/components/constants/configfile.js';
 
 import { CategoriesDirective }   from '../app/components/categories/categories.directive';
 import { CategoriesX2Directive } from '../app/components/categories/categories_x2.directive';
@@ -49,10 +50,11 @@ import { ResponsiveDirectiveProvider,
 angular.module('appcmsClient', [
 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages',
 'ngAria', 'ui.router', 'ui.bootstrap', 'ng-token-auth',
-'angularEffDrop', 'slick', 'ngDfp', 'angular-responsive'
+'angularEffDrop', 'slick', 'ngDfp', 'angular-responsive',
+'pegasusCms.config'
 ])
   .provider('session',                SessionProvider)
-  .provider('constants',              ConstantsProvider)
+  //.provider('constants',              ConstantsProvider)
   .provider('responsiveHelper',       ResponsiveDirectiveProvider)
 
   .config(config)

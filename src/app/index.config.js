@@ -1,4 +1,4 @@
-export function config ($provide, $logProvider, $authProvider, $locationProvider, $compileProvider, constantsProvider, sessionProvider, DoubleClickProvider ) {
+export function config ($provide, $logProvider, $authProvider, $locationProvider, $compileProvider, EnvironmentConfig, sessionProvider, DoubleClickProvider ) {
   'ngInject';
   // Enable log
   $logProvider.debugEnabled(true);
@@ -8,7 +8,7 @@ export function config ($provide, $logProvider, $authProvider, $locationProvider
   $locationProvider.html5Mode({enabled: true});
   // Configure Auth
   $authProvider.configure({
-    apiUrl: constantsProvider.setup.appConfig.apiUrl ,
+    apiUrl: EnvironmentConfig.appConfig.apiUrl ,
     handleLoginResponse: (resp) => {
       sessionProvider.registerUser(resp.data.user);
     }
