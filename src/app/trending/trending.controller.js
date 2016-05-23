@@ -1,6 +1,6 @@
 class TrendingController {
 
-  constructor($log, $state, $document, $timeout, apiService, playerService, metaService, asset, discovery) {
+  constructor($log, $state, $document, $timeout, $window, apiService, playerService, metaService, asset, discovery) {
     'ngInject';
     this.$log = $log;
     this.$state = $state;
@@ -14,6 +14,9 @@ class TrendingController {
     angular.element($document).on('update-video-data', ()=> this.updateCurrentVideo() );
     this.metaService.keywords = this.asset.metadata.AdTags;
 
+    if (angular.isDefined($window.googletag)) {
+      $window.googletag.pubads().setTargeting('kw', this.asset.metadata.AdTags);
+    }
   }
 
   updateCurrentVideo() {

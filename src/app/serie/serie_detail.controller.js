@@ -1,6 +1,6 @@
 class SerieDetailController {
 
-  constructor($log, $timeout, $document, $state, playerService, metaService, episode, season, discovery) {
+  constructor($log, $timeout, $document, $state, $window, playerService, metaService, episode, season, discovery) {
     'ngInject';
 
     this.$log        = $log;
@@ -15,6 +15,11 @@ class SerieDetailController {
     angular.element($document).on('update-video-data', ()=> this.updateCurrentVideo() );
 
     this.metaService.keywords = this.episode.metadata.AdTags;
+
+    if (angular.isDefined($window.googletag)) {
+      $window.googletag.pubads().setTargeting('kw', this.asset.metadata.AdTags);
+    }
+
   }
 
   updateCurrentVideo() {
