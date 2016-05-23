@@ -25,4 +25,6 @@ fi
 #
 # rsync -avzhe ssh dist/* ${REMOTE_USER}@${SERVER}:/web/bhd/fish/dist
 echo "rsync -avzhe ssh dist/* ${REMOTE_USER}@${SERVER}:/web/bhd/fish/dist"
+echo ""
+echo "rsync -avzhe ssh dist/* ${REMOTE_USER}@${SERVER}:/web/bhd/demo_ooyala/dist"
 
