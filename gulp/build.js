@@ -16,7 +16,7 @@ gulp.task('partials', ['markups'], function () {
     .pipe($.htmlmin({
       removeEmptyAttributes: true,
       removeAttributeQuotes: true,
-      collapseBooleanAttributes: true,
+      collapseBooleanAttributes: false,
       collapseWhitespace: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
@@ -50,8 +50,8 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(cssFilter)
     // .pipe($.sourcemaps.init())
     .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', '../fonts/'))
-    //.pipe($.cssnano({ zindex: false }))
     .pipe($.rev())
+    .pipe($.cssnano({ zindex: false }))
     // .pipe($.sourcemaps.write('maps'))
     .pipe(cssFilter.restore)
     .pipe($.revReplace())
@@ -59,7 +59,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.htmlmin({
       removeEmptyAttributes: true,
       removeAttributeQuotes: true,
-      collapseBooleanAttributes: true,
+      collapseBooleanAttributes: false,
       collapseWhitespace: true
     }))
     .pipe(htmlFilter.restore)
