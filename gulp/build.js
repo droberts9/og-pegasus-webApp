@@ -50,7 +50,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(cssFilter)
     // .pipe($.sourcemaps.init())
     .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', '../fonts/'))
-    .pipe($.cssnano())
+    //.pipe($.cssnano({ zindex: false }))
     .pipe($.rev())
     // .pipe($.sourcemaps.write('maps'))
     .pipe(cssFilter.restore)
