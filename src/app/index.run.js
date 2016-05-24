@@ -1,4 +1,4 @@
-export function runBlock ($log, $anchorScroll, $window, DoubleClick) {
+export function runBlock ($log, $anchorScroll, $window, $document, DoubleClick) {
   'ngInject';
 
   // hack to scroll to top when navigating to new URLS but not back/forward
@@ -20,6 +20,9 @@ export function runBlock ($log, $anchorScroll, $window, DoubleClick) {
     });
   });
 
+  if (angular.isDefined($window.FastClick)) {
+    $window.FastClick.attach($document.body);
+  }
 
   $log.debug('runBlock end');
 }

@@ -29,7 +29,7 @@ class SearchResultController {
 
     let result = '#none';
 
-    switch (model.constructor.name) {
+    switch (model.klass()) {
       case 'EpisodeModel':
         // TODO: Url to Episodes
         result = '/series/'+model.serie_slug+'/'+model.season_slug+'/'+model.slug;
