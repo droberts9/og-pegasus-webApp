@@ -43,16 +43,18 @@ class SearchController {
     this.search_result_not_found = ' ';
     this.search_result = undefined;
 
-    this.api.search(this.search_text).then((resp) => {
-      this.search_result = resp;
-    }).catch((resp) => {
-      if ((resp.data.status == 'error') && (resp.status == 404)) {
+    this.api.search(this.search_text).then((resp) => {      
+      //console.log(resp);
+      if ((resp.length == 0) || (resp == ' ')) {
         this.$log.error('search result', resp);
         this.search_result_not_found = 'No results found';
         this.search_result = undefined;
       } else {
-        this.$log.error(resp);
+        //this.$log.error(resp);
+        this.search_result = resp;
       }
+
+
     })
   }
 
