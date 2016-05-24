@@ -17,7 +17,7 @@ class SerieDetailController {
     this.metaService.keywords = this.episode.metadata.AdTags;
 
     if (angular.isDefined($window.googletag)) {
-      $window.googletag.pubads().setTargeting('kw', this.asset.metadata.AdTags);
+      $window.googletag.pubads().setTargeting('kw', this.episode.metadata.AdTags);
     }
 
   }
