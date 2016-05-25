@@ -138,9 +138,14 @@
     padding-bottom: 0 !important;
   }
   #navbar .search__wrapper {
-    margin-top: 45px;
+    margin-top: -47px;
     margin-right: 100px;
     padding-bottom: 0;
+  }
+  #navbar .search__wrapper .navbar__logo-img{
+  right: 10px;
+  position: relative;
+ 
   }
 
 }
