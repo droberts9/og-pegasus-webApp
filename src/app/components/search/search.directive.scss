@@ -73,3 +73,8 @@ span.search-results__close-btn:after {
   border-bottom-left-radius: 0;
   margin-left: -3px;
 }
+@media(max-width: 768px) {
+  .search-box .input-group{
+    width:98%;
+  }
+}
