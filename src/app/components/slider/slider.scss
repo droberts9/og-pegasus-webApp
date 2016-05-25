@@ -93,3 +93,8 @@
 .slider .slick-prev:before, .slider .slick-next:before {
   content: '';
 }
+
+.slider .slick-prev.slick-disabled,
+.slider .slick-next.slick-disabled {
+  display: none !important;
+}
