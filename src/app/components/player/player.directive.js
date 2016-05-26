@@ -31,29 +31,29 @@ class PlayerController {
       this.options = {};
     }
   }
-  
+
   parseOptions() {
     try {
       this.options = angular.fromJson(this.options);
     } catch (error) {
       this.$log.error('Error parsing player options. Must be valid JSON format', error);
-      this.$log.debug(this.options);      
+      this.$log.debug(this.options);
     }
   }
-  
+
   $postLink() {
     this.player.init('playerMain', this.options);
     if (this.playlist) {
       this.player.setPlaylist(this.playlist, this.episode);
       if (this.options.autoplay) {
-        this.player.play();
+        this.player.play(this.episode);
       }
     } else {
       this.player.play(this.episode, this.options);
     }
   }
 
-  /*  
+  /*
   $onDestroy() {
     this.player.destroyPlayer();
   }

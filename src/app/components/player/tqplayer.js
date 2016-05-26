@@ -49,7 +49,7 @@ OO.plugin("TQPlayerCoutdownModule", function(OO, _, $, W) {
       this.mb.subscribe(OO.EVENTS.PLAYER_CREATED, "torqueUI", _.bind(this.onPlayerCreate, this));
       this.mb.subscribe('ttv-show-countdown', "torqueUI", _.bind(this.showTimer, this));
       this.mb.subscribe('ttv-new-countdown', "torqueUI", _.bind(this.newCountdown, this));
-      
+
       // try {
       //   injector = angular.element('body > div').injector();
       //   this.torqueAPI = injector.get('TorqueAPI');
@@ -58,7 +58,7 @@ OO.plugin("TQPlayerCoutdownModule", function(OO, _, $, W) {
       //   console.error('cannot instantiate TorqueAPI');
       //   console.log(e);
       // }
-      
+
     },
     onPlayerCreate: function(event, elementId, params) {
       console.info('Events Module', event);
@@ -260,7 +260,7 @@ OO.plugin("TQPlayerErrorsModule", function(OO, _, $, W) {
   };
   PlayerCtrls.TQPlayerErrorsModule.prototype = {
     init: function() {
-      console.info('Error module init');
+      //console.info('Error module init');
       this.mb.subscribe(OO.EVENTS.PLAYER_CREATED, "torqueUI", _.bind(this.onPlayerCreate, this));
       this.mb.subscribe(OO.EVENTS.ERROR, "torqueUI", _.bind(this.onError, this));
     },
@@ -463,7 +463,7 @@ OO.plugin("TQPlayerHeaderModule", function(OO, _, $, W) {
     this.id = id;
     this.player = undefined;
     return this.init();
-  };  
+  };
   PlayerCtrls.TQPlayerHeaderModule.prototype = {
     init: function() {
       console.info('TQPlayerHeaderModule init');
@@ -490,7 +490,7 @@ OO.plugin("TQPlayerHeaderModule", function(OO, _, $, W) {
     },
     hideHeader: function() {
       this.elWrapper.find('.oo-header').hide();
-    }    
+    }
   };
   return PlayerCtrls.TQPlayerHeaderModule;
 });
@@ -499,7 +499,7 @@ var TtvPlayer;
 
 TtvPlayer = (function() {
   function TtvPlayer(el, options) {
-    
+
     this.oyala = null;
     this.playlist = [];
     this.current = {};
@@ -536,14 +536,14 @@ TtvPlayer = (function() {
     _.assign(this.options, options);
     if (typeof OO !== "undefined" && OO !== null) {
       this.oyala = OO.Player.create(this.def_wrapper, '', this.buildPlayerParams());
-      
+
       this.showCover();
     } else {
       console.log("No player present");
     }
     return;
   }
-  
+
   TtvPlayer.prototype.buildPlayerParams = function() {
     var params = {
       layout: 'default',
@@ -560,7 +560,7 @@ TtvPlayer = (function() {
       params.layout = 'chromeless';
       params.flashParams.layout = 'chromeless';
     };
-    
+
     angular.extend(params, this.options.ooplayer);
     return params;
   }
@@ -568,10 +568,10 @@ TtvPlayer = (function() {
   TtvPlayer.prototype.setPlaylist = function(playlist, startItem) {
     this.playlist = playlist;
     if ((startItem == null) && this.options.behavior === 'programmed') {
-      console.log("Programmed mode");
+      //console.log("Programmed mode");
       this.setCurrent(this.calcStart());
     } else {
-      console.log("Traditional mode");
+      //console.log("Traditional mode");
       if (this.playlist.length > 0) {
         this.setCurrent(startItem || this.playlist[0]);
       }
@@ -580,7 +580,7 @@ TtvPlayer = (function() {
     this.addSliders();
     this.setupSliderHandler();
   };
-  
+
   TtvPlayer.prototype.hasPlaylist = function() {
     return (this.playlist.length > 0) ? true : false;
   }
@@ -596,7 +596,7 @@ TtvPlayer = (function() {
     } else {
       this.current = item;
     }
-    console.warn('send update-video-data');
+    //console.warn('send update-video-data');
     angular.element('body').trigger('update-video-data');
   };
 
@@ -721,7 +721,7 @@ TtvPlayer = (function() {
       });
     }
   };
-  
+
   TtvPlayer.prototype.hideCover = function() {
     this.oyala.mb.publish('ttv-hide-cover');
   };
@@ -775,7 +775,7 @@ TtvPlayer = (function() {
       }
     }
   };
-  
+
   TtvPlayer.prototype.addSliders = function() {
     if ((!this.options.live_mode) && (this.hasPlaylist())) {
       if (this.elWrapper.find('.oo-slider').length == 0) {
@@ -793,7 +793,7 @@ TtvPlayer = (function() {
     this.elWrapper.on('mousedown', _.bind(this.togglePlay, this));
     this.setupSliderHandler();
   };
-  
+
   TtvPlayer.prototype.setupSliderHandler = function() {
     if (this.hasPlaylist()) {
       this.elWrapper.find('.oo-slider-left').on('click', _.bind(this.playPrevious, this));

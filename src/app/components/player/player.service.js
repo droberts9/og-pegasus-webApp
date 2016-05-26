@@ -9,7 +9,7 @@ class PlayerService {
     this.constants = EnvironmentConfig;
     this.player = undefined;
 
-    $log.info('player service init');
+    //$log.info('player service init');
   }
 
   init(el, options ) {
@@ -61,7 +61,7 @@ class PlayerService {
     if (angular.isDefined(this.player)) {
       this.player.destroyPlayer();
       this.player = undefined;
-      this.$log.info('player destroyed');
+      //this.$log.info('player destroyed');
     }
   }
 
