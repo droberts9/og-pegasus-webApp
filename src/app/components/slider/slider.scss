@@ -130,3 +130,23 @@
     }
 
 }
+@media(min-width: 521px) and (max-width: 680px){
+  .slider .slick-prev, .slider .slick-next{
+    top:24%;
+    }
+}
+@media(min-width: 481px) and (max-width: 520px){
+  .slider .slick-prev, .slider .slick-next{
+    top:18%;
+    }
+}
+@media(min-width: 361px) and (max-width: 480px){
+  .slider .slick-prev, .slider .slick-next{
+    top:18%;
+    }
+}
+@media(min-width: 320px) and (max-width: 360px){
+  .slider .slick-prev, .slider .slick-next{
+    top:13%;
+    }
+}
