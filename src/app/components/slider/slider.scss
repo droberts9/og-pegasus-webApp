@@ -98,3 +98,31 @@
 .slider .slick-next.slick-disabled {
   display: none !important;
 }
+
+
+@media(max-width: 767px) {
+  
+  .slider__item-link {
+    position: relative;
+    max-width: 1500px;
+    height: auto !important;
+    }
+    .slider__item-image{
+    width:100%;
+    }
+    .slider__head-wrapper {
+      margin-bottom: 20px;
+      position: relative;
+      width: 100%;
+      left:0%;
+      top:0%;
+    }
+    .slider__head{
+      width:98%;
+    }
+    .slider__button-wrapper.mt-lg{
+    margin-left:20px;
+    margin-top:0px;
+    }
+
+}
