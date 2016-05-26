@@ -10,6 +10,7 @@
       p {{ vm.episode.description }}
       p Season: {{ vm.season.name }}
       p Episode: {{ vm.episode.number }}
+      p(ng-if="vm.episode.metadata['TV Rating']") TV Rating: {{ vm.episode.metadata['TV Rating'] }}
 
 .container
   .mt-lg.ar-desktop
