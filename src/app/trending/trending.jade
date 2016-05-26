@@ -8,6 +8,8 @@
     .serie__detail__header.pl-lg.pr-lg
       h1 {{ vm.asset.name }}
       p {{ vm.asset.description }}
+      p(ng-if="vm.asset.metadata['TV Rating']") TV Rating: {{ vm.asset.metadata['TV Rating'] }}
+
 
 .container
   .mt-lg.ar-desktop

@@ -24,5 +24,4 @@ export function runBlock ($log, $anchorScroll, $window, $document, DoubleClick) 
     $window.FastClick.attach($document.body);
   }
 
-  $log.debug('runBlock end');
 }
