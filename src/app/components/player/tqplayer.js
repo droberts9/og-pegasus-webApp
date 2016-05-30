@@ -768,10 +768,12 @@ TtvPlayer = (function() {
       this._setupHandlers();
     } else {
       if (!this.options.live_mode) {
+        /*
         this.elWrapper.append(OOYALA_INJECTIONS.html.mobil);
         this.elWrapper.find('.oo-slider-mobil-left').on('click', _.bind(this.playPrevious, this));
         this.elWrapper.find('.oo-slider-mobil-right').on('click', _.bind(this.playNext, this));
         this.elWrapper.find('.oo-play').on('click', _.bind(this.togglePlay, this));
+        */
       }
     }
   };
