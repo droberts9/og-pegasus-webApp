@@ -19,10 +19,50 @@ export function SearchResultDirective() {
 
 class SearchResultController {
 
-  constructor($log) {
+  constructor($log, $rootScope, $scope, apiService, playerService) {
     'ngInject';
 
     this.$log = $log;
+    this.$rootScope = $rootScope;
+    this.api = apiService;
+    this.playerService = playerService;
+    this.search_result = undefined;
+    this.changeEventOff = $rootScope.$on('$stateChangeStart', ()=> { this.closeResults() });
+
+    angular.element('body').on('cms-search', (evt) => {this.doSearch(evt)});
+    $scope.$on('$destroy', ()=> { this.changeEventOff() });
+
+  }
+
+  closeResults() {
+    this.search_result = undefined;
+    this.search_result_not_found = undefined;
+  }
+
+  hasResults() {
+    let results = (this.search_result || this.search_result_not_found) ? true : false;
+    if (results) {
+      this.playerService.pause();
+    }
+    return results;
+  }
+
+
+  doSearch(evt) {
+    this.search_text = evt.search_text;
+    this.search_result_not_found = ' ';
+    this.search_result = undefined;
+
+    this.api.search(this.search_text).then((resp) => {
+      if ((resp.length == 0) || (resp == ' ')) {
+        this.$log.error('search result', resp);
+        this.search_result_not_found = 'No results found';
+        this.search_result = undefined;
+      } else {
+        this.search_result = resp;
+      }
+    });
+
   }
 
   item_url(model) {

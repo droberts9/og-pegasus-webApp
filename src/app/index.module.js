@@ -35,6 +35,7 @@ import { SliderDirective }       from '../app/components/slider/slider.directive
 import { SeasonDirective }       from '../app/serie/season.directive';
 import { SearchDirective }       from '../app/components/search/search.directive';
 import { SearchResultDirective } from '../app/components/search/search_result.directive';
+import { SearchResultsDirective } from '../app/components/search/search_results.directive';
 
 import { Popup }                 from '../app/components/popup/popup';
 import { PopupDirective }        from '../app/components/popup/cmsPopup.directive';
@@ -94,4 +95,5 @@ angular.module('appcmsClient', [
   .directive('cmsSeason',             SeasonDirective)
   .directive('cmsSearch',             SearchDirective)
   .directive('cmsSearchResult',       SearchResultDirective)
+  .directive('cmsSearchResults',      SearchResultsDirective)
   ;

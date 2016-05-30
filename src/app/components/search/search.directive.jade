@@ -5,22 +5,3 @@
       span.input-group-addon
         i.fa.fa-search(aria-hidden="true")
 
-  .search-results.pt-lg(ng-if="ctrl.hasResults()")
-    .search-results__close
-      span.search-results__close-btn(ng-click="ctrl.closeResults()")
-    .search-results__wrap
-      .search-results__content
-        p.search-results__not_found.mt-lg(ng-if="ctrl.search_result_not_found") {{ ctrl.search_result_not_found }}
-        .search-results__data(ng-if="ctrl.search_result")
-          .search-results__series.mt-lg(ng-if="ctrl.search_result.assets")
-            cms-search-result(items="::ctrl.search_result.assets", caption="Shows")
-          .search-results__series.mt-lg(ng-if="ctrl.search_result.series")
-            cms-search-result(items="::ctrl.search_result.series", caption="Series")
-          .search-results__series.mt-lg(ng-if="ctrl.search_result.seasons")
-            cms-search-result(items="::ctrl.search_result.seasons", caption="Seasons")
-          .search-results__series.mt-lg(ng-if="ctrl.search_result.episodes")
-            cms-search-result(items="::ctrl.search_result.episodes", caption="Episodes")
-          .search-results__series.mt-lg(ng-if="ctrl.search_result.categories")
-            cms-search-result(items="::ctrl.search_result.categories", caption="Categories")
-
-

@@ -1,8 +1,18 @@
-.row.search-result-wrap
-  p.search-data__title.pb-sm.mb-lg.ml-md2.mr-md2 {{ ::ctrl.caption }}
-  .col-xs-12.col-sm-4.col-md-3.mb-lg.search-result__group(ng-repeat="item in ::ctrl.items")
-    a.search-data__image-link(href="{{ ctrl.item_url(item) }}")
-      img(class="img-responsive search-result__image" ng-src="{{ ::item.defaultImage }}" alt="{{ ::item.name }}")
-    a.search-data__link.mt-sm.mb-sm(href="{{ctrl.item_url(item)}}") {{ ::item.name }}
-    .search-data__description
-      p {{ ::item.description }}
+.search-results.pt-lg(ng-if="ctrl.hasResults()")
+  .search-results__close
+    span.search-results__close-btn(ng-click="ctrl.closeResults()")
+  .search-results__wrap
+    .search-results__content
+      p.search-results__not_found.mt-lg(ng-if="ctrl.search_result_not_found") {{ ctrl.search_result_not_found }}
+      .search-results__data(ng-if="ctrl.search_result")
+        .search-results__series.mt-lg(ng-if="ctrl.search_result.assets")
+          cms-search-results(items="::ctrl.search_result.assets", caption="Shows")
+        .search-results__series.mt-lg(ng-if="ctrl.search_result.series")
+          cms-search-results(items="::ctrl.search_result.series", caption="Series")
+        .search-results__series.mt-lg(ng-if="ctrl.search_result.seasons")
+          cms-search-results(items="::ctrl.search_result.seasons", caption="Seasons")
+        .search-results__series.mt-lg(ng-if="ctrl.search_result.episodes")
+          cms-search-results(items="::ctrl.search_result.episodes", caption="Episodes")
+        .search-results__series.mt-lg(ng-if="ctrl.search_result.categories")
+          cms-search-results(items="::ctrl.search_result.categories", caption="Categories")
+
