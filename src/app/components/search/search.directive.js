@@ -21,6 +21,7 @@ class SearchController {
     'ngInject';
 
     this.$log = $log;
+    this.$rootScope = $rootScope;
     this.search_text = "";
     this.api = apiService;
     this.playerService = playerService;
@@ -43,15 +44,14 @@ class SearchController {
     this.search_result_not_found = ' ';
     this.search_result = undefined;
 
-    this.api.search(this.search_text).then((resp) => {      
-      //console.log(resp);
+    this.api.search(this.search_text).then((resp) => {
       if ((resp.length == 0) || (resp == ' ')) {
         this.$log.error('search result', resp);
         this.search_result_not_found = 'No results found';
         this.search_result = undefined;
       } else {
-        //this.$log.error(resp);
         this.search_result = resp;
+        this.$rootScope.searchResults = resp;
       }
 
 
