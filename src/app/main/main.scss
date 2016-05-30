@@ -71,6 +71,7 @@
 
 .navbar__sponsor-img {
   display: block;
+  margin-top:-12px;
 }
 
 .navbar-select {
@@ -126,8 +127,9 @@
  }
 
 .navbar__logo-img {
-  margin-top: -45px;
+  margin-top: -27px;
   margin-right: -30px;
+  opacity:0.3;
 }
 .navbar-fixed-top{
   max-width:1500px;
@@ -146,13 +148,19 @@
 
 @media (min-width: 768px) {
   #navbar .main-menu {
-    margin-top: 57px;
+    margin-top: 38px;
   }
   #navbar .main-menu > li > a {
-    padding-bottom: 0 !important;
+    /*padding-bottom: 0 !important;*/
+    border:$blue-color solid 1px;
+    color:$blue-color;
+    border-radius:8px;
+    padding:6px 8px;
+    text-transform:uppercase;
+    margin-left:20px;
   }
   #navbar .search__wrapper {
-    margin-top: 45px;
+    margin-top: 27px;
     margin-right: 89px;
     padding-bottom: 0;
   }
