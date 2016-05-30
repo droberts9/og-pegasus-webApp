@@ -33,8 +33,11 @@
 }
 
 @media (max-width: 767px) {
-.search-result__group{
-  max-height:262px;
+.search-result__image{
+  max-height: none;
+}
+.search-result__group {
+  height:auto;
 }
 .search-data__link{
   font: 300 18px/1.2 Helvetica Neue,Helvetica,sans-serif;
