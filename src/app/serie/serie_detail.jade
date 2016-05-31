@@ -11,6 +11,13 @@
       p Season: {{ vm.season.name }}
       p Episode: {{ vm.episode.number }}
       p(ng-if="vm.episode.metadata['TV Rating']") TV Rating: {{ vm.episode.metadata['TV Rating'] }}
+      ul.list-inline.social-group
+        li
+          a.social-group__tw(href="https://twitter.com/intent/tweet?text={{vm.social.encodedTitle(vm.episode)}}&url={{vm.social.encodedUrl(vm.episode)}}" target="_blank")
+            i.fa.fa-twitter-square
+        li
+          a.social-group__fb(href="https://www.facebook.com/sharer/sharer.php?u={{vm.social.encodedUrl(vm.episode)}}" target="_blank")
+            i.fa.fa-facebook-square
 
 .container
   .mt-lg.ar-desktop

@@ -2,8 +2,15 @@
   .col-xs-12.col-sm-4.pl-big.pr-big.mt-big
       h1 {{ vm.serie.name }}
       p {{ vm.serie.description }}
+      ul.list-inline.social-group
+        li
+          a.social-group__tw(href="https://twitter.com/intent/tweet?text={{vm.social.encodedTitle(vm.serie)}}&url={{vm.social.encodedUrl(vm.serie)}}" target="_blank")
+            i.fa.fa-twitter-square
+        li
+          a.social-group__fb(href="https://www.facebook.com/sharer/sharer.php?u={{vm.social.encodedUrl(vm.serie)}}" target="_blank")
+            i.fa.fa-facebook-square
   .col-xs-12.col-sm-8
-    .serie__header.mt-lg.mr-lg
+    .serie__header.mt-lg.center-block
       .serie__image-wrapper(ng-if="!vm.hasFootage()")
         img.img-responsive.serie__header-img(ng-src="{{vm.serie.defaultImage}}")
       .serie__player-wrapper(ng-if="vm.hasFootage()")
@@ -12,7 +19,8 @@
 
 .container
   .mt-lg.ar-desktop
-    cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-970x250-0" )
+    .row
+      cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-970x250-0" )
 
   .mt-big(ng-repeat="season in vm.serie.seasons")
     cms-category-x2(playlist="season.episodes" caption="{{ season.name }}" follow-link="true" onplay="vm.play(options)" kind="single")

@@ -21,6 +21,9 @@
   position: relative;
   overflow: hidden;
 }
+.slider__simple .carousel__group-item {
+  max-height: 156px;
+}
 
 
 .carousel__image-wrapper {

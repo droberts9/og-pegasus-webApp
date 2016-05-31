@@ -39,3 +39,23 @@
     font-size: 25px;
   }
 }
+
+.social-group {
+  font-size: 28px;
+  margin-bottom: 0;
+}
+
+.social-group__tw:hover,
+.social-group__tw:active,
+.social-group__tw:focus,
+.social-group__tw:visited,
+.social-group__tw {
+  color: #3cf;
+}
+.social-group__fb:hover,
+.social-group__fb:active,
+.social-group__fb:focus,
+.social-group__fb:visited,
+.social-group__fb {
+  color: #3b5998;
+}
