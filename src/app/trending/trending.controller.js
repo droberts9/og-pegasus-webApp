@@ -1,15 +1,16 @@
 class TrendingController {
 
-  constructor($log, $state, $document, $timeout, $window, apiService, playerService, metaService, asset, discovery) {
+  constructor($log, $state, $document, $timeout, $window, apiService, playerService, metaService, asset, discovery, socialService) {
     'ngInject';
-    this.$log = $log;
-    this.$state = $state;
-    this.$timeout = $timeout;
-    this.api = apiService;
-    this.player = playerService;
+    this.$log        = $log;
+    this.$state      = $state;
+    this.$timeout    = $timeout;
+    this.api         = apiService;
+    this.player      = playerService;
     this.metaService = metaService;
-    this.asset = asset;
-    this.discovery = discovery;
+    this.asset       = asset;
+    this.discovery   = discovery;
+    this.social      = socialService;
 
     angular.element($document).on('update-video-data', ()=> this.updateCurrentVideo() );
     this.metaService.keywords = this.asset.metadata.AdTags;

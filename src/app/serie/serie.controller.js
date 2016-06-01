@@ -1,6 +1,6 @@
 class SerieController {
 
-  constructor($document, $timeout, apiService, playerService, utils,  $scope, $log, $state, serie) {
+  constructor($document, $timeout, apiService, playerService, utils,  $scope, $log, $state, serie, socialService) {
     'ngInject';
 
     this.api = apiService;
@@ -11,6 +11,7 @@ class SerieController {
     this.serie = serie;
     this.player = playerService;
     this.serie_footages = serie.footages;
+    this.social = socialService;
 
     /*
     serie.seasons.forEach(function(season) {
