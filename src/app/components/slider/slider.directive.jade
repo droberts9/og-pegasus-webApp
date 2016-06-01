@@ -5,7 +5,7 @@ slick.slider(infinite="true" data="ctrl.playlist" arrows="true" variable-width="
       .slider__head-wrapper
         .slider__head(ng-if="ctrl.hasHead(item)")
           p.slider__title {{ ::item.name }}
-          p.slider__description {{ ::item.description }}
+          p.slider__description {{ ::item.description | ellipsesFilter:250 }}
         .slider__button-wrapper.mt-lg(ng-if="ctrl.hasCustomButton(item)")
           a.btn.btn-trans(href="{{::item.metadata.ButtonLink}}" ng-attr-target="{{ctrl.isRemoteLink(item)}}") {{::item.metadata.ButtonTitle}}
       //img.slider__item-image.img-responsive(ng-src="{{ ::item.defaultImage }}")

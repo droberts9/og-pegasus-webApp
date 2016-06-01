@@ -28,7 +28,7 @@ class SearchController {
   submit() {
     // cms-search-result directive will capture this event
     if (this.search_text.trim() != '') {
-      angular.element('body').trigger({type: 'cms-search', search_text: this.search_text});
+      angular.element('body').trigger({type: 'cms-search', search_text: this.search_text}).focus();
     }
 
   }
