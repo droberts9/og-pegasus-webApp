@@ -9,13 +9,17 @@
       h1 {{ vm.asset.name }}
       p {{ vm.asset.description }}
       p(ng-if="vm.asset.metadata['TV Rating']") TV Rating: {{ vm.asset.metadata['TV Rating'] }}
-      ul.list-inline.social-group
+      ul.list-inline.social-group.social-group--stack.mb-lg
         li
           a.social-group__tw(href="https://twitter.com/intent/tweet?text={{vm.social.encodedTitle(vm.asset)}}&url={{vm.social.encodedUrl(vm.asset)}}" target="_blank")
-            i.fa.fa-twitter-square
+            span.fa-stack.fa-lg
+              i.fa.fa-square.fa-stack-2x
+              i.fa.fa-twitter.fa-stack-1x
         li
           a.social-group__fb(href="https://www.facebook.com/sharer/sharer.php?u={{vm.social.encodedUrl(vm.asset)}}" target="_blank")
-            i.fa.fa-facebook-square
+            span.fa-stack.fa-lg
+              i.fa.fa-square.fa-stack-2x
+              i.fa.fa-facebook.fa-stack-1x
 
 
 .container

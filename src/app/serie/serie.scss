@@ -42,7 +42,6 @@
 
 .social-group {
   font-size: 28px;
-  margin-bottom: 0;
 }
 
 .social-group__tw:hover,
@@ -58,4 +57,14 @@
 .social-group__fb:visited,
 .social-group__fb {
   color: #3b5998;
+}
+
+.fa-stack .fa-twitter {
+  color: #fff;
+}
+.fa-stack .fa-facebook {
+  color: #fff;
+}
+.social-group--stack {
+  font-size: 14px;
 }
