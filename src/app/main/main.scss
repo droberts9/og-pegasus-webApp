@@ -147,6 +147,10 @@
   background-color: rgba(0,0,0,0.8);
 }
 
+body.on-search {
+  position: fixed;
+}
+
 @media (min-width: 768px) {
   #navbar .main-menu {
     margin-top: 40px;
@@ -167,5 +171,4 @@
     margin-right: 89px;
     padding-bottom: 0;
   }
-
 }

@@ -779,7 +779,7 @@ TtvPlayer = (function() {
   };
 
   TtvPlayer.prototype.addSliders = function() {
-    if ((!this.options.live_mode) && (this.hasPlaylist())) {
+    if ((!this.options.live_mode) && (this.hasPlaylist()) && (this.playlist.length > 1)) {
       if (this.elWrapper.find('.oo-slider').length == 0) {
         this.elWrapper.append(OOYALA_INJECTIONS.html.sliders);
       }
@@ -797,7 +797,7 @@ TtvPlayer = (function() {
   };
 
   TtvPlayer.prototype.setupSliderHandler = function() {
-    if (this.hasPlaylist()) {
+    if (this.hasPlaylist() && (this.playlist.length > 1)) {
       this.elWrapper.find('.oo-slider-left').on('click', _.bind(this.playPrevious, this));
       this.elWrapper.find('.oo-slider-right').on('click', _.bind(this.playNext, this));
     }

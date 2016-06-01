@@ -37,6 +37,7 @@ class SearchResultController {
   closeResults() {
     this.search_result = undefined;
     this.search_result_not_found = undefined;
+    angular.element('body').removeClass('on-search');
   }
 
   hasResults() {
@@ -54,6 +55,7 @@ class SearchResultController {
     this.search_result = undefined;
 
     this.api.search(this.search_text).then((resp) => {
+      angular.element('body').addClass('on-search');
       if ((resp.length == 0) || (resp == ' ')) {
         this.$log.error('search result', resp);
         this.search_result_not_found = 'No results found';

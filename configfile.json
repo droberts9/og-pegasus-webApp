@@ -32,7 +32,7 @@
   "staging": {
     "EnvironmentConfig": {
       "appConfig": {
-        "apiUrl": "http://stage.bonnier.sporkers.com/api/v1"
+        "apiUrl": "http://stage.fish.sporkers.com/api/v1"
       },
       "ooplayer": {
         "pcode": "RyZ2cyOqrM7SQLfKy4Hys7rcjg9c",
