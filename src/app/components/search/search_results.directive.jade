@@ -5,4 +5,4 @@
       img(class="img-responsive search-result__image" ng-src="{{ ::item.defaultImage }}" alt="{{ ::item.name }}")
     a.search-data__link.mt-sm.mb-sm(href="{{ctrl.item_url(item)}}") {{ ::item.name }}
     .search-data__description
-      p {{ ::item.description }}
+      p {{ ::item.description | ellipsesFilter:80}}
