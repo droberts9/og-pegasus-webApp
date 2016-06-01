@@ -6,6 +6,7 @@ import { runBlock }              from './index.run';
 
 import { Utils }                 from '../app/components/utils/utils.factory';
 import { TimerFilter }           from '../app/components/utils/timer.filter';
+import { EllipsesFilter }        from '../app/components/utils/ellipses.filter';
 import { MainController }        from '../app/main/main.controller';
 import { LoginController }       from '../app/login/login.controller';
 import { CategoriesController }  from '../app/categories/categories.controller';
@@ -48,7 +49,6 @@ import { ResponsiveDirectiveProvider,
          arDesktopDirective,
          arResponsiveDirective }  from '../app/components/angular-responsive/responsive';
 
-
 angular.module('appcmsClient', [
 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages',
 'ngAria', 'ui.router', 'ui.bootstrap', 'ng-token-auth',
@@ -69,6 +69,7 @@ angular.module('appcmsClient', [
   .service('socialService',           SocialService)
   .factory('utils',                   () => new Utils())
   .filter('timerFilter',              TimerFilter)
+  .filter('ellipsesFilter',           EllipsesFilter)
 
   .controller('MainController',         MainController)
   .controller('LoginController',        LoginController)
