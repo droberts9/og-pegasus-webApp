@@ -145,8 +145,14 @@
     top:18%;
     }
 }
-@media(min-width: 320px) and (max-width: 360px){
+@media(min-width: 321px) and (max-width: 360px){
   .slider .slick-prev, .slider .slick-next{
     top:13%;
+    }
+}
+
+@media(max-width: 320px){
+  .slider .slick-prev, .slider .slick-next{
+    top:10%;
     }
 }
