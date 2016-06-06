@@ -1,19 +1,21 @@
-.pagead.pt-lg
-  .ar-desktop
-    cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-728x90-0" )
-  .ar-mobile
-    cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-320x50-0" )
+.container-fluid
+  .pagead.pt-lg
+    .ar-desktop
+      cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-728x90-0" )
+    .ar-mobile
+      cms-billboard-ad(class="mt-lg pb-lg adspot adspot--mobile" adspot="div-gpt-ad-320x50-0" )
 
-.row.footer.mt-big
-  .col-xs-12
-    .footer-wrap
-      img(src="/assets/images/saltlogo.png" alt="SaltWater.tv" height="40")
-      ul.list-inline.footer__links.ml-lg
-        li
-          a.footer__link(ui-sref="home.pages({slug:'about-us'})") About Us
-        li
-          a.footer__link(ui-sref="home.pages({slug:'terms-of-use'})") Terms of Use
-        li
-          a.footer__link(ui-sref="home.pages({slug:'bonnier-corporation-privacy-policy'})") Privacy Policy
-        li
-          a.footer__link(ui-sref="home.pages({slug:'reporting-abuse'})") Abuse
+  .row.footer.mt-big
+    .col-xs-12
+      .footer-wrap.pt-sm
+        ul.list-inline.footer__links
+          li
+            img(src="/assets/images/saltlogo.png" alt="SaltWater.tv" height="40" style="margin-top: -10px;")
+          li
+            a.footer__link(ui-sref="home.pages({slug:'about-us'})") About Us
+          li
+            a.footer__link(ui-sref="home.pages({slug:'terms-of-use'})") Terms of Use
+          li
+            a.footer__link(ui-sref="home.pages({slug:'bonnier-corporation-privacy-policy'})") Privacy Policy
+          li
+            a.footer__link(ui-sref="home.pages({slug:'reporting-abuse'})") Abuse

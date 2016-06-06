@@ -1,26 +1,27 @@
-nav.navbar.navbar-inverse.navbar-fixed-top
-  .container-fluid
-    .navbar-header
-      button.navbar-toggle.collapsed.mover.ma-big(type="button" data-toggle="collapse" data-target="#navbar" ng-click="app.isCollapsed = !app.isCollapsed" aria-expanded="false" aria-controls="navbar")
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      .brand-wrap
-        a.brand-logo.center-block(href="/")
-          img(src="/assets/images/saltlogo.png" alt="SaltWater.TV")
-    #navbar.navbar-collapse.collapse(uib-collapse="!app.isCollapsed")
-      ul.nav.navbar-nav.main-menu
-        li
-          a.header__link(ui-sref="home.series" ng-click="app.isCollapsed = !app.isCollapsed") Shows
+.container-fluid
+  nav.navbar.navbar-inverse.navbar-fixed-top
+    .container-fluid
+      .navbar-header
+        button.navbar-toggle.collapsed.mover.ma-big(type="button" data-toggle="collapse" data-target="#navbar" ng-click="app.isCollapsed = !app.isCollapsed" aria-expanded="false" aria-controls="navbar")
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        .brand-wrap
+          a.brand-logo.center-block(href="/")
+            img(src="/assets/images/saltlogo.png" alt="SaltWater.TV")
+      #navbar.navbar-collapse.collapse(uib-collapse="!app.isCollapsed")
+        ul.nav.navbar-nav.main-menu
+          li
+            a.header__link(ui-sref="home.series" ng-click="app.isCollapsed = !app.isCollapsed") Shows
 
-      ul.nav.navbar-nav.navbar-right.search__wrapper
-        li
-          cms-search
-        li.hidden-xs
-          img.navbar__logo-img(src="/assets/images/saltlogo2.png" alt="SaltWater.TV")
+        ul.nav.navbar-nav.navbar-right.search__wrapper
+          li
+            cms-search
+          li.hidden-xs
+            img.navbar__logo-img(src="/assets/images/saltlogo2.png" alt="SaltWater.TV")
 
-    .nav.navbar__sponsor
-      a.navbar__sponsor-link(href="http://yeticoolers.com" alt="Yeti"  target="_blank")
-        img.navbar__sponsor-img(src="/assets/images/yetilog.png" alt="Yeti")
+      .nav.navbar__sponsor
+        a.navbar__sponsor-link(href="http://yeticoolers.com" alt="Yeti"  target="_blank")
+          img.navbar__sponsor-img(src="/assets/images/yetilog.png" alt="Yeti")
 

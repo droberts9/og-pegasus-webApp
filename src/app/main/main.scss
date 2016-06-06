@@ -40,10 +40,16 @@
 }
 
 .footer__links {
-  display: inline-block;
   font-size: 14px;
   margin-bottom: 0;
 }
+
+@media (max-width: 424px) {
+  .list-inline > li {
+    display: block;
+  }
+}
+
 .footer__link:visited,
 .footer__link {
   color: #000;

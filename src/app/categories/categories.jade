@@ -1,17 +1,18 @@
-.row
-  .slider-wrapper
-    cms-slider(playlist="vm.carousel.assets")
-  //
-    .container
-      cms-player(playlist="::vm.carousel.assets" options='{"show_volume_icon": false, "autoplay": false}')
+.container-fluid
+  .row
+    .slider-wrapper
+      cms-slider(playlist="vm.carousel.assets")
+    //
+      .container
+        cms-player(playlist="::vm.carousel.assets" options='{"show_volume_icon": false, "autoplay": false}')
 
+
+.ar-desktop
+  cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-970x250-0" )
+.ar-mobile
+  cms-billboard-ad(class="mt-lg pb-lg center-block adspot adspot--mobile" adspot="div-gpt-ad-300x250-1" )
 
 .container
-  .ar-desktop
-    cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-970x250-0" )
-  .ar-mobile
-    cms-billboard-ad(class="mt-lg pb-lg center-block adspot" adspot="div-gpt-ad-300x250-1" )
-
   .mt-big.home-categories
     cms-category(items="::vm.featured", caption="Featured Shows")
 
