@@ -24,5 +24,10 @@ fi
 # the previous condition is not working
 #
 # rsync -avzhe ssh dist/* ${REMOTE_USER}@${SERVER}:/web/bhd/fish/dist
+echo "-=[ Staging ]=-"
 echo "rsync -avzhe ssh dist/* ${REMOTE_USER}@${SERVER}:/web/bhd/fish/dist"
+echo " "
+echo "-=[ Production ]=-"
+echo "rsync -avzhe ssh dist/* ${REMOTE_USER}@${SERVER}:/web/bhd/fish_prod/dist"
+echo " "
 
