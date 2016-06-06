@@ -1,25 +1,26 @@
-.row.serie__player
-  .col-xs-12.col-sm-7.col-md-8.serie__player-wrap
-    cms-player(episode="::vm.asset" options='{"autoplay": true, "checkPlaylist": false}')
-  .hidden-xs.col-sm-5.col-md-4.ar-desktop
-    cms-billboard-ad(class="center-block adspot" adspot="div-gpt-ad-300x250-0" )
-.row.serie__caption
-  .col-xs-12.col-sm-7.col-md-8
-    .serie__detail__header.pl-lg.pr-lg
-      h1 {{ vm.asset.name }}
-      p {{ vm.asset.description }}
-      p(ng-if="vm.asset.metadata['TV Rating']") TV Rating: {{ vm.asset.metadata['TV Rating'] }}
-      ul.list-inline.social-group.social-group--stack.mb-lg
-        li
-          a.social-group__tw(href="https://twitter.com/intent/tweet?text={{vm.social.encodedTitle(vm.asset)}}&url={{vm.social.encodedUrl(vm.asset)}}" target="_blank")
-            span.fa-stack.fa-lg
-              i.fa.fa-square.fa-stack-2x
-              i.fa.fa-twitter.fa-stack-1x
-        li
-          a.social-group__fb(href="https://www.facebook.com/sharer/sharer.php?u={{vm.social.encodedUrl(vm.asset)}}" target="_blank")
-            span.fa-stack.fa-lg
-              i.fa.fa-square.fa-stack-2x
-              i.fa.fa-facebook.fa-stack-1x
+.container-fluid
+  .row.serie__player
+    .col-xs-12.col-sm-7.col-md-8.serie__player-wrap
+      cms-player(episode="::vm.asset" options='{"autoplay": true, "checkPlaylist": false}')
+    .hidden-xs.col-sm-5.col-md-4.ar-desktop
+      cms-billboard-ad(class="center-block adspot" adspot="div-gpt-ad-300x250-0" )
+  .row.serie__caption
+    .col-xs-12.col-sm-7.col-md-8
+      .serie__detail__header.pl-lg.pr-lg
+        h1 {{ vm.asset.name }}
+        p {{ vm.asset.description }}
+        p(ng-if="vm.asset.metadata['TV Rating']") TV Rating: {{ vm.asset.metadata['TV Rating'] }}
+        ul.list-inline.social-group.social-group--stack.mb-lg
+          li
+            a.social-group__tw(href="https://twitter.com/intent/tweet?text={{vm.social.encodedTitle(vm.asset)}}&url={{vm.social.encodedUrl(vm.asset)}}" target="_blank")
+              span.fa-stack.fa-lg
+                i.fa.fa-square.fa-stack-2x
+                i.fa.fa-twitter.fa-stack-1x
+          li
+            a.social-group__fb(href="https://www.facebook.com/sharer/sharer.php?u={{vm.social.encodedUrl(vm.asset)}}" target="_blank")
+              span.fa-stack.fa-lg
+                i.fa.fa-square.fa-stack-2x
+                i.fa.fa-facebook.fa-stack-1x
 
 
 .container

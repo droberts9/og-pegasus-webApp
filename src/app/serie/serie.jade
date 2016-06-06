@@ -1,24 +1,25 @@
-.row.serie__wrapper.pb-big
-  .col-xs-12.col-sm-4.pl-big.pr-big.mt-big
-      h1 {{ vm.serie.name }}
-      p {{ vm.serie.description }}
-      ul.list-inline.social-group.social-group--stack.mb-lg
-        li
-          a.social-group__tw(href="https://twitter.com/intent/tweet?text={{vm.social.encodedTitle(vm.serie)}}&url={{vm.social.encodedUrl(vm.serie)}}" target="_blank")
-            span.fa-stack.fa-lg
-              i.fa.fa-square.fa-stack-2x
-              i.fa.fa-twitter.fa-stack-1x
-        li
-          a.social-group__fb(href="https://www.facebook.com/sharer/sharer.php?u={{vm.social.encodedUrl(vm.serie)}}" target="_blank")
-            span.fa-stack.fa-lg
-              i.fa.fa-square.fa-stack-2x
-              i.fa.fa-facebook.fa-stack-1x
-  .col-xs-12.col-sm-8
-    .serie__header.mt-lg.center-block
-      .serie__image-wrapper(ng-if="!vm.hasFootage()")
-        img.img-responsive.serie__header-img(ng-src="{{vm.serie.defaultImage}}")
-      .serie__player-wrapper(ng-if="vm.hasFootage()")
-        cms-player(playlist="::vm.serie.footages" options='{"autoplay": true}')
+.container-fluid
+  .row.serie__wrapper.pb-big
+    .col-xs-12.col-sm-4.pl-big.pr-big.mt-big
+        h1 {{ vm.serie.name }}
+        p {{ vm.serie.description }}
+        ul.list-inline.social-group.social-group--stack.mb-lg
+          li
+            a.social-group__tw(href="https://twitter.com/intent/tweet?text={{vm.social.encodedTitle(vm.serie)}}&url={{vm.social.encodedUrl(vm.serie)}}" target="_blank")
+              span.fa-stack.fa-lg
+                i.fa.fa-square.fa-stack-2x
+                i.fa.fa-twitter.fa-stack-1x
+          li
+            a.social-group__fb(href="https://www.facebook.com/sharer/sharer.php?u={{vm.social.encodedUrl(vm.serie)}}" target="_blank")
+              span.fa-stack.fa-lg
+                i.fa.fa-square.fa-stack-2x
+                i.fa.fa-facebook.fa-stack-1x
+    .col-xs-12.col-sm-8
+      .serie__header.mt-lg.center-block
+        .serie__image-wrapper(ng-if="!vm.hasFootage()")
+          img.img-responsive.serie__header-img(ng-src="{{vm.serie.defaultImage}}")
+        .serie__player-wrapper(ng-if="vm.hasFootage()")
+          cms-player(playlist="::vm.serie.footages" options='{"autoplay": true}')
 
 
 .container

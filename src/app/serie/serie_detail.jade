@@ -1,27 +1,28 @@
-.row.serie__player
-  .col-xs-12.col-sm-7.col-md-8.serie__player-wrap
-    cms-player(episode="::vm.episode" playlist="::vm.season.episodes" options='{"autoplay": true}')
-  .hidden-xs.col-sm-5.col-md-4.ar-desktop
-    cms-billboard-ad(class="center-block adspot" adspot="div-gpt-ad-300x250-0" )
-.row.serie__caption
-  .col-xs-12.col-md-8
-    .serie__detail__header.pl-lg.pr-lg
-      h1 {{ vm.episode.name }}
-      p {{ vm.episode.description }}
-      p Season: {{ vm.season.name }}
-      p Episode: {{ vm.episode.number }}
-      p(ng-if="vm.episode.metadata['TV Rating']") TV Rating: {{ vm.episode.metadata['TV Rating'] }}
-      ul.list-inline.social-group.social-group--stack.mb-lg
-        li
-          a.social-group__tw(href="https://twitter.com/intent/tweet?text={{vm.social.encodedTitle(vm.episode)}}&url={{vm.social.encodedUrl(vm.episode)}}" target="_blank")
-            span.fa-stack.fa-lg
-              i.fa.fa-square.fa-stack-2x
-              i.fa.fa-twitter.fa-stack-1x
-        li
-          a.social-group__fb(href="https://www.facebook.com/sharer/sharer.php?u={{vm.social.encodedUrl(vm.episode)}}" target="_blank")
-            span.fa-stack.fa-lg
-              i.fa.fa-square.fa-stack-2x
-              i.fa.fa-facebook.fa-stack-1x
+.container-fluid
+  .row.serie__player
+    .col-xs-12.col-sm-7.col-md-8.serie__player-wrap
+      cms-player(episode="::vm.episode" playlist="::vm.season.episodes" options='{"autoplay": true}')
+    .hidden-xs.col-sm-5.col-md-4.ar-desktop
+      cms-billboard-ad(class="center-block adspot" adspot="div-gpt-ad-300x250-0" )
+  .row.serie__caption
+    .col-xs-12.col-md-8
+      .serie__detail__header.pl-lg.pr-lg
+        h1 {{ vm.episode.name }}
+        p {{ vm.episode.description }}
+        p Season: {{ vm.season.name }}
+        p Episode: {{ vm.episode.number }}
+        p(ng-if="vm.episode.metadata['TV Rating']") TV Rating: {{ vm.episode.metadata['TV Rating'] }}
+        ul.list-inline.social-group.social-group--stack.mb-lg
+          li
+            a.social-group__tw(href="https://twitter.com/intent/tweet?text={{vm.social.encodedTitle(vm.episode)}}&url={{vm.social.encodedUrl(vm.episode)}}" target="_blank")
+              span.fa-stack.fa-lg
+                i.fa.fa-square.fa-stack-2x
+                i.fa.fa-twitter.fa-stack-1x
+          li
+            a.social-group__fb(href="https://www.facebook.com/sharer/sharer.php?u={{vm.social.encodedUrl(vm.episode)}}" target="_blank")
+              span.fa-stack.fa-lg
+                i.fa.fa-square.fa-stack-2x
+                i.fa.fa-facebook.fa-stack-1x
 
 .container
   .mt-lg.ar-desktop
