@@ -14,6 +14,8 @@ class SerieModel {
     this.seasons = [];
 
     this.initValues(data);
+
+    this.screenL = screen.width;
   }
 
   static loadData(data) {
@@ -49,10 +51,22 @@ class SerieModel {
     }
   }
 
-  get defaultImage() {
-    if ((this.images) && (this.images.length > 0)) {
-      return this.images[0].url;
+ 
 
+  get defaultImage() {
+
+    if ((this.images) && (this.images.length > 0)) {
+      if(this.screenL < 768){
+       
+         return this.images[2].url;
+      }
+       if(this.screenL >=768 && this.screenL <= 992){
+        return this.images[1].url;
+       }
+       if(this.screenL >= 992){
+        return this.images[0].url;
+       }
+      
     } else {
       // TODO: move this to constants
       return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=1920&h=1080";
