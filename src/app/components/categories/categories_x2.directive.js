@@ -4,7 +4,7 @@ export function CategoriesX2Directive($log, utils, responsiveHelper) {
   'ngInject';
 
   let determineTemplate = function() {
-    if (responsiveHelper.isMobile()) {
+    if (responsiveHelper.isTablet()) {
       return 'app/components/categories/categories_x2.directive.mobile.html';
     } else {
       return 'app/components/categories/categories_x2.directive.desktop.html';
@@ -52,7 +52,7 @@ class Categoriesx2Controller {
       this.$log.error( 'Slider property kind invalid: ['+this.kind+']');
     }
 
-    if (responsiveHelper.isMobile()) {
+    if (responsiveHelper.isTablet()) {
       this.grp_playlist = utils.groupOf(this.playlist, 3);
     } else {
       if (this.kind === 'single') {

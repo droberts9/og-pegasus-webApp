@@ -10,6 +10,6 @@
       slick.carousel(infinite="true" data="ctrl.playlist" arrows="false" variable-width="true" init-onload="false" )
         .carousel__group(ng-repeat="item in ctrl.playlist")
           .carousel__group-item.mb-md.mr-md( cms-popup template="slider-item-popup")
-            img(class="carousel__image img-responsive" ng-src="{{ ctrl.defaultImage(item) }}" alt="{{ item.title || item.name }}")
+            img(class="carousel__image img-responsive" ng-src="{{ item.defaultImage('small') }}" alt="{{ item.title || item.name }}")
             p.carousel__title {{ item.title || item.name }}
             p.carousel__duration.pa-sm {{ item.duration | timerFilter }}

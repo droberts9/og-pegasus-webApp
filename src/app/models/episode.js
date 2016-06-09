@@ -44,15 +44,20 @@ class EpisodeModel {
     }
   }
 
-  get defaultImage() {
+  defaultImage(sizeRequest) {
+    var imageUrl = undefined;
+
     if ((this.images) && (this.images.length > 0)) {
-      return this.images[0].url;
-    } if (this.preview_image_url != "") {
-      return this.preview_image_url;
-    } else {
-      // TODO: move this to constants
-      return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=1920&h=1080";
+      imageUrl = this.utils.extractImageSize(sizeRequest, this.images);
+    } else if (this.preview_image_url != '') {
+      imageUrl = this.preview_image_url;
     }
+
+    if (angular.isUndefined(imageUrl)) {
+      imageUrl = this.utils.stubImage(sizeRequest);
+    }
+
+    return imageUrl;
   }
 
 }

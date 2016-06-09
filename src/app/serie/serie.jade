@@ -17,10 +17,9 @@
     .col-xs-12.col-sm-8
       .serie__header.mt-lg.center-block
         .serie__image-wrapper(ng-if="!vm.hasFootage()")
-          img.img-responsive.serie__header-img(ng-src="{{vm.serie.defaultImage}}")
+          img.img-responsive.serie__header-img(ng-src="{{vm.serie.defaultImage(vm.utils.responsiveImageSize())}}")
         .serie__player-wrapper(ng-if="vm.hasFootage()")
           cms-player(playlist="::vm.serie.footages" options='{"autoplay": true}')
-
 
 .container
   .mt-lg.ar-desktop

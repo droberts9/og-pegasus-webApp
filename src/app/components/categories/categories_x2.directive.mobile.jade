@@ -9,6 +9,6 @@
           .carousel__group-item.mb-md.mr-md(ng-repeat="item in group")
             .carousel__item(ng-click="ctrl.play(item)")
               .carousel__image-wrapper
-                img.carousel__image.img-responsive(ng-src="{{ item.defaultImage }}" alt="{{ ::item.name }}")
+                img.carousel__image.img-responsive(ng-src="{{ item.defaultImage('small') }}" alt="{{ ::item.name }}")
                 p.carousel__duration.pa-sm {{ ::item.duration | timerFilter }}
               p.carousel__title {{ ::item.name }}

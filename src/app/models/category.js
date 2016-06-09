@@ -50,13 +50,18 @@ class CategoryModel {
     }
   }
 
-  get defaultImage() {
+  defaultImage(sizeRequest) {
+    var imageUrl = undefined;
+
     if ((this.images) && (this.images.length > 0)) {
-      return this.images[0].url;
-    } else {
-      // TODO: move this to constants
-      return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=1920&h=1080";
+      imageUrl = this.utils.extractImageSize(sizeRequest, this.images);
     }
+
+    if (angular.isUndefined(imageUrl)) {
+      imageUrl = this.utils.stubImage(sizeRequest);
+    }
+
+    return imageUrl;
   }
 
 }

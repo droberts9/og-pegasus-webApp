@@ -36,11 +36,13 @@ module.exports = {
             isTablet      : function () { return helper.isSmartDevice && (winWidth > 767);    },
             isDesktop     : function () { return !helper.isSmartDevice;                       }
             */
-            isMobile      : function () { return (winWidth <= 767);     },
-            isTablet      : function () { return (winWidth <= 767);     },
-            isDesktop     : function () { return (winWidth > 767); }
+            isMobile      : function () { return (winWidth <= 425); },
+            isTablet      : function () { return (winWidth <= 767); },
+            isDesktop     : function () { return (winWidth > 767);  }
 
         };
+
+
 
         // Publish accessor function...
 
