@@ -78,7 +78,82 @@
       <div id="div-gpt-ad-intert-0" style="height:0"></div>
       <div ui-view="header"></div>
       <div class="main-content" ui-view></div>
-      <div ui-view="footer"></div>
+      <div ui-view="footer">
+        ﻿
+        <div id="omniture-settings-container">
+        <script type="text/javascript">
+        var s_account = 'timesaltwater';
+        var s_dynamicAccountList = '';
+        var s_linkTrackVars = '';
+        var s_linkTrackEvents = '';
+        var s_formList = '';
+        var s_varUsed = '';
+        var s_eventList = '';
+        </script>
+        <script type="text/javascript" src="http://www.saltwatersportsman.com/sites/all/modules/bonnier/bonnier_analytics/providers/omniture/js/s_code.js"></script>
+        <script type="text/javascript"><!--
+        // function to reload the tag, creating another page hit
+        function omniture_refresh() {
+        if (s !== undefined) {
+        void(s.t());
+        };
+        }
+
+        /* You may give each page an identifying name, server, and channel on the next lines. */
+        s.pageType = "";
+        s.pageName = 'saltwater tv';
+        s.channel = "saltwater tv";
+        s.events = "";
+        s.prop2 = "";
+        s.prop3 = "";
+        s.prop4 = "vendor content";
+        s.prop5 = "";
+        s.prop9 = "";
+        s.prop10 = "";
+        s.prop11 = "";
+        s.prop12 = "";
+        s.prop16 = "";
+        s.prop18 = "";
+        s.prop20 = "";
+        s.prop13 = "";
+        s.prop8 = "";
+        var date = new Date;
+        var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+        var hours = date.getHours();
+        var am_or_pm = 'AM';
+        if(hours == 0) {
+        hours = 12;
+        } else if (hours > 12) {
+        hours = hours%12;
+        am_or_pm = 'PM';
+        }
+
+        var time = hours + ":" + date.getMinutes() + am_or_pm;
+
+        var day = weekdays[date.getDay()];
+        var day_type = (date.getDay() == 0 || date.getDay() == 6) ? 'Weekend' : 'Weekday'
+        s.evar21 = time;
+        s.prop21 = time;
+        s.prop22 = day;
+        s.evar22 = day;
+        s.prop23 = day_type;
+        s.evar23 = day_type;
+
+        s.prop17 = window.location.href;
+
+
+
+
+        /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+        var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+        <script type="text/javascript"><!--
+        if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+        //--></script><noscript><img src="http://bonniercorp.122.2o7.net/b/ss/timesaltwater/1/H.22.1--NS/0"
+        height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
+        <!-- End SiteCatalyst code version: H.24.4. -->
+
+        </div><!--omniture-settings-container-->
+      </div>
       <cms-search-result></cms-search-result>
     </div>
 
