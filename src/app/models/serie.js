@@ -1,5 +1,6 @@
-import { AssetModel } from './asset'
+import { AssetModel }  from './asset'
 import { SeasonModel } from './season'
+import { Utils }       from '../components/utils/utils.factory'
 
 class SerieModel {
 
@@ -12,10 +13,9 @@ class SerieModel {
     this.images = [];
     this.footages = [];
     this.seasons = [];
+    this.utils = new Utils();
 
     this.initValues(data);
-
-    this.screenL = screen.width;
   }
 
   static loadData(data) {
@@ -51,26 +51,18 @@ class SerieModel {
     }
   }
 
- 
-
-  get defaultImage() {
+  defaultImage(sizeRequest) {
+    var imageUrl = undefined;
 
     if ((this.images) && (this.images.length > 0)) {
-      if(this.screenL < 768){
-       
-         return this.images[2].url;
-      }
-       if(this.screenL >=768 && this.screenL <= 992){
-        return this.images[1].url;
-       }
-       if(this.screenL >= 992){
-        return this.images[0].url;
-       }
-      
-    } else {
-      // TODO: move this to constants
-      return "https://placeholdit.imgix.net/~text?txtsize=33&txt=Missing+Image&w=1920&h=1080";
+      imageUrl = this.utils.extractImageSize(sizeRequest, this.images);
     }
+
+    if (angular.isUndefined(imageUrl)) {
+      imageUrl = this.utils.stubImage(sizeRequest);
+    }
+
+    return imageUrl;
   }
 
   get slug_url() {

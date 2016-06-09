@@ -2,5 +2,5 @@
   p.channel__title.pb-sm.mb-lg.ml-md2.mr-md2 {{ ::ctrl.caption }}
   .col-xs-12.col-sm-4.col-md-3.channel.mb-lg(ng-repeat="item in ::ctrl.items")
     a.channel__image-link(ui-sref="home.serie({slug: item.slug})")
-      img.img-responsive.channel__image(ng-src="{{ ::item.defaultImage }}" alt="{{ ::item.title }}")
+      img.img-responsive.channel__image(ng-src="{{ ::item.defaultImage('medium') }}" alt="{{ ::item.title }}")
     a.channel__link.mt-sm.mb-sm(href="{{ctrl.item_url(item)}}") {{ ::item.name }}

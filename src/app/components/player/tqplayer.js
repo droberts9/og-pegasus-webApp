@@ -553,7 +553,8 @@ TtvPlayer = (function() {
         layout: 'default',
         wmode: 'transparent'
       },
-      debug: this.options.debug
+      debug: this.options.debug,
+      encodingPriority: this.selectEncodingPriority()
     };
 
     if (this.options.chromeless) {
@@ -563,6 +564,24 @@ TtvPlayer = (function() {
 
     angular.extend(params, this.options.ooplayer);
     return params;
+  }
+
+  TtvPlayer.prototype.selectEncodingPriority = function() {
+    if (this.hasFlash()) {
+      return ["hls", "mp4"];
+    } else {
+      return ["mp4","hls"];
+    }
+  }
+
+  TtvPlayer.prototype.hasFlash = function() {
+    var a = 'Shockwave', b = 'Flash';
+    try {
+      a = new ActiveXObject(a+b+'.'+a+b);
+    } catch(e) {
+      a = navigator.plugins[a+' '+b];
+    }
+    return !!a
   }
 
   TtvPlayer.prototype.setPlaylist = function(playlist, startItem) {
@@ -630,7 +649,9 @@ TtvPlayer = (function() {
         this.setCurrent(item);
       }
       if ((this.current) && (this.current.embed_code)) {
-        this.oyala.setEmbedCode(this.current.embed_code);
+        if (this.oyala.getEmbedCode() != this.current.embed_code) {
+          this.oyala.setEmbedCode(this.current.embed_code);
+        }
         this.oyala.play();
       }
     } else {
@@ -871,6 +892,7 @@ TtvPlayer = (function() {
 
   TtvPlayer.prototype.onPaused = function() {
     var playerWidth;
+    console.info('onPause');
     this.isPlaying = false;
     playerWidth = this.elRoot.width() - 32;
     if ((playerWidth <= 480) || this.platform.isMobile) {

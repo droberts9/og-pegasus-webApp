@@ -67,7 +67,7 @@ angular.module('appcmsClient', [
   .service('playerService',           PlayerService)
   .service('metaService',             MetaService)
   .service('socialService',           SocialService)
-  .factory('utils',                   () => new Utils())
+  .service('utils',                   Utils)
   .filter('timerFilter',              TimerFilter)
   .filter('ellipsesFilter',           EllipsesFilter)
 
