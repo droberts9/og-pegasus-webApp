@@ -11,6 +11,9 @@
   margin-right: auto;
   z-index: 100;
 }
+.navbar-inverse .navbar-collapse{
+  background-color:#f5f5f5;
+}
 .navbar-header {
   height: $header-height;
 }
