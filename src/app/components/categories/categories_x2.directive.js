@@ -83,7 +83,7 @@ class Categoriesx2Controller {
   }
 
   encodedTitle(episode) {
-    return `Video: ${this.utils.encodeUri(episode.name)} on SaltWater.TV`;
+    return `Video: ${this.utils.encodeUri(episode.name)} on Saltwater.TV`;
   }
 
   encodedUrl(episode) {

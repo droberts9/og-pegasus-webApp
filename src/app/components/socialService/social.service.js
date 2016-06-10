@@ -9,7 +9,7 @@ class SocialService {
   }
 
   encodedTitle(item) {
-    return `Video: ${this.utils.encodeUri(item.name)} on SaltWater.TV`;
+    return `Video: ${this.utils.encodeUri(item.name)} on Saltwater.TV`;
   }
 
   encodedUrl(model) {
