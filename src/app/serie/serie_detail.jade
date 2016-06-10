@@ -31,7 +31,7 @@
     cms-billboard-ad(class="center-block adspot" adspot="div-gpt-ad-300x250-0")
 
   .mt-big
-    cms-category-x2(playlist="::vm.season.episodes" caption="Season" follow-link="false" onplay="vm.play(options)" kind="single")
+    cms-category-x2(playlist="::vm.season.episodes" caption="{{ ::vm.season.name }}" follow-link="false" onplay="vm.play(options)" kind="single")
 
   //.mt-big
     cms-category-x2(playlist="::vm.discovery" caption="Trending" follow-link="true" onplay="vm.play(options)")
