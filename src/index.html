@@ -27,9 +27,34 @@
        var node =document.getElementsByTagName("script")[0];
        node.parentNode.insertBefore(gads, node);
      })();
+
     </script>
 
-    <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script -->
+    <!-- script type="text/javascript">
+
+      var hasFlash = (function(a,b){try{a=new ActiveXObject(a+b+'.'+a+b)}catch(e){a=navigator.plugins[a+' '+b]}return!!a}('Shockwave','Flash'));
+      var ooScripts = [
+        "//player.ooyala.com/static/v4/stable/4.3.3/core.min.js",
+        "//player.ooyala.com/static/v4/stable/4.3.3/video-plugin/main_html5.min.js",
+
+        "//player.ooyala.com/static/v4/stable/4.3.3/video-plugin/osmf_flash.min.js",
+        "//player.ooyala.com/static/v4/stable/4.3.3/video-plugin/bit_wrapper.min.js",
+
+        "//player.ooyala.com/static/v4/stable/4.3.3/ad-plugin/google_ima.min.js",
+        "//player.ooyala.com/static/v4/stable/4.3.3/skin-plugin/html5-skin.min.js",
+        "//player.ooyala.com/static/v4/stable/4.3.3/other-plugin/discovery_api.min.js",
+      ];
+
+      (function(d, scr){
+        for( var i=0, j=scr.length; i<j; i++ ) {
+          if (((i < 2) || (i > 3)) || (hasFlash)) {
+            console.warn(scr[i]);
+            d.write('<script type="text/javascript" src="'+scr[i]+'"></scr'+'ipt>');
+          }
+        }
+      }(document, ooScripts));
+
+    </script -->
 
     <!-- Start Ooyala Player =========================================================================== -->
     <!-- script src="/assets/js/ooyala/core.min.js"></script>
@@ -49,7 +74,6 @@
     <script src="//player.ooyala.com/static/v4/stable/4.3.3/ad-plugin/google_ima.min.js"></script>
     <script src="//player.ooyala.com/static/v4/stable/4.3.3/skin-plugin/html5-skin.min.js"></script>
     <script src="//player.ooyala.com/static/v4/stable/4.3.3/other-plugin/discovery_api.min.js"></script>
-
 
     <!-- link href='https://fonts.googleapis.com/css?family=Ubuntu:300,400,700' rel='stylesheet' type='text/css' -->
 
