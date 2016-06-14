@@ -570,7 +570,8 @@ TtvPlayer = (function() {
     if (this.hasFlash()) {
       return ["hls", "mp4"];
     } else {
-      return ["mp4","hls"];
+      //return ["mp4","hls"];
+      return ["hls","DASH","hds"];
     }
   }
 
