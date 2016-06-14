@@ -14,6 +14,7 @@
     <base href="/">
     <link rel="icon" href="favicon.ico" type="image/ico" sizes="16x16">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//player.ooyala.com/static/v4/stable/4.3.3/skin-plugin/html5-skin.min.css"/>
 
     <script type="text/javascript">
      var googletag = googletag || {};
@@ -30,52 +31,26 @@
 
     </script>
 
-    <!-- script type="text/javascript">
-
+    <script type="text/javascript">
       var hasFlash = (function(a,b){try{a=new ActiveXObject(a+b+'.'+a+b)}catch(e){a=navigator.plugins[a+' '+b]}return!!a}('Shockwave','Flash'));
       var ooScripts = [
         "//player.ooyala.com/static/v4/stable/4.3.3/core.min.js",
         "//player.ooyala.com/static/v4/stable/4.3.3/video-plugin/main_html5.min.js",
-
         "//player.ooyala.com/static/v4/stable/4.3.3/video-plugin/osmf_flash.min.js",
         "//player.ooyala.com/static/v4/stable/4.3.3/video-plugin/bit_wrapper.min.js",
-
         "//player.ooyala.com/static/v4/stable/4.3.3/ad-plugin/google_ima.min.js",
         "//player.ooyala.com/static/v4/stable/4.3.3/skin-plugin/html5-skin.min.js",
         "//player.ooyala.com/static/v4/stable/4.3.3/other-plugin/discovery_api.min.js",
       ];
-
       (function(d, scr){
         for( var i=0, j=scr.length; i<j; i++ ) {
-          if (((i < 2) || (i > 3)) || (hasFlash)) {
-            console.warn(scr[i]);
+          if ((hasFlash) || (i != 2)) {
             d.write('<script type="text/javascript" src="'+scr[i]+'"></scr'+'ipt>');
           }
         }
       }(document, ooScripts));
 
-    </script -->
-
-    <!-- Start Ooyala Player =========================================================================== -->
-    <!-- script src="/assets/js/ooyala/core.min.js"></script>
-    <script src="/assets/js/ooyala/main_html5.min.js"></script>
-    <script src="/assets/js/ooyala/osmf_flash.min.js"></script>
-    <script src="/assets/js/ooyala/bit_wrapper.min.js"></script>
-    <script src="/assets/js/ooyala/google_ima.min.js"></script>
-    <script src="/assets/js/ooyala/html5-skin.min.js"></script>
-    <script src="/assets/js/ooyala/discovery_api.min.js"></script -->
-    <link rel="stylesheet" href="/assets/js/ooyala/html5-skin.min.css"/>
-    <!-- End Ooyala Player ============================================================================= -->
-
-    <script src="//player.ooyala.com/static/v4/stable/4.3.3/core.min.js"></script>
-    <script src="//player.ooyala.com/static/v4/stable/4.3.3/video-plugin/main_html5.min.js"></script>
-    <script src="//player.ooyala.com/static/v4/stable/4.3.3/video-plugin/osmf_flash.min.js"></script>
-    <script src="//player.ooyala.com/static/v4/stable/4.3.3/video-plugin/bit_wrapper.min.js"></script>
-    <script src="//player.ooyala.com/static/v4/stable/4.3.3/ad-plugin/google_ima.min.js"></script>
-    <script src="//player.ooyala.com/static/v4/stable/4.3.3/skin-plugin/html5-skin.min.js"></script>
-    <script src="//player.ooyala.com/static/v4/stable/4.3.3/other-plugin/discovery_api.min.js"></script>
-
-    <!-- link href='https://fonts.googleapis.com/css?family=Ubuntu:300,400,700' rel='stylesheet' type='text/css' -->
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="/assets/js/slick/slick.min.js"></script>
