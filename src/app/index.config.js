@@ -3,7 +3,9 @@ export function config ($provide, $logProvider, $authProvider, $locationProvider
   // Enable log
   $logProvider.debugEnabled(true);
   // disable debug info
-  // $compileProvider.debugInfoEnabled(false);
+  if ( EnvironmentConfig.appConfig.apiUrl == "http://prod.fish.sporkers.com/api/v1") {
+    $compileProvider.debugInfoEnabled(false);
+  }
   // Disable hash (#) on urls
   $locationProvider.html5Mode({enabled: true});
   // Configure Auth

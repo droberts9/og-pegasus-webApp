@@ -209,6 +209,7 @@ OO.plugin("TQPlayerCoutdownModule", function(OO, _, $, W) {
 });
 */
 
+/*
 OO.plugin("TQPlayerCoverModule", function(OO, _, $, W) {
   var PlayerCtrls;
   PlayerCtrls = {};
@@ -249,6 +250,7 @@ OO.plugin("TQPlayerCoverModule", function(OO, _, $, W) {
   };
   return PlayerCtrls.TQPlayerCoverModule;
 });
+*/
 
 OO.plugin("TQPlayerErrorsModule", function(OO, _, $, W) {
   var PlayerCtrls;
@@ -515,6 +517,8 @@ TtvPlayer = (function() {
     this.elWrapper = this.elRoot.parent('.player-container');
     this.current_volume = 0.8;
     this.isPlaying = false;
+    this.ctrlsVisible = true;
+    this.playing_ads = false;
     this.options = {
       chromeless: false,
       live_mode: false,
@@ -537,7 +541,7 @@ TtvPlayer = (function() {
     if (typeof OO !== "undefined" && OO !== null) {
       this.oyala = OO.Player.create(this.def_wrapper, '', this.buildPlayerParams());
 
-      this.showCover();
+      //this.showCover();
     } else {
       console.log("No player present");
     }
@@ -567,12 +571,12 @@ TtvPlayer = (function() {
   }
 
   TtvPlayer.prototype.selectEncodingPriority = function() {
-    if (this.hasFlash()) {
-      return ["hls", "mp4"];
-    } else {
+    //if (this.hasFlash()) {
+    //  return ["hls", "mp4"];
+    //} else {
       //return ["mp4","hls"];
       return ["hls","DASH","hds"];
-    }
+    //}
   }
 
   TtvPlayer.prototype.hasFlash = function() {
@@ -596,7 +600,7 @@ TtvPlayer = (function() {
         this.setCurrent(startItem || this.playlist[0]);
       }
     }
-    this.showCover();
+    //this.showCover();
     this.addSliders();
     this.setupSliderHandler();
   };
@@ -631,10 +635,11 @@ TtvPlayer = (function() {
     player.subscribe(OO.EVENTS.PLAYBACK_READY, 'torqueUI', _.bind(this.setVolume, this));
     player.subscribe(OO.EVENTS.CHANGE_VOLUME, 'torqueUI', _.bind(this.onVolumeChange, this));
     player.subscribe(OO.EVENTS.FULLSCREEN_CHANGED, 'torqueUI', _.bind(this.onScreenChange, this));
-    player.subscribe(OO.EVENTS.WILL_PLAY_ADS, 'torqueUI', _.bind(this.hideCover, this));
+    player.subscribe(OO.EVENTS.WILL_PLAY_ADS, 'torqueUI', _.bind(this.willPlayAds, this));
+    player.subscribe(OO.EVENTS.ADS_PLAYED, 'torqueUI', _.bind(this.didPlayAds, this));
     player.subscribe('ttv-user-play', 'torqueUI', _.bind(this.play, this));
     player.subscribe('ttv-user-login', 'torqueUI', _.bind(this.onUserLogin, this));
-    player.subscribe('ttv-did-hide-cover', 'torqueUI', _.bind(this.onHideCover, this));
+    //player.subscribe('ttv-did-hide-cover', 'torqueUI', _.bind(this.onHideCover, this));
     //player.subscribe('*', 'torqueUI', function(oo, data) {console.warn(oo, data); });
     player.subscribe(OO.EVENTS.ERROR, 'torqueUI', function(error, data) { console.error('TvtPlayer::ErrorEvent', error, data)});
   };
@@ -679,7 +684,7 @@ TtvPlayer = (function() {
     if (this.options.barker_mode) {
       this.updateCurrentData();
     }
-    this.showCover();
+    //this.showCover();
   };
 
   TtvPlayer.prototype.playPrevious = function() {
@@ -699,7 +704,7 @@ TtvPlayer = (function() {
     if (this.options.barker_mode) {
       this.updateCurrentData();
     }
-    this.showCover();
+    //this.showCover();
   };
 
   TtvPlayer.prototype.findInPlaylist = function(item) {
@@ -734,9 +739,13 @@ TtvPlayer = (function() {
     return this.playlist[playElement];
   };
 
+  /*
   TtvPlayer.prototype.showCover = function() {
     var cover;
-    cover = this.current.defaultImage;
+    if (this.current.defaultImage == undefined) {
+      return
+    }
+    cover = this.current.defaultImage('medium');
     if (cover) {
       this.oyala.mb.publish('ttv-show-cover', {
         cover: cover
@@ -747,6 +756,7 @@ TtvPlayer = (function() {
   TtvPlayer.prototype.hideCover = function() {
     this.oyala.mb.publish('ttv-hide-cover');
   };
+  */
 
   TtvPlayer.prototype.setNextEvents = function(events) {
     this.nextEvents = events;
@@ -776,8 +786,9 @@ TtvPlayer = (function() {
           this.elWrapper.append(this.volume_btn);
         }
       }
-      this.elWrapper.append(OOYALA_INJECTIONS.html.signup);
       this.addSliders();
+      /*
+      this.elWrapper.append(OOYALA_INJECTIONS.html.signup);
       if (this._is_user_signedin()) {
         this.elWrapper.find('.oo-signup-banner').hide();
       } else {
@@ -787,6 +798,7 @@ TtvPlayer = (function() {
           this.elWrapper.find('.oo-signup-banner').hide();
         }
       }
+      */
       this._setupHandlers();
     } else {
       if (!this.options.live_mode) {
@@ -893,19 +905,20 @@ TtvPlayer = (function() {
 
   TtvPlayer.prototype.onPaused = function() {
     var playerWidth;
-    console.info('onPause');
     this.isPlaying = false;
     playerWidth = this.elRoot.width() - 32;
-    if ((playerWidth <= 480) || this.platform.isMobile) {
-      $('.player-container .oo-slider-mobil').animate({
+    if (((playerWidth <= 480) || this.platform.isMobile) && (!this.playing_ads) ) {
+      $('.player-container .oo-slider').animate({
         opacity: 1
       });
       $('.player-container .oo-play').animate({
         opacity: 1
       });
+      /*
       if (this.platform.isMobile) {
         this.showCover();
       }
+      */
     }
   };
 
@@ -918,7 +931,7 @@ TtvPlayer = (function() {
     this.isPlaying = true;
     playerWidth = this.elRoot.width() - 32;
     if (playerWidth <= 480) {
-      $('.player-container .oo-slider-mobil').animate({
+      $('.player-container .oo-slider').animate({
         opacity: 0
       });
       $('.player-container .oo-play').animate({
@@ -945,39 +958,51 @@ TtvPlayer = (function() {
   };
 
   TtvPlayer.prototype._hideCtrls = function() {
-    if (this.ctrlsVisible) {
-      $('.player-container .oo-volume-button').animate({
-        opacity: 0
-      });
-      $('.player-container .oo-signup-banner').animate({
-        opacity: 0
-      });
-      $('.player-container .oo-barker-wrapper').animate({
-        opacity: 0
-      });
-      $('.player-container .oo-slider').animate({
-        opacity: 0
-      });
-      this.ctrlsVisible = false;
-    }
+    $('.player-container .oo-volume-button').animate({
+      opacity: 0
+    });
+    /*
+    $('.player-container .oo-signup-banner').animate({
+      opacity: 0
+    });
+    $('.player-container .oo-barker-wrapper').animate({
+      opacity: 0
+    });
+    */
+    $('.player-container .oo-slider').animate({
+      opacity: 0
+    });
+    this.ctrlsVisible = false;
   };
 
+  TtvPlayer.prototype.willPlayAds = function() {
+    this.playing_ads = true;
+    this._hideCtrls();
+  }
+
+  TtvPlayer.prototype.didPlayAds = function() {
+    this.playing_ads = false;
+  }
+
   TtvPlayer.prototype._showCtrls = function() {
-    if (!this.ctrlsVisible) {
-      $('.player-container .oo-volume-button').animate({
-        opacity: 1
-      });
-      $('.player-container .oo-signup-banner').animate({
-        opacity: 1
-      });
-      $('.player-container .oo-barker-wrapper').animate({
-        opacity: 1
-      });
-      $('.player-container .oo-slider').animate({
-        opacity: 1
-      });
-      this.ctrlsVisible = true;
+    if (this.playing_ads === true) {
+      return;
     }
+    $('.player-container .oo-volume-button').animate({
+      opacity: 1
+    });
+    /*
+    $('.player-container .oo-signup-banner').animate({
+      opacity: 1
+    });
+    $('.player-container .oo-barker-wrapper').animate({
+      opacity: 1
+    });
+    */
+    $('.player-container .oo-slider').animate({
+      opacity: 1
+    });
+    this.ctrlsVisible = true;
   };
 
   TtvPlayer.prototype._is_user_signedin = function() {
@@ -1040,11 +1065,13 @@ TtvPlayer = (function() {
     this.elWrapper.find('.oo-signup-banner').hide();
   };
 
+  /*
   TtvPlayer.prototype.onHideCover = function() {
     if (this.options.live_mode) {
       this.elWrapper.find('.oo-signup-banner').hide();
     }
   };
+  */
 
   TtvPlayer.prototype.onScreenChange = function(evt, isFullScreen) {
     if (this.platform.isIOS && !isFullScreen) {

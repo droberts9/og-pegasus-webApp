@@ -24,7 +24,6 @@ import { MetaService }           from '../app/components/metaService/meta.servic
 import { SocialService }         from '../app/components/socialService/social.service';
 
 import { SessionProvider }       from '../app/components/session/session.provider';
-//import { ConstantsProvider }     from '../app/components/constants/constants.provider';
 import configFile                from '../app/components/constants/configfile.js';
 
 import { CategoriesDirective }   from '../app/components/categories/categories.directive';
@@ -56,7 +55,6 @@ angular.module('appcmsClient', [
 'pegasusCms.config'
 ])
   .provider('session',                SessionProvider)
-  //.provider('constants',              ConstantsProvider)
   .provider('responsiveHelper',       ResponsiveDirectiveProvider)
 
   .config(config)
