@@ -38,8 +38,8 @@
         "pcode": "RyZ2cyOqrM7SQLfKy4Hys7rcjg9c",
         "playerBrandingId": "24eb009549154660af0de0d4cd338508",
         "skin2": {"config": "//player.ooyala.com/static/v4/stable/4.3.3/skin-plugin/skin.json"},
-        "skin3": {"config": "/assets/skin.json"},
-        "skin": {"config": "//player.ooyala.com/static/v4/stable/4.5.5/skin-plugin/skin.json", "inline": ""},
+        "skin3": {"config": "//player.ooyala.com/static/v4/stable/4.5.5/skin-plugin/skin.json", "inline": ""},
+        "skin": {"config": "/assets/skin_455.json", "inline": ""},
         "debug": false
       }
     }
