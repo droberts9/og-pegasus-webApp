@@ -2,7 +2,7 @@
   "general": {
     "watermark": {
       "imageResource": {
-        "url": "/assets/images/slttv.png",
+        "url": "/assets/images/slttv.svg",
         "url_no": "//player.ooyala.com/static/v4/stable/4.5.5/skin-plugin/assets/images/ooyala-watermark.png",
         "androidResource" : "logo",
         "iosResource" : "logo"
@@ -172,7 +172,7 @@
     "height": 60,
     "logo": {
       "imageResource": {
-        "url": "/assets/images/slttv.png",
+        "url": "/assets/images/slttv.svg",
         "androidResource" : "logo",
         "iosResource" : "logo"
       },

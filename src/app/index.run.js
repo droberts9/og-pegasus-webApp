@@ -15,9 +15,11 @@ export function runBlock ($log, $anchorScroll, $window, $document, DoubleClick) 
 
 
   DoubleClick.getSlot('div-gpt-ad-970x250-0').then(() => {
-    $window.googletag.cmd.push(function() {
-      $window.googletag.defineOutOfPageSlot('/6747/saltwatertv', 'div-gpt-ad-intert-0').addService($window.googletag.pubads());
-    });
+    if ($window.googletag) {
+      $window.googletag.cmd.push(function() {
+        $window.googletag.defineOutOfPageSlot('/6747/saltwatertv', 'div-gpt-ad-intert-0').addService($window.googletag.pubads());
+      });
+    }
   });
 
   if (angular.isDefined($window.FastClick)) {
