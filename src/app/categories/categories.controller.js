@@ -1,6 +1,6 @@
 class CategoriesController {
 
-  constructor(apiService, $scope, $log, $state, metaService, featured, trending, recent, carousel) {
+  constructor(apiService, $scope, $log, $state, $window, metaService, featured, trending, recent, carousel) {
     'ngInject';
     this.api = apiService;
     this.$log = $log;
@@ -29,6 +29,11 @@ class CategoriesController {
     }
 
     //no issue had changedthis.getCategory('top-trending');
+
+
+    if (angular.isDefined($window.googletag)) {
+      $window.googletag.pubads().setTargeting('kw', "homepage?");
+    }
 
   }
 
