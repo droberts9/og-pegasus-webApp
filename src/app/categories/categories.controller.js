@@ -31,7 +31,7 @@ class CategoriesController {
     //no issue had changedthis.getCategory('top-trending');
 
 
-    if (angular.isDefined($window.googletag)) {
+    if (angular.isDefined($window.googletag) && angular.isDefined($window.googletag.pubads)) {
       $window.googletag.pubads().setTargeting('kw', "homepage?");
     }
 

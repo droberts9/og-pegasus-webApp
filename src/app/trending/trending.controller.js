@@ -15,7 +15,7 @@ class TrendingController {
     angular.element($document).on('update-video-data', ()=> this.updateCurrentVideo() );
     this.metaService.keywords = this.asset.metadata.AdTags;
 
-    if (angular.isDefined($window.googletag)) {
+    if (angular.isDefined($window.googletag) && angular.isDefined($window.googletag.pubads)) {
       $window.googletag.pubads().setTargeting('kw', this.asset.metadata.AdTags);
     }
   }
