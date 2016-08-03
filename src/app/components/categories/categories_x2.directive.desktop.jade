@@ -14,12 +14,12 @@
             p.carousel__title {{ ::ctrl.mainAsset.name }}
             p.carousel__duration.pa-sm {{ ::ctrl.mainAsset.duration | timerFilter }}
         .carousel__group(ng-if="ctrl.isKind('regular')" ng-repeat="group in ctrl.grp_playlist")
-          .carousel__group-item.mb-md.mr-md(ng-repeat="item in group" cms-popup template="slider-item-popup" follow-link="ctrl.followLink")
+          .carousel__group-item.mb-md.mr-md(ng-repeat="item in group" cms-popup template="slider-item-popup" follow-link="ctrl.followLink" ng-click="ctrl.play(item)")
             img(class="carousel__image img-responsive" ng-src="{{ item.defaultImage('small') }}" alt="{{ ::item.name }}")
             p.carousel__title {{ ::item.name }}
             p.carousel__duration.pa-sm {{ ::item.duration | timerFilter }}
         .carousel__single(ng-if="ctrl.isKind('single')" ng-repeat="item in ctrl.grp_playlist")
-          .carousel__single-item.mb-md.mr-md(cms-popup template="slider-item-popup" follow-link="ctrl.followLink")
+          .carousel__single-item.mb-md.mr-md(cms-popup template="slider-item-popup" follow-link="ctrl.followLink" ng-click="ctrl.play(item)")
             img(class="carousel__image img-responsive" ng-src="{{ item.defaultImage('small') }}" alt="{{ ::item.name }}")
             p.carousel__title {{ ::item.name }}
             p.carousel__duration.pa-sm {{ ::item.duration | timerFilter }}
