@@ -1,3 +1,4 @@
+import { Utils }       from '../components/utils/utils.factory'
 
 class AssetModel {
 
@@ -16,6 +17,7 @@ class AssetModel {
     this.preview_image_url = '';
     this.rating            = '';
     this.slug              = '';
+    this.utils             = new Utils();
 
     this.initValues(data);
 

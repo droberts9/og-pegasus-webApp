@@ -1,3 +1,4 @@
+import { Utils }       from '../components/utils/utils.factory'
 import { AssetModel } from './asset'
 
 class CategoryModel {
@@ -13,6 +14,7 @@ class CategoryModel {
     this.name          = '';
     this.slug          = '';
     this.subcategories = [];
+    this.utils         = new Utils();
 
     this.initValues(data);
 

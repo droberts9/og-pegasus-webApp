@@ -1,4 +1,4 @@
-
+import { Utils }       from '../components/utils/utils.factory'
 import { EpisodeModel } from './episode'
 
 class SeasonModel {
@@ -10,7 +10,8 @@ class SeasonModel {
     this.description = '';
     this.images = [];
     this.episodes = [];
-
+    this.utils = new Utils();
+    
     this.initValues(data);
   }
 

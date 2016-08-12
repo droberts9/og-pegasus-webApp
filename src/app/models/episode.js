@@ -1,3 +1,5 @@
+import { Utils }       from '../components/utils/utils.factory'
+
 class EpisodeModel {
 
   constructor(data) {
@@ -13,7 +15,8 @@ class EpisodeModel {
     this.season = '';
     this.aired = '';
     this.studio = '';
-
+    this.utils = new Utils();
+    
     this.initValues(data);
   }
 
