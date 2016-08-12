@@ -54,7 +54,7 @@ class AssetModel {
   defaultImage(sizeRequest) {
     var imageUrl = undefined;
 
-    if (this.image) {
+   if (this.image) {
       imageUrl =  this.image;
     } else if ((this.images) && (this.images.length > 0)) {
       imageUrl = this.utils.extractImageSize(sizeRequest, this.images);

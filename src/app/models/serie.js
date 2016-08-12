@@ -55,7 +55,7 @@ class SerieModel {
     var imageUrl = undefined;
 
     if ((this.images) && (this.images.length > 0)) {
-      imageUrl = this.utils.extractImageSize(sizeRequest, this.images);
+      imageUrl = this.utils.extractImageSizeSerie(sizeRequest, this.images);
     }
 
     if (angular.isUndefined(imageUrl)) {
