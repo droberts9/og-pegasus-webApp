@@ -1,5 +1,12 @@
-export function runBlock ($log, $anchorScroll, $window, $document, DoubleClick) {
+export function runBlock ($log, $anchorScroll, $window, $document, $timeout, DoubleClick) {
   'ngInject';
+
+  $timeout(()=>{
+    if (angular.element('#xavsacxyi').length == 0) {
+      var block = angular.element('#adblock');
+      block.removeClass('hide');
+    }
+  }, 2000);
 
   // hack to scroll to top when navigating to new URLS but not back/forward
   var wrap = function(method) {
@@ -12,7 +19,6 @@ export function runBlock ($log, $anchorScroll, $window, $document, DoubleClick) 
   };
   wrap('pushState');
   wrap('replaceState');
-
 
   DoubleClick.getSlot('div-gpt-ad-970x250-0').then(() => {
     if ($window.googletag) {
