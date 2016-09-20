@@ -40,7 +40,19 @@
         "skin2": {"config": "//player.ooyala.com/static/v4/stable/4.3.3/skin-plugin/skin.json"},
         "skin3": {"config": "//player.ooyala.com/static/v4/stable/4.5.5/skin-plugin/skin.json", "inline": ""},
         "skin": {"config": "/assets/skin_455.json", "inline": ""},
-        "debug": false
+        "debug": false,
+        "showInAdControlBar": true,
+        "showLinearAdSkipButton": true,
+        "linearAdSkipButtonStartTime": 1,
+        "google-ima-ads-manager": {
+          "all_ads":[
+            {
+              "position":"45000",
+              "position_type":"t",
+              "tag_url":"https://pubads.g.doubleclick.net/gampad/ads?slotname=/6747/video.saltwatertv/appletv&sz=640x480&ciu_szs=&url=%5Breferrer_url%5D&unviewed_position_start=1&output=xml_vast2&impl=s&env=vp&gdfp_req=1&ad_rule=0&video_url_to_fetch=%5Bdescription_url%5D&vad_type=nonlinear&vpos=midroll&pod=2&mridx=1&ppos=1&video_doc_id=54bjBsMzE6Fe-chum4Lq4SSeq83JLV2y&cmsid=3559&kfa=0&tfcd=0&correlator=%5Btimestamp%5D"
+            }
+          ]
+        }
       }
     }
   },
