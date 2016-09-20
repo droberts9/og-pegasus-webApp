@@ -2,7 +2,7 @@
   p.search-data__title.pb-sm.mb-lg.ml-md2.mr-md2 {{ ::ctrl.caption }}
   .col-xs-12.col-sm-4.col-md-3.mb-lg.search-result__group(ng-repeat="item in ::ctrl.items")
     a.search-data__image-link(href="{{ ctrl.item_url(item) }}")
-      img(class="img-responsive search-result__image" ng-src="{{ ::item.defaultImage }}" alt="{{ ::item.name }}")
+      img(class="img-responsive search-result__image" ng-src="{{ ::item.defaultImage('small') }}" alt="{{ ::item.name }}")
     a.search-data__link.mt-sm.mb-sm(href="{{ctrl.item_url(item)}}") {{ ::item.name }}
     .search-data__description
       p {{ ::item.description | ellipsesFilter:80}}
