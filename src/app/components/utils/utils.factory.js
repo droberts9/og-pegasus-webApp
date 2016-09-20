@@ -8,15 +8,16 @@ class Utils {
 
     this.sizesDict = {
       'thumb':   '96x54',
+      'thumb2':  '106x59',
       'mini':    '213x120',
       'small':   '320x180',
       'regular': '426x240',
       'medium':  '640x360',
       'laptop':  '1280x720',
-      'hd':     '1920x1080',
+      'hd':      '1920x1080',
       'dumb':    '1x1'
     }
-    this.sizesOrder = ['thumb', 'mini', 'small', 'regular', 'medium', 'laptop', 'hd', 'dumb'];
+    this.sizesOrder = ['thumb', 'thumb2', 'mini', 'small', 'regular', 'medium', 'laptop', 'hd', 'dumb'];
     this.sizesSeriesOrder = ['small', 'medium', 'big'];
 
   }
@@ -57,7 +58,16 @@ class Utils {
     for (var i = sizePos, l = this.sizesOrder.length; i < l; i ++) {
       var size = this.sizesDict[this.sizesOrder[i]];
       image = _.find(imagesBag, (o)=> {
-        return o.kind === size;
+        // if match the size return it
+        if (o.kind === size) {
+          return true;
+        }
+        var s = o.kind.split('x');
+        var t = size.split('x');
+        if ((parseInt(s[0],10) > parseInt(t[0],10)) && (parseInt(s[1],10) > (parseInt(t[1],10)))) {
+          // if the next size is bigger that the requested return it
+          return true;
+        }
       });
       if (image) {
         break;
